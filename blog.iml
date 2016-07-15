@@ -6,15 +6,14 @@
     <exclude-output />
     <content url="file://$MODULE_DIR$">
       <sourceFolder url="file://$MODULE_DIR$/env/dev/clj" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/dev-resources" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/resources" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/dev-resources" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/test" isTestSource="true" />
       <excludeFolder url="file://$MODULE_DIR$/target" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" name="assets" level="project" />
     <orderEntry type="library" name="Leiningen: args4j:2.0.26" level="project" />
     <orderEntry type="library" name="Leiningen: bouncer:0.3.3" level="project" />
     <orderEntry type="library" name="Leiningen: buddy/buddy-auth:0.7.1" level="project" />
