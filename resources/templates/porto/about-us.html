@@ -1,0 +1,174 @@
+{% extends "porto/base.html" %}
+{% block content %}
+
+<div role="main" class="main">
+
+    <section class="page-header">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <ul class="breadcrumb">
+                        <li><a href="#">Home</a></li>
+                        <li class="active">About Us</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <h1>About Us</h1>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="container">
+
+        <div class="row">
+            <div class="col-md-9">
+                <blockquote class="blockquote-tertiary">
+                    <p class="lead" style="font-family: 微软雅黑">
+                        如您所见，本站是一个博客系统，提供博客搭建服务。
+                    </p>
+                    <p class="lead" style="font-family: 微软雅黑">
+                        使用者可以在我们这个平台上简洁高效地搭建博客，个性化定制，您值得拥有。
+                    </p>
+
+                </blockquote>
+            </div>
+            <div class="col-md-3">
+                <blockquote class="blockquote-secondary">
+                    <p class="lead" style="font-family: 微软雅黑">测试账号：test</p>
+                    <p class="lead" style="font-family: 微软雅黑">测试密码：test</p>
+                </blockquote>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <hr class="tall">
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <h3 class="heading-primary mt-xl"><strong>Who </strong>I AM</h3>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-3">
+                <div class="owl-carousel owl-theme" data-plugin-options='{"items": 1, "margin": 10}'>
+                    <div>
+                        <span class="img-thumbnail">
+                            <img alt="" height="200" class="img-responsive" src="assets/porto/img/team/team-1.jpg">
+                        </span>
+                    </div>
+                    <div>
+                        <span class="img-thumbnail">
+                            <img alt="" height="200" class="img-responsive" src="assets/porto/img/team/team-2.jpg">
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-9">
+
+                <h2 class="mb-none">Tornado</h2>
+                <h4 class="heading-primary">Web Designer</h4>
+
+                <hr class="solid">
+                <blockquote>
+                    <p>
+                        Hi，我是蔡宇煜，欢迎来到Porto博客系统，大雷姆镇楼，不要留口水~~。
+                    </p>
+                    <p>
+                        这个是我的毕业设计课题，大家可以随便逛逛，源码在github上，如果有什么 bug 或建议，请反馈给我，谢谢。
+                    </p>
+                    <p>
+                        Porto博客系统，竭诚为您服务，哈哈 Y(^_^)Y 。
+                    </p>
+                    <ul class="social-icons">
+                        <span style="font-family: 微软雅黑">项目源码 </span>
+                        <li class="social-github"><a href="http://www.github.com/" target="_blank" title="Facebook"><i class="fa fa-github"></i></a></li>
+                    </ul>
+                </blockquote>
+
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <h3 class="heading-primary mt-xl"><strong>Deployment </strong>Posts</h3>
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="blog-posts">
+
+                    <section class="timeline">
+                        <div class="timeline-body">
+                            <div class="timeline-date">
+                                <h3 class="heading-primary">START</h3>
+                            </div>
+
+                            <article class="timeline-box left post post-medium">
+                                <div class="row">
+                                    <div class="col-md-12">
+
+                                        <div class="post-content">
+                                            <h4 class="heading-primary">系统框架的搭建.</h4>
+                                            <p>这是要做的第一步，用 clojure 做后端，先简单搭个架子，各种包添加进去，幸好之前做过类似的，包基本上不需要太多修改。 </p>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="post-meta">
+                                            <span><i class="fa fa-calendar"></i> July 02, 2016 </span><br>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </article>
+
+                            <article class="timeline-box right post post-medium">
+                                <div class="row">
+                                    <div class="col-md-12">
+
+                                        <div class="post-content">
+                                            <h4 class="heading-primary">项目正式开始.</h4>
+                                            <p>规划大致的需求和功能，设计项目结构，挂上前端，各种找资源，确定三个大模块，分别是服务官网、后台管理系统和博客。</p>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="post-meta">
+                                            <span><i class="fa fa-calendar"></i> July 13, 2016 </span><br>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </article>
+                            <div class="timeline-date">
+                                <h3 class="heading-primary"><a href="#">END</a></h3>
+                            </div>
+
+                        </div>
+
+                    </section>
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+
+</div>
+
+
+{% endblock %}

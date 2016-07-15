@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% block content %}
+
+
+<div class="container">
+    <form class="form-email" method="POST" action="/user-signin" style="margin:0 auto;">
+        <h2 style="font-family: '微软雅黑'; font-size: x-large;" >登录</h2>
+        {% if warning %}
+        <div class="alert alert-warning" role="alert">
+            <p>{{warning}}</p>
+        </div>
+        {% endif %}
+        <br/>
+        {% csrf-field %}
+        <label for="inputAccount" class="sr-only">用户名</label>
+        <input type="text"
+               id="account"
+               placeholder="用户名"
+               name="account"
+               class="form-control top"
+               required
+               autofocus>
+
+        <label for="inputPassword" class="sr-only">密码</label>
+        <input type="password"
+               id="inputPassword"
+               placeholder="密码"
+               name="password"
+               class="form-control bottom"
+               required>
+        <button type="submit" class="btn btn-lg btn-primary btn-block" >Login</button>
+        <br/>
+        {% if errors.account %}
+        <div class="alert alert-warning" role="alert">
+            <p>{{errors.account|join}}</p>
+        </div>
+        {% endif %}
+        {% if errors.password %}
+        <div class="alert alert-warning" role="alert">
+            <p>{{errors.password|join}}</p>
+        </div>
+        {% endif %}
+        <p>还没注册? <a href="/user-signup">  注册 </a></p>
+    </form>
+</div>
+{% endblock %}
+
+

@@ -1,0 +1,104 @@
+{% extends "porto/base.html" %}
+{% block content %}
+
+<div role="main" class="main">
+
+    <section class="page-header">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <ul class="breadcrumb">
+                        <li><a href="#">Home</a></li>
+                        <li class="active">Contact Us</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <h1>Contact Us</h1>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="container">
+
+        <div class="row">
+            <div class="col-md-6">
+
+                <h4 class="heading-primary mt-lg">Get in <strong>Touch</strong></h4>
+                <blockquote class="blockquote-tertiary">
+                    <p> 欢迎来到Porto博客系统，顾客即是上帝，顾客即是正义。</p>
+                    <p> 如果您在使用过程中有任何疑问或建议，勿需犹豫，请立即与我们联系。</p>
+                    <p> Porto博客系统，竭诚为您服务!</p>
+                </blockquote>
+
+                <hr>
+                <h4 class="heading-primary">The <strong>Info</strong></h4>
+                <ul class="list list-icons list-icons-style-3 mt-xlg">
+                    <li><i class="fa fa-user"></i> <strong>Author:</strong> 蔡宇煜</li>
+                    <li><i class="fa fa-phone"></i> <strong>Phone:</strong> (123) 456-789</li>
+                    <li><i class="fa fa-envelope"></i> <strong>Email:</strong> <a href="mailto:mail@example.com">callmecaiyuyu@gmail.com</a></li>
+                </ul>
+
+                <hr>
+
+            </div>
+            <div class="col-md-6">
+
+                <div class="alert alert-success hidden mt-lg" id="contactSuccess">
+                    <strong>Success!</strong> Your message has been sent to us.
+                </div>
+
+                <div class="alert alert-danger hidden mt-lg" id="contactError">
+                    <strong>Error!</strong> There was an error sending your message.
+                    <span class="font-size-xs mt-sm display-block" id="mailErrorMessage"></span>
+                </div>
+
+                <h2 class="mb-sm mt-sm"><strong>Contact</strong> Us</h2>
+                <form id="contactForm" action="php/contact-form.php" method="POST">
+                    <div class="row">
+                        <div class="form-group">
+                            <div class="col-md-6">
+                                <label>Your name *</label>
+                                <input type="text" value="" data-msg-required="Please enter your name." maxlength="100" class="form-control" name="name" id="name" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label>Your email address *</label>
+                                <input type="email" value="" data-msg-required="Please enter your email address." data-msg-email="Please enter a valid email address." maxlength="100" class="form-control" name="email" id="email" required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group">
+                            <div class="col-md-12">
+                                <label>Subject</label>
+                                <input type="text" value="" data-msg-required="Please enter the subject." maxlength="100" class="form-control" name="subject" id="subject" required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group">
+                            <div class="col-md-12">
+                                <label>Message *</label>
+                                <textarea maxlength="5000" data-msg-required="Please enter your message." rows="5" class="form-control" name="message" id="message" required></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <input type="submit" value="Send Message" class="btn btn-primary btn-lg mb-xlg pull-right" data-loading-text="Loading...">
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+
+        </div>
+
+    </div>
+
+</div>
+
+
+{% endblock %}
