@@ -63,7 +63,7 @@
                                (pjstadig.humane-test-output/activate!)]
                   ;;when :nrepl-port is set the application starts the nREPL server on load
                   :env {:dev        true
-                        :port       3000
+                        :port       80
                         :nrepl-port 7000
                         :log-level  :trace}}
    :project/test {:env {:test       true
