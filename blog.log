@@ -2618,3 +2618,751 @@
 16-Jul-15 20:49:59 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  After cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
 16-Jul-15 20:50:29 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  Before cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
 16-Jul-15 20:50:29 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  After cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 12:04:52 DESKTOP-C3SC9AR INFO [slf4j-timbre.adapter] - >> starting..  *db*
+16-Jul-16 12:04:52 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  HikariPool-0 - configuration:
+16-Jul-16 12:04:52 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] - allowPoolSuspension.............false
+16-Jul-16 12:04:52 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] - autoCommit......................true
+16-Jul-16 12:04:52 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] - catalog.........................
+16-Jul-16 12:04:52 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] - connectionInitSql...............
+16-Jul-16 12:04:52 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] - connectionTestQuery.............
+16-Jul-16 12:04:52 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] - connectionTimeout...............30000
+16-Jul-16 12:04:52 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] - dataSource......................
+16-Jul-16 12:04:52 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] - dataSourceClassName.............
+16-Jul-16 12:04:52 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] - dataSourceJNDI..................
+16-Jul-16 12:04:52 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] - dataSourceProperties............{password=<masked>}
+16-Jul-16 12:04:52 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] - driverClassName.................
+16-Jul-16 12:04:52 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] - healthCheckProperties...........{}
+16-Jul-16 12:04:52 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] - healthCheckRegistry.............
+16-Jul-16 12:04:52 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] - idleTimeout.....................600000
+16-Jul-16 12:04:52 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] - initializationFailFast..........true
+16-Jul-16 12:04:52 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] - isolateInternalQueries..........false
+16-Jul-16 12:04:52 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] - jdbc4ConnectionTest.............false
+16-Jul-16 12:04:52 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] - jdbcUrl.........................jdbc:postgresql://localhost/blog?user=postgres&password=root
+16-Jul-16 12:04:52 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] - leakDetectionThreshold..........0
+16-Jul-16 12:04:52 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] - maxLifetime.....................1800000
+16-Jul-16 12:04:52 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] - maximumPoolSize.................10
+16-Jul-16 12:04:52 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] - metricRegistry..................
+16-Jul-16 12:04:52 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] - metricsTrackerFactory...........
+16-Jul-16 12:04:52 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] - minimumIdle.....................1
+16-Jul-16 12:04:52 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] - password........................<masked>
+16-Jul-16 12:04:52 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] - poolName........................HikariPool-0
+16-Jul-16 12:04:52 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] - readOnly........................false
+16-Jul-16 12:04:52 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] - registerMbeans..................false
+16-Jul-16 12:04:52 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] - scheduledExecutorService........
+16-Jul-16 12:04:53 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] - threadFactory...................
+16-Jul-16 12:04:53 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] - transactionIsolation............
+16-Jul-16 12:04:53 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] - username........................
+16-Jul-16 12:04:53 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] - validationTimeout...............5000
+16-Jul-16 12:04:53 DESKTOP-C3SC9AR INFO [slf4j-timbre.adapter] -  HikariPool-0 - is starting.
+16-Jul-16 12:04:53 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  HikariPool-0 - Connection.setNetworkTimeout() is not supported (这个 org.postgresql.jdbc4.Jdbc4Connection.getNetworkTimeout() 方法尚未被实作。)
+16-Jul-16 12:04:53 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  HikariPool-0 - Added connection org.postgresql.jdbc4.Jdbc4Connection@26e6d2b5
+16-Jul-16 12:04:53 DESKTOP-C3SC9AR INFO [blog.config] - 
+-=[blog started successfully using the development profile]=-
+16-Jul-16 12:04:54 DESKTOP-C3SC9AR INFO [slf4j-timbre.adapter] -  Registered web context /
+16-Jul-16 12:04:54 DESKTOP-C3SC9AR INFO [blog.core] - server started on port: 3000
+16-Jul-16 12:05:23 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  Before cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 12:05:23 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  After cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 12:05:53 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  Before cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 12:05:53 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  After cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 12:06:23 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  Before cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 12:06:23 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  After cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 12:06:53 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  Before cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 12:06:53 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  After cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 12:07:23 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  Before cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 12:07:23 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  After cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 12:08:23 DESKTOP-C3SC9AR INFO [slf4j-timbre.adapter] - >> starting..  *db*
+16-Jul-16 12:08:23 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  HikariPool-0 - configuration:
+16-Jul-16 12:08:23 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] - allowPoolSuspension.............false
+16-Jul-16 12:08:23 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] - autoCommit......................true
+16-Jul-16 12:08:23 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] - catalog.........................
+16-Jul-16 12:08:23 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] - connectionInitSql...............
+16-Jul-16 12:08:23 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] - connectionTestQuery.............
+16-Jul-16 12:08:23 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] - connectionTimeout...............30000
+16-Jul-16 12:08:23 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] - dataSource......................
+16-Jul-16 12:08:23 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] - dataSourceClassName.............
+16-Jul-16 12:08:23 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] - dataSourceJNDI..................
+16-Jul-16 12:08:23 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] - dataSourceProperties............{password=<masked>}
+16-Jul-16 12:08:23 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] - driverClassName.................
+16-Jul-16 12:08:23 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] - healthCheckProperties...........{}
+16-Jul-16 12:08:23 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] - healthCheckRegistry.............
+16-Jul-16 12:08:23 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] - idleTimeout.....................600000
+16-Jul-16 12:08:23 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] - initializationFailFast..........true
+16-Jul-16 12:08:23 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] - isolateInternalQueries..........false
+16-Jul-16 12:08:23 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] - jdbc4ConnectionTest.............false
+16-Jul-16 12:08:23 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] - jdbcUrl.........................jdbc:postgresql://porto.pub/blog?user=postgres&password=root
+16-Jul-16 12:08:23 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] - leakDetectionThreshold..........0
+16-Jul-16 12:08:23 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] - maxLifetime.....................1800000
+16-Jul-16 12:08:23 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] - maximumPoolSize.................10
+16-Jul-16 12:08:23 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] - metricRegistry..................
+16-Jul-16 12:08:23 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] - metricsTrackerFactory...........
+16-Jul-16 12:08:23 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] - minimumIdle.....................1
+16-Jul-16 12:08:23 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] - password........................<masked>
+16-Jul-16 12:08:23 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] - poolName........................HikariPool-0
+16-Jul-16 12:08:23 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] - readOnly........................false
+16-Jul-16 12:08:23 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] - registerMbeans..................false
+16-Jul-16 12:08:23 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] - scheduledExecutorService........
+16-Jul-16 12:08:23 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] - threadFactory...................
+16-Jul-16 12:08:23 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] - transactionIsolation............
+16-Jul-16 12:08:23 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] - username........................
+16-Jul-16 12:08:23 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] - validationTimeout...............5000
+16-Jul-16 12:08:23 DESKTOP-C3SC9AR INFO [slf4j-timbre.adapter] -  HikariPool-0 - is starting.
+16-Jul-16 12:08:32 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  HikariPool-0 - Connection.setNetworkTimeout() is not supported (这个 org.postgresql.jdbc4.Jdbc4Connection.getNetworkTimeout() 方法尚未被实作。)
+16-Jul-16 12:08:53 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  Timeout failure	pool HikariPool-0 stats (total=0, active=0, idle=0, waiting=0)
+16-Jul-16 12:08:53 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  Before cleanup	pool HikariPool-0 stats (total=0, active=0, idle=0, waiting=0)
+16-Jul-16 12:08:53 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  After cleanup	pool HikariPool-0 stats (total=0, active=0, idle=0, waiting=0)
+16-Jul-16 12:08:53 DESKTOP-C3SC9AR INFO [slf4j-timbre.adapter] -  HikariPool-0 - is closing down.
+16-Jul-16 12:08:53 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  Before closing	pool HikariPool-0 stats (total=0, active=0, idle=0, waiting=0)
+16-Jul-16 12:08:54 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  HikariPool-0 - Added connection org.postgresql.jdbc4.Jdbc4Connection@66cbb006
+16-Jul-16 12:08:54 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  After adding	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 12:08:54 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  HikariPool-0 - Closing connection org.postgresql.jdbc4.Jdbc4Connection@66cbb006: (connection evicted by user)
+16-Jul-16 12:08:54 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  After closing	pool HikariPool-0 stats (total=0, active=0, idle=0, waiting=0)
+16-Jul-16 12:12:03 DESKTOP-C3SC9AR INFO [slf4j-timbre.adapter] - >> starting..  *db*
+16-Jul-16 12:12:03 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  HikariPool-0 - configuration:
+16-Jul-16 12:12:03 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] - allowPoolSuspension.............false
+16-Jul-16 12:12:03 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] - autoCommit......................true
+16-Jul-16 12:12:03 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] - catalog.........................
+16-Jul-16 12:12:03 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] - connectionInitSql...............
+16-Jul-16 12:12:03 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] - connectionTestQuery.............
+16-Jul-16 12:12:03 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] - connectionTimeout...............30000
+16-Jul-16 12:12:03 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] - dataSource......................
+16-Jul-16 12:12:03 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] - dataSourceClassName.............
+16-Jul-16 12:12:03 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] - dataSourceJNDI..................
+16-Jul-16 12:12:03 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] - dataSourceProperties............{password=<masked>}
+16-Jul-16 12:12:03 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] - driverClassName.................
+16-Jul-16 12:12:03 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] - healthCheckProperties...........{}
+16-Jul-16 12:12:03 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] - healthCheckRegistry.............
+16-Jul-16 12:12:03 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] - idleTimeout.....................600000
+16-Jul-16 12:12:03 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] - initializationFailFast..........true
+16-Jul-16 12:12:03 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] - isolateInternalQueries..........false
+16-Jul-16 12:12:03 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] - jdbc4ConnectionTest.............false
+16-Jul-16 12:12:03 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] - jdbcUrl.........................jdbc:postgresql://porto.pub/blog?user=postgres&password=root
+16-Jul-16 12:12:03 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] - leakDetectionThreshold..........0
+16-Jul-16 12:12:03 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] - maxLifetime.....................1800000
+16-Jul-16 12:12:03 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] - maximumPoolSize.................10
+16-Jul-16 12:12:03 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] - metricRegistry..................
+16-Jul-16 12:12:03 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] - metricsTrackerFactory...........
+16-Jul-16 12:12:03 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] - minimumIdle.....................1
+16-Jul-16 12:12:03 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] - password........................<masked>
+16-Jul-16 12:12:03 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] - poolName........................HikariPool-0
+16-Jul-16 12:12:03 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] - readOnly........................false
+16-Jul-16 12:12:03 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] - registerMbeans..................false
+16-Jul-16 12:12:03 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] - scheduledExecutorService........
+16-Jul-16 12:12:03 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] - threadFactory...................
+16-Jul-16 12:12:03 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] - transactionIsolation............
+16-Jul-16 12:12:03 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] - username........................
+16-Jul-16 12:12:03 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] - validationTimeout...............5000
+16-Jul-16 12:12:03 DESKTOP-C3SC9AR INFO [slf4j-timbre.adapter] -  HikariPool-0 - is starting.
+16-Jul-16 12:12:24 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] - HikariPool-0 - Cannot acquire connection from data source
+                                           [37mjava.lang.Thread.run[m  [32m                  Thread.java: 745[m
+                        [37morg.postgresql.Driver$ConnectThread.run[m  [32m                  Driver.java: 321[m
+                               [37morg.postgresql.Driver.access$100[m  [32m                  Driver.java:  46[m
+                           [37morg.postgresql.Driver.makeConnection[m  [32m                  Driver.java: 410[m
+                    [37morg.postgresql.jdbc4.Jdbc4Connection.<init>[m  [32m         Jdbc4Connection.java:  24[m
+            [37morg.postgresql.jdbc4.AbstractJdbc4Connection.<init>[m  [32m AbstractJdbc4Connection.java:  31[m
+          [37morg.postgresql.jdbc3g.AbstractJdbc3gConnection.<init>[m  [32mAbstractJdbc3gConnection.java:  21[m
+            [37morg.postgresql.jdbc3.AbstractJdbc3Connection.<init>[m  [32m AbstractJdbc3Connection.java:  29[m
+            [37morg.postgresql.jdbc2.AbstractJdbc2Connection.<init>[m  [32m AbstractJdbc2Connection.java: 144[m
+           [37morg.postgresql.core.ConnectionFactory.openConnection[m  [32m       ConnectionFactory.java:  64[m
+[37morg.postgresql.core.v3.ConnectionFactoryImpl.openConnectionImpl[m  [32m   ConnectionFactoryImpl.java: 109[m
+                            [37morg.postgresql.core.PGStream.<init>[m  [32m                PGStream.java:  61[m
+                                        [37mjava.net.Socket.connect[m  [32m                  Socket.java: 589[m
+                               [37mjava.net.SocksSocketImpl.connect[m  [32m         SocksSocketImpl.java: 392[m
+                               [37mjava.net.PlainSocketImpl.connect[m  [32m         PlainSocketImpl.java: 172[m
+                       [37mjava.net.AbstractPlainSocketImpl.connect[m  [32m AbstractPlainSocketImpl.java: 188[m
+              [37mjava.net.AbstractPlainSocketImpl.connectToAddress[m  [32m AbstractPlainSocketImpl.java: 206[m
+                     [37mjava.net.AbstractPlainSocketImpl.doConnect[m  [32m AbstractPlainSocketImpl.java: 350[m
+                [37mjava.net.DualStackPlainSocketImpl.socketConnect[m  [32mDualStackPlainSocketImpl.java:  79[m
+                     [37mjava.net.DualStackPlainSocketImpl.connect0[m  [32mDualStackPlainSocketImpl.java     [m
+        [1;31mjava.net.ConnectException[m: [3mConnection timed out: connect[m
+[1;31morg.postgresql.util.PSQLException[m: [3m连线被拒，请检查主机名称和埠号，并确定 postmaster 可以接受 TCP/IP 连线。[m
+     [1mSQLState[m: "08001"
+    [1merrorCode[m: 0
+
+16-Jul-16 12:12:25 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  HikariPool-0 - Connection.setNetworkTimeout() is not supported (这个 org.postgresql.jdbc4.Jdbc4Connection.getNetworkTimeout() 方法尚未被实作。)
+16-Jul-16 12:12:25 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  HikariPool-0 - Added connection org.postgresql.jdbc4.Jdbc4Connection@342d3327
+16-Jul-16 12:12:25 DESKTOP-C3SC9AR INFO [blog.config] - 
+-=[blog started successfully using the development profile]=-
+16-Jul-16 12:12:26 DESKTOP-C3SC9AR INFO [slf4j-timbre.adapter] -  Registered web context /
+16-Jul-16 12:12:26 DESKTOP-C3SC9AR INFO [blog.core] - server started on port: 3000
+16-Jul-16 12:12:33 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  Before cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 12:12:33 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  After cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 12:13:03 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  Before cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 12:13:03 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  After cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 12:13:33 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  Before cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 12:13:33 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  After cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 12:14:03 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  Before cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 12:14:03 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  After cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 12:14:33 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  Before cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 12:14:33 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  After cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 12:15:03 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  Before cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 12:15:03 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  After cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 12:15:54 DESKTOP-C3SC9AR INFO [slf4j-timbre.adapter] - >> starting..  *db*
+16-Jul-16 12:15:54 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  HikariPool-0 - configuration:
+16-Jul-16 12:15:54 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] - allowPoolSuspension.............false
+16-Jul-16 12:15:54 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] - autoCommit......................true
+16-Jul-16 12:15:54 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] - catalog.........................
+16-Jul-16 12:15:54 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] - connectionInitSql...............
+16-Jul-16 12:15:54 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] - connectionTestQuery.............
+16-Jul-16 12:15:54 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] - connectionTimeout...............30000
+16-Jul-16 12:15:54 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] - dataSource......................
+16-Jul-16 12:15:54 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] - dataSourceClassName.............
+16-Jul-16 12:15:54 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] - dataSourceJNDI..................
+16-Jul-16 12:15:54 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] - dataSourceProperties............{password=<masked>}
+16-Jul-16 12:15:54 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] - driverClassName.................
+16-Jul-16 12:15:54 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] - healthCheckProperties...........{}
+16-Jul-16 12:15:54 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] - healthCheckRegistry.............
+16-Jul-16 12:15:54 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] - idleTimeout.....................600000
+16-Jul-16 12:15:54 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] - initializationFailFast..........true
+16-Jul-16 12:15:54 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] - isolateInternalQueries..........false
+16-Jul-16 12:15:54 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] - jdbc4ConnectionTest.............false
+16-Jul-16 12:15:54 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] - jdbcUrl.........................jdbc:postgresql://23.105.221.76/blog?user=postgres&password=root
+16-Jul-16 12:15:54 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] - leakDetectionThreshold..........0
+16-Jul-16 12:15:54 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] - maxLifetime.....................1800000
+16-Jul-16 12:15:54 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] - maximumPoolSize.................10
+16-Jul-16 12:15:54 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] - metricRegistry..................
+16-Jul-16 12:15:54 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] - metricsTrackerFactory...........
+16-Jul-16 12:15:54 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] - minimumIdle.....................1
+16-Jul-16 12:15:54 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] - password........................<masked>
+16-Jul-16 12:15:54 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] - poolName........................HikariPool-0
+16-Jul-16 12:15:54 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] - readOnly........................false
+16-Jul-16 12:15:54 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] - registerMbeans..................false
+16-Jul-16 12:15:54 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] - scheduledExecutorService........
+16-Jul-16 12:15:54 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] - threadFactory...................
+16-Jul-16 12:15:54 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] - transactionIsolation............
+16-Jul-16 12:15:54 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] - username........................
+16-Jul-16 12:15:54 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] - validationTimeout...............5000
+16-Jul-16 12:15:54 DESKTOP-C3SC9AR INFO [slf4j-timbre.adapter] -  HikariPool-0 - is starting.
+16-Jul-16 12:15:55 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  HikariPool-0 - Connection.setNetworkTimeout() is not supported (这个 org.postgresql.jdbc4.Jdbc4Connection.getNetworkTimeout() 方法尚未被实作。)
+16-Jul-16 12:15:56 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  HikariPool-0 - Added connection org.postgresql.jdbc4.Jdbc4Connection@29768a2b
+16-Jul-16 12:15:56 DESKTOP-C3SC9AR INFO [blog.config] - 
+-=[blog started successfully using the development profile]=-
+16-Jul-16 12:15:56 DESKTOP-C3SC9AR INFO [slf4j-timbre.adapter] -  Registered web context /
+16-Jul-16 12:15:56 DESKTOP-C3SC9AR INFO [blog.core] - server started on port: 3000
+16-Jul-16 12:16:24 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  Before cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 12:16:24 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  After cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 12:16:54 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  Before cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 12:16:54 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  After cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 12:17:24 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  Before cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 12:17:24 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  After cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 12:17:28 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  HikariPool-0 - Reset (nothing) on connection org.postgresql.jdbc4.Jdbc4Connection@29768a2b
+16-Jul-16 12:17:54 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  Before cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 12:17:54 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  After cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 12:18:24 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  Before cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 12:18:24 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  After cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 12:18:33 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  HikariPool-0 - Reset (nothing) on connection org.postgresql.jdbc4.Jdbc4Connection@29768a2b
+16-Jul-16 12:18:54 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  Before cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 12:18:54 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  After cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 12:19:24 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  Before cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 12:19:24 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  After cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 12:19:54 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  Before cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 12:19:54 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  After cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 12:20:24 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  Before cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 12:20:24 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  After cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 12:20:54 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  Before cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 12:20:54 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  After cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 12:21:24 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  Before cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 12:21:24 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  After cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 12:21:54 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  Before cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 12:21:54 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  After cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 12:22:24 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  Before cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 12:22:24 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  After cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 12:22:54 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  Before cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 12:22:54 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  After cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 12:23:24 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  Before cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 12:23:24 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  After cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 12:23:54 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  Before cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 12:23:54 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  After cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 12:24:24 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  Before cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 12:24:24 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  After cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 12:24:54 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  Before cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 12:24:54 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  After cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 12:25:24 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  Before cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 12:25:24 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  After cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 12:25:54 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  Before cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 12:25:54 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  After cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 12:26:24 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  Before cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 12:26:24 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  After cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 12:26:54 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  Before cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 12:26:54 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  After cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 12:27:24 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  Before cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 12:27:24 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  After cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 12:27:54 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  Before cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 12:27:54 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  After cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 12:28:24 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  Before cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 12:28:24 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  After cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 12:28:54 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  Before cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 12:28:54 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  After cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 12:29:24 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  Before cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 12:29:24 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  After cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 12:29:54 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  Before cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 12:29:54 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  After cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 12:30:24 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  Before cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 12:30:24 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  After cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 12:30:54 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  Before cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 12:30:54 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  After cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 12:31:24 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  Before cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 12:31:24 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  After cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 12:31:54 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  Before cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 12:31:54 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  After cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 12:32:24 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  Before cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 12:32:24 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  After cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 12:32:54 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  Before cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 12:32:54 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  After cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 12:33:24 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  Before cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 12:33:24 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  After cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 12:33:54 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  Before cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 12:33:54 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  After cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 12:34:24 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  Before cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 12:34:24 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  After cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 12:34:54 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  Before cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 12:34:54 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  After cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 12:42:14 DESKTOP-C3SC9AR INFO [slf4j-timbre.adapter] - >> starting..  *db*
+16-Jul-16 12:42:14 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  HikariPool-0 - configuration:
+16-Jul-16 12:42:14 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] - allowPoolSuspension.............false
+16-Jul-16 12:42:14 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] - autoCommit......................true
+16-Jul-16 12:42:14 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] - catalog.........................
+16-Jul-16 12:42:14 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] - connectionInitSql...............
+16-Jul-16 12:42:14 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] - connectionTestQuery.............
+16-Jul-16 12:42:14 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] - connectionTimeout...............30000
+16-Jul-16 12:42:14 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] - dataSource......................
+16-Jul-16 12:42:14 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] - dataSourceClassName.............
+16-Jul-16 12:42:14 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] - dataSourceJNDI..................
+16-Jul-16 12:42:14 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] - dataSourceProperties............{password=<masked>}
+16-Jul-16 12:42:14 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] - driverClassName.................
+16-Jul-16 12:42:14 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] - healthCheckProperties...........{}
+16-Jul-16 12:42:14 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] - healthCheckRegistry.............
+16-Jul-16 12:42:14 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] - idleTimeout.....................600000
+16-Jul-16 12:42:14 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] - initializationFailFast..........true
+16-Jul-16 12:42:14 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] - isolateInternalQueries..........false
+16-Jul-16 12:42:14 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] - jdbc4ConnectionTest.............false
+16-Jul-16 12:42:14 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] - jdbcUrl.........................jdbc:postgresql://23.105.221.76/blog?user=postgres&password=root
+16-Jul-16 12:42:14 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] - leakDetectionThreshold..........0
+16-Jul-16 12:42:14 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] - maxLifetime.....................1800000
+16-Jul-16 12:42:14 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] - maximumPoolSize.................10
+16-Jul-16 12:42:14 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] - metricRegistry..................
+16-Jul-16 12:42:14 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] - metricsTrackerFactory...........
+16-Jul-16 12:42:14 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] - minimumIdle.....................1
+16-Jul-16 12:42:14 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] - password........................<masked>
+16-Jul-16 12:42:14 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] - poolName........................HikariPool-0
+16-Jul-16 12:42:14 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] - readOnly........................false
+16-Jul-16 12:42:14 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] - registerMbeans..................false
+16-Jul-16 12:42:14 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] - scheduledExecutorService........
+16-Jul-16 12:42:14 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] - threadFactory...................
+16-Jul-16 12:42:14 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] - transactionIsolation............
+16-Jul-16 12:42:14 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] - username........................
+16-Jul-16 12:42:14 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] - validationTimeout...............5000
+16-Jul-16 12:42:14 DESKTOP-C3SC9AR INFO [slf4j-timbre.adapter] -  HikariPool-0 - is starting.
+16-Jul-16 12:42:15 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  HikariPool-0 - Connection.setNetworkTimeout() is not supported (这个 org.postgresql.jdbc4.Jdbc4Connection.getNetworkTimeout() 方法尚未被实作。)
+16-Jul-16 12:42:16 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  HikariPool-0 - Added connection org.postgresql.jdbc4.Jdbc4Connection@78698972
+16-Jul-16 12:42:16 DESKTOP-C3SC9AR INFO [blog.config] - 
+-=[blog started successfully using the development profile]=-
+16-Jul-16 12:42:16 DESKTOP-C3SC9AR INFO [slf4j-timbre.adapter] -  Registered web context /
+16-Jul-16 12:42:16 DESKTOP-C3SC9AR INFO [blog.core] - server started on port: 3000
+16-Jul-16 12:42:44 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  Before cleanup	pool HikariPool-0 stats (total=1, active=1, idle=0, waiting=0)
+16-Jul-16 12:42:44 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  After cleanup	pool HikariPool-0 stats (total=1, active=1, idle=0, waiting=0)
+16-Jul-16 12:42:45 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  HikariPool-0 - Added connection org.postgresql.jdbc4.Jdbc4Connection@7dcfb44d
+16-Jul-16 12:42:45 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  After adding	pool HikariPool-0 stats (total=2, active=1, idle=1, waiting=0)
+16-Jul-16 12:43:02 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  HikariPool-0 - Reset (nothing) on connection org.postgresql.jdbc4.Jdbc4Connection@78698972
+16-Jul-16 12:43:14 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  Before cleanup	pool HikariPool-0 stats (total=2, active=1, idle=1, waiting=0)
+16-Jul-16 12:43:14 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  After cleanup	pool HikariPool-0 stats (total=2, active=1, idle=1, waiting=0)
+16-Jul-16 12:43:15 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  HikariPool-0 - Reset (nothing) on connection org.postgresql.jdbc4.Jdbc4Connection@78698972
+16-Jul-16 12:43:20 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  HikariPool-0 - Reset (nothing) on connection org.postgresql.jdbc4.Jdbc4Connection@78698972
+16-Jul-16 12:43:44 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  Before cleanup	pool HikariPool-0 stats (total=2, active=0, idle=2, waiting=0)
+16-Jul-16 12:43:44 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  After cleanup	pool HikariPool-0 stats (total=2, active=0, idle=2, waiting=0)
+16-Jul-16 12:44:14 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  Before cleanup	pool HikariPool-0 stats (total=2, active=0, idle=2, waiting=0)
+16-Jul-16 12:44:14 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  After cleanup	pool HikariPool-0 stats (total=2, active=0, idle=2, waiting=0)
+16-Jul-16 12:44:28 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  HikariPool-0 - Reset (nothing) on connection org.postgresql.jdbc4.Jdbc4Connection@78698972
+16-Jul-16 12:44:44 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  Before cleanup	pool HikariPool-0 stats (total=2, active=0, idle=2, waiting=0)
+16-Jul-16 12:44:44 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  After cleanup	pool HikariPool-0 stats (total=2, active=0, idle=2, waiting=0)
+16-Jul-16 12:44:51 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  HikariPool-0 - Reset (nothing) on connection org.postgresql.jdbc4.Jdbc4Connection@78698972
+16-Jul-16 12:45:14 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  Before cleanup	pool HikariPool-0 stats (total=2, active=0, idle=2, waiting=0)
+16-Jul-16 12:45:14 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  After cleanup	pool HikariPool-0 stats (total=2, active=0, idle=2, waiting=0)
+16-Jul-16 12:45:44 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  Before cleanup	pool HikariPool-0 stats (total=2, active=0, idle=2, waiting=0)
+16-Jul-16 12:45:44 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  After cleanup	pool HikariPool-0 stats (total=2, active=0, idle=2, waiting=0)
+16-Jul-16 12:46:14 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  Before cleanup	pool HikariPool-0 stats (total=2, active=0, idle=2, waiting=0)
+16-Jul-16 12:46:14 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  After cleanup	pool HikariPool-0 stats (total=2, active=0, idle=2, waiting=0)
+16-Jul-16 12:48:40 DESKTOP-C3SC9AR INFO [slf4j-timbre.adapter] - >> starting..  *db*
+16-Jul-16 12:48:40 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  HikariPool-0 - configuration:
+16-Jul-16 12:48:40 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] - allowPoolSuspension.............false
+16-Jul-16 12:48:40 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] - autoCommit......................true
+16-Jul-16 12:48:40 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] - catalog.........................
+16-Jul-16 12:48:40 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] - connectionInitSql...............
+16-Jul-16 12:48:40 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] - connectionTestQuery.............
+16-Jul-16 12:48:40 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] - connectionTimeout...............30000
+16-Jul-16 12:48:40 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] - dataSource......................
+16-Jul-16 12:48:40 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] - dataSourceClassName.............
+16-Jul-16 12:48:40 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] - dataSourceJNDI..................
+16-Jul-16 12:48:40 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] - dataSourceProperties............{password=<masked>}
+16-Jul-16 12:48:40 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] - driverClassName.................
+16-Jul-16 12:48:40 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] - healthCheckProperties...........{}
+16-Jul-16 12:48:40 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] - healthCheckRegistry.............
+16-Jul-16 12:48:40 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] - idleTimeout.....................600000
+16-Jul-16 12:48:40 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] - initializationFailFast..........true
+16-Jul-16 12:48:40 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] - isolateInternalQueries..........false
+16-Jul-16 12:48:40 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] - jdbc4ConnectionTest.............false
+16-Jul-16 12:48:40 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] - jdbcUrl.........................jdbc:postgresql://localhost/blog?user=postgres&password=root
+16-Jul-16 12:48:40 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] - leakDetectionThreshold..........0
+16-Jul-16 12:48:40 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] - maxLifetime.....................1800000
+16-Jul-16 12:48:40 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] - maximumPoolSize.................10
+16-Jul-16 12:48:40 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] - metricRegistry..................
+16-Jul-16 12:48:40 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] - metricsTrackerFactory...........
+16-Jul-16 12:48:40 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] - minimumIdle.....................1
+16-Jul-16 12:48:40 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] - password........................<masked>
+16-Jul-16 12:48:40 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] - poolName........................HikariPool-0
+16-Jul-16 12:48:40 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] - readOnly........................false
+16-Jul-16 12:48:40 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] - registerMbeans..................false
+16-Jul-16 12:48:40 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] - scheduledExecutorService........
+16-Jul-16 12:48:40 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] - threadFactory...................
+16-Jul-16 12:48:40 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] - transactionIsolation............
+16-Jul-16 12:48:40 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] - username........................
+16-Jul-16 12:48:40 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] - validationTimeout...............5000
+16-Jul-16 12:48:40 DESKTOP-C3SC9AR INFO [slf4j-timbre.adapter] -  HikariPool-0 - is starting.
+16-Jul-16 12:48:41 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  HikariPool-0 - Connection.setNetworkTimeout() is not supported (这个 org.postgresql.jdbc4.Jdbc4Connection.getNetworkTimeout() 方法尚未被实作。)
+16-Jul-16 12:48:41 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  HikariPool-0 - Added connection org.postgresql.jdbc4.Jdbc4Connection@2ffc523c
+16-Jul-16 12:48:41 DESKTOP-C3SC9AR INFO [blog.config] - 
+-=[blog started successfully using the development profile]=-
+16-Jul-16 12:48:41 DESKTOP-C3SC9AR INFO [slf4j-timbre.adapter] -  Registered web context /
+16-Jul-16 12:48:41 DESKTOP-C3SC9AR INFO [blog.core] - server started on port: 3000
+16-Jul-16 12:49:10 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  Before cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 12:49:10 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  After cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 12:49:14 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  HikariPool-0 - Reset (nothing) on connection org.postgresql.jdbc4.Jdbc4Connection@2ffc523c
+16-Jul-16 12:49:40 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  Before cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 12:49:40 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  After cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 12:50:10 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  Before cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 12:50:10 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  After cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 12:50:38 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  Logging to com.github.fzakaria.slf4j.timbre.TimbreLoggerAdapter(null) via org.eclipse.jetty.util.log.Slf4jLog
+16-Jul-16 12:50:38 DESKTOP-C3SC9AR INFO [slf4j-timbre.adapter] -  Logging initialized @136670ms
+16-Jul-16 12:50:40 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  Before cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 12:50:40 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  After cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 12:51:10 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  Before cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 12:51:10 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  After cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 12:51:40 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  Before cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 12:51:40 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  After cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 12:51:45 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  HikariPool-0 - Reset (nothing) on connection org.postgresql.jdbc4.Jdbc4Connection@2ffc523c
+16-Jul-16 12:51:51 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  HikariPool-0 - Reset (nothing) on connection org.postgresql.jdbc4.Jdbc4Connection@2ffc523c
+16-Jul-16 12:52:10 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  Before cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 12:52:10 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  After cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 12:52:40 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  Before cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 12:52:40 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  After cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 12:53:10 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  Before cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 12:53:10 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  After cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 12:53:40 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  Before cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 12:53:40 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  After cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 12:54:10 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  Before cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 12:54:10 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  After cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 12:54:40 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  Before cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 12:54:40 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  After cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 12:55:10 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  Before cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 12:55:10 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  After cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 12:55:40 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  Before cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 12:55:40 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  After cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 12:56:10 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  Before cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 12:56:10 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  After cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 12:56:40 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  Before cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 12:56:40 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  After cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 12:57:10 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  Before cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 12:57:10 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  After cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 12:57:40 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  Before cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 12:57:40 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  After cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 12:58:10 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  Before cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 12:58:10 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  After cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 12:58:40 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  Before cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 12:58:40 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  After cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 12:59:10 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  Before cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 12:59:10 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  After cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 12:59:40 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  Before cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 12:59:40 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  After cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 13:00:10 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  Before cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 13:00:10 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  After cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 13:00:40 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  Before cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 13:00:40 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  After cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 13:01:10 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  Before cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 13:01:10 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  After cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 13:01:40 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  Before cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 13:01:40 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  After cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 13:02:10 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  Before cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 13:02:10 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  After cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 13:02:40 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  Before cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 13:02:40 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  After cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 13:03:10 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  Before cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 13:03:10 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  After cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 13:03:40 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  Before cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 13:03:40 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  After cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 13:04:10 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  Before cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 13:04:10 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  After cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 13:04:40 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  Before cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 13:04:40 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  After cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 13:05:10 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  Before cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 13:05:10 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  After cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 13:05:40 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  Before cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 13:05:40 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  After cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 13:06:10 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  Before cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 13:06:10 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  After cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 13:06:40 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  Before cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 13:06:40 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  After cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 13:07:10 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  Before cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 13:07:10 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  After cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 13:07:40 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  Before cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 13:07:40 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  After cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 13:08:10 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  Before cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 13:08:10 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  After cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 13:08:40 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  Before cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 13:08:40 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  After cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 13:09:10 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  Before cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 13:09:10 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  After cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 13:09:40 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  Before cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 13:09:40 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  After cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 13:10:10 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  Before cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 13:10:10 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  After cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 13:10:40 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  Before cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 13:10:40 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  After cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 13:11:10 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  Before cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 13:11:10 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  After cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 13:11:40 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  Before cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 13:11:40 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  After cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 13:12:10 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  Before cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 13:12:10 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  After cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 13:12:40 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  Before cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 13:12:40 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  After cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 13:13:10 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  Before cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 13:13:10 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  After cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 13:13:40 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  Before cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 13:13:40 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  After cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 13:14:10 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  Before cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 13:14:10 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  After cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 13:14:40 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  Before cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 13:14:40 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  After cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 13:15:10 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  Before cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 13:15:10 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  After cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 13:15:40 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  Before cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 13:15:40 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  After cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 13:16:10 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  Before cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 13:16:10 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  After cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 13:16:40 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  Before cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 13:16:40 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  After cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 13:17:10 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  Before cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 13:17:10 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  After cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 13:17:40 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  Before cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 13:17:40 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  After cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 13:18:10 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  Before cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 13:18:10 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  After cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 13:18:38 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  HikariPool-0 - Closing connection org.postgresql.jdbc4.Jdbc4Connection@2ffc523c: (connection reached maxLifetime)
+16-Jul-16 13:18:40 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  Before cleanup	pool HikariPool-0 stats (total=0, active=0, idle=0, waiting=0)
+16-Jul-16 13:18:40 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  After cleanup	pool HikariPool-0 stats (total=0, active=0, idle=0, waiting=0)
+16-Jul-16 13:18:41 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  HikariPool-0 - Added connection org.postgresql.jdbc4.Jdbc4Connection@29328f6b
+16-Jul-16 13:18:41 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  After adding	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 13:19:10 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  Before cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 13:19:10 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  After cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 13:19:40 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  Before cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 13:19:40 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  After cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 13:20:10 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  Before cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 13:20:10 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  After cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 13:20:40 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  Before cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 13:20:40 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  After cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 13:21:10 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  Before cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 13:21:10 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  After cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 13:21:40 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  Before cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 13:21:40 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  After cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 13:22:10 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  Before cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 13:22:10 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  After cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 13:22:40 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  Before cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 13:22:40 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  After cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 13:23:10 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  Before cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 13:23:10 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  After cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 13:23:40 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  Before cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 13:23:40 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  After cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 13:24:10 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  Before cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 13:24:10 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  After cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 13:24:40 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  Before cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 13:24:40 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  After cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 13:25:10 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  Before cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 13:25:10 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  After cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 13:25:40 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  Before cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 13:25:40 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  After cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 13:26:10 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  Before cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 13:26:10 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  After cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 13:26:40 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  Before cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 13:26:40 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  After cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 13:27:10 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  Before cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 13:27:10 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  After cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 13:27:40 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  Before cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 13:27:40 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  After cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 13:28:10 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  Before cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 13:28:10 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  After cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 13:28:40 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  Before cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 13:28:40 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  After cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 13:29:10 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  Before cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 13:29:10 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  After cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 13:29:40 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  Before cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 13:29:40 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  After cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 13:30:10 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  Before cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 13:30:10 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  After cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 13:30:40 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  Before cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 13:30:40 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  After cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 13:31:10 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  Before cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 13:31:10 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  After cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 13:31:40 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  Before cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 13:31:40 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  After cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 13:32:10 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  Before cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 13:32:10 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  After cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 13:32:40 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  Before cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 13:32:40 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  After cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 13:33:10 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  Before cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 13:33:10 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  After cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 13:33:40 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  Before cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 13:33:40 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  After cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 13:34:10 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  Before cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 13:34:10 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  After cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 13:34:40 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  Before cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 13:34:40 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  After cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 13:35:10 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  Before cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 13:35:10 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  After cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 13:35:40 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  Before cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 13:35:40 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  After cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 13:36:10 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  Before cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 13:36:10 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  After cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 13:36:40 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  Before cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 13:36:40 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  After cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 13:37:10 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  Before cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 13:37:10 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  After cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 13:37:40 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  Before cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 13:37:40 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  After cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 13:38:10 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  Before cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 13:38:10 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  After cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 13:38:40 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  Before cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 13:38:40 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  After cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 14:02:57 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  HikariPool-0 - Reset (nothing) on connection org.postgresql.jdbc4.Jdbc4Connection@29328f6b
+16-Jul-16 14:03:55 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  Timeout failure	pool HikariPool-0 stats (total=1, active=1, idle=0, waiting=0)
+16-Jul-16 14:03:25 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  HikariPool-0 - Added connection org.postgresql.jdbc4.Jdbc4Connection@3a208597
+16-Jul-16 14:04:05 DESKTOP-C3SC9AR WARN [slf4j-timbre.adapter] -  HikariPool-0 - Unusual system clock change detected, soft-evicting connections from pool.
+16-Jul-16 14:04:05 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  Before cleanup	pool HikariPool-0 stats (total=0, active=0, idle=0, waiting=0)
+16-Jul-16 14:04:05 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  After cleanup	pool HikariPool-0 stats (total=0, active=0, idle=0, waiting=0)
+16-Jul-16 14:04:05 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  Before cleanup	pool HikariPool-0 stats (total=0, active=0, idle=0, waiting=0)
+16-Jul-16 14:04:05 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  After cleanup	pool HikariPool-0 stats (total=0, active=0, idle=0, waiting=0)
+16-Jul-16 14:04:05 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  Before cleanup	pool HikariPool-0 stats (total=0, active=0, idle=0, waiting=0)
+16-Jul-16 14:04:05 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  After cleanup	pool HikariPool-0 stats (total=0, active=0, idle=0, waiting=0)
+16-Jul-16 14:04:05 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  HikariPool-0 - Closing connection org.postgresql.jdbc4.Jdbc4Connection@29328f6b: (connection evicted by user)
+16-Jul-16 14:04:05 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  Before cleanup	pool HikariPool-0 stats (total=0, active=0, idle=0, waiting=1)
+16-Jul-16 14:04:05 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  After cleanup	pool HikariPool-0 stats (total=0, active=0, idle=0, waiting=1)
+16-Jul-16 14:04:05 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  HikariPool-0 - Closing connection org.postgresql.jdbc4.Jdbc4Connection@3a208597: (connection evicted by user)
+16-Jul-16 14:04:05 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  Before cleanup	pool HikariPool-0 stats (total=0, active=0, idle=0, waiting=1)
+16-Jul-16 14:04:05 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  After cleanup	pool HikariPool-0 stats (total=0, active=0, idle=0, waiting=1)
+16-Jul-16 14:04:05 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  Before cleanup	pool HikariPool-0 stats (total=0, active=0, idle=0, waiting=1)
+16-Jul-16 14:04:05 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  After cleanup	pool HikariPool-0 stats (total=0, active=0, idle=0, waiting=1)
+16-Jul-16 14:04:05 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  Before cleanup	pool HikariPool-0 stats (total=0, active=0, idle=0, waiting=1)
+16-Jul-16 14:04:05 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  After cleanup	pool HikariPool-0 stats (total=0, active=0, idle=0, waiting=1)
+16-Jul-16 14:04:05 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  Before cleanup	pool HikariPool-0 stats (total=0, active=0, idle=0, waiting=1)
+16-Jul-16 14:04:05 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  After cleanup	pool HikariPool-0 stats (total=0, active=0, idle=0, waiting=1)
+16-Jul-16 14:04:05 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  Before cleanup	pool HikariPool-0 stats (total=0, active=0, idle=0, waiting=1)
+16-Jul-16 14:04:05 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  After cleanup	pool HikariPool-0 stats (total=0, active=0, idle=0, waiting=1)
+16-Jul-16 14:04:05 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  Before cleanup	pool HikariPool-0 stats (total=0, active=0, idle=0, waiting=1)
+16-Jul-16 14:04:05 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  After cleanup	pool HikariPool-0 stats (total=0, active=0, idle=0, waiting=1)
+16-Jul-16 14:04:05 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  Before cleanup	pool HikariPool-0 stats (total=0, active=0, idle=0, waiting=1)
+16-Jul-16 14:04:05 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  After cleanup	pool HikariPool-0 stats (total=0, active=0, idle=0, waiting=1)
+16-Jul-16 14:04:05 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  Before cleanup	pool HikariPool-0 stats (total=0, active=0, idle=0, waiting=1)
+16-Jul-16 14:04:05 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  After cleanup	pool HikariPool-0 stats (total=0, active=0, idle=0, waiting=1)
+16-Jul-16 14:04:05 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  Before cleanup	pool HikariPool-0 stats (total=0, active=0, idle=0, waiting=1)
+16-Jul-16 14:04:05 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  After cleanup	pool HikariPool-0 stats (total=0, active=0, idle=0, waiting=1)
+16-Jul-16 14:04:05 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  Before cleanup	pool HikariPool-0 stats (total=0, active=0, idle=0, waiting=1)
+16-Jul-16 14:04:05 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  After cleanup	pool HikariPool-0 stats (total=0, active=0, idle=0, waiting=1)
+16-Jul-16 14:04:05 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  Before cleanup	pool HikariPool-0 stats (total=0, active=0, idle=0, waiting=1)
+16-Jul-16 14:04:05 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  After cleanup	pool HikariPool-0 stats (total=0, active=0, idle=0, waiting=1)
+16-Jul-16 14:04:05 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  Before cleanup	pool HikariPool-0 stats (total=0, active=0, idle=0, waiting=1)
+16-Jul-16 14:04:05 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  HikariPool-0 - Added connection org.postgresql.jdbc4.Jdbc4Connection@34e76ca3
+16-Jul-16 14:04:05 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  After adding	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=1)
+16-Jul-16 14:04:05 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  After cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 14:04:05 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  Before cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 14:04:05 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  After cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 14:04:06 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  Before cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 14:04:06 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  After cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 14:04:06 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  Before cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 14:04:06 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  After cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 14:04:06 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  Before cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 14:04:06 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  After cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 14:04:06 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  Before cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 14:04:06 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  After cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 14:04:06 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  Before cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 14:04:06 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  After cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 14:04:07 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  Before cleanup	pool HikariPool-0 stats (total=1, active=0, idle=1, waiting=0)
+16-Jul-16 14:04:07 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  HikariPool-0 - Added connection org.postgresql.jdbc4.Jdbc4Connection@30d8eee7
+16-Jul-16 14:04:07 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  After adding	pool HikariPool-0 stats (total=2, active=0, idle=2, waiting=0)
+16-Jul-16 14:04:07 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  After cleanup	pool HikariPool-0 stats (total=2, active=0, idle=2, waiting=0)
+16-Jul-16 14:04:07 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  Before cleanup	pool HikariPool-0 stats (total=2, active=0, idle=2, waiting=0)
+16-Jul-16 14:04:07 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  After cleanup	pool HikariPool-0 stats (total=2, active=0, idle=2, waiting=0)
+16-Jul-16 14:04:07 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  Before cleanup	pool HikariPool-0 stats (total=2, active=0, idle=2, waiting=0)
+16-Jul-16 14:04:07 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  After cleanup	pool HikariPool-0 stats (total=2, active=0, idle=2, waiting=0)
+16-Jul-16 14:04:07 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  Before cleanup	pool HikariPool-0 stats (total=2, active=0, idle=2, waiting=0)
+16-Jul-16 14:04:07 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  After cleanup	pool HikariPool-0 stats (total=2, active=0, idle=2, waiting=0)
+16-Jul-16 14:04:07 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  Before cleanup	pool HikariPool-0 stats (total=2, active=0, idle=2, waiting=0)
+16-Jul-16 14:04:08 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  After cleanup	pool HikariPool-0 stats (total=2, active=0, idle=2, waiting=0)
+16-Jul-16 14:04:08 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  Before cleanup	pool HikariPool-0 stats (total=2, active=0, idle=2, waiting=0)
+16-Jul-16 14:04:08 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  After cleanup	pool HikariPool-0 stats (total=2, active=0, idle=2, waiting=0)
+16-Jul-16 14:04:08 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  Before cleanup	pool HikariPool-0 stats (total=2, active=0, idle=2, waiting=0)
+16-Jul-16 14:04:08 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  After cleanup	pool HikariPool-0 stats (total=2, active=0, idle=2, waiting=0)
+16-Jul-16 14:04:08 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  HikariPool-0 - Added connection org.postgresql.jdbc4.Jdbc4Connection@75da6698
+16-Jul-16 14:04:08 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  After adding	pool HikariPool-0 stats (total=3, active=0, idle=3, waiting=0)
+16-Jul-16 14:04:08 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  Before cleanup	pool HikariPool-0 stats (total=3, active=0, idle=3, waiting=0)
+16-Jul-16 14:04:08 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  After cleanup	pool HikariPool-0 stats (total=3, active=0, idle=3, waiting=0)
+16-Jul-16 14:04:08 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  Before cleanup	pool HikariPool-0 stats (total=3, active=0, idle=3, waiting=0)
+16-Jul-16 14:04:08 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  After cleanup	pool HikariPool-0 stats (total=3, active=0, idle=3, waiting=0)
+16-Jul-16 14:04:08 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  Before cleanup	pool HikariPool-0 stats (total=3, active=0, idle=3, waiting=0)
+16-Jul-16 14:04:08 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  After cleanup	pool HikariPool-0 stats (total=3, active=0, idle=3, waiting=0)
+16-Jul-16 14:04:08 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  Before cleanup	pool HikariPool-0 stats (total=3, active=0, idle=3, waiting=0)
+16-Jul-16 14:04:08 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  After cleanup	pool HikariPool-0 stats (total=3, active=0, idle=3, waiting=0)
+16-Jul-16 14:04:08 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  Before cleanup	pool HikariPool-0 stats (total=3, active=0, idle=3, waiting=0)
+16-Jul-16 14:04:08 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  After cleanup	pool HikariPool-0 stats (total=3, active=0, idle=3, waiting=0)
+16-Jul-16 14:04:08 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  Before cleanup	pool HikariPool-0 stats (total=3, active=0, idle=3, waiting=0)
+16-Jul-16 14:04:08 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  After cleanup	pool HikariPool-0 stats (total=3, active=0, idle=3, waiting=0)
+16-Jul-16 14:04:08 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  Before cleanup	pool HikariPool-0 stats (total=3, active=0, idle=3, waiting=0)
+16-Jul-16 14:04:08 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  After cleanup	pool HikariPool-0 stats (total=3, active=0, idle=3, waiting=0)
+16-Jul-16 14:04:08 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  Before cleanup	pool HikariPool-0 stats (total=3, active=0, idle=3, waiting=0)
+16-Jul-16 14:04:08 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  After cleanup	pool HikariPool-0 stats (total=3, active=0, idle=3, waiting=0)
+16-Jul-16 14:04:08 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  Before cleanup	pool HikariPool-0 stats (total=3, active=0, idle=3, waiting=0)
+16-Jul-16 14:04:08 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  After cleanup	pool HikariPool-0 stats (total=3, active=0, idle=3, waiting=0)
+16-Jul-16 14:04:08 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  Before cleanup	pool HikariPool-0 stats (total=3, active=0, idle=3, waiting=0)
+16-Jul-16 14:04:08 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  After cleanup	pool HikariPool-0 stats (total=3, active=0, idle=3, waiting=0)
+16-Jul-16 14:04:08 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  Before cleanup	pool HikariPool-0 stats (total=3, active=0, idle=3, waiting=0)
+16-Jul-16 14:04:08 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  After cleanup	pool HikariPool-0 stats (total=3, active=0, idle=3, waiting=0)
+16-Jul-16 14:04:08 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  Before cleanup	pool HikariPool-0 stats (total=3, active=0, idle=3, waiting=0)
+16-Jul-16 14:04:08 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  After cleanup	pool HikariPool-0 stats (total=3, active=0, idle=3, waiting=0)
+16-Jul-16 14:04:08 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  Before cleanup	pool HikariPool-0 stats (total=3, active=0, idle=3, waiting=0)
+16-Jul-16 14:04:08 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  After cleanup	pool HikariPool-0 stats (total=3, active=0, idle=3, waiting=0)
+16-Jul-16 14:04:08 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  HikariPool-0 - Added connection org.postgresql.jdbc4.Jdbc4Connection@4b685989
+16-Jul-16 14:04:08 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  Before cleanup	pool HikariPool-0 stats (total=3, active=0, idle=3, waiting=0)
+16-Jul-16 14:04:08 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  After adding	pool HikariPool-0 stats (total=4, active=0, idle=4, waiting=0)
+16-Jul-16 14:04:08 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  After cleanup	pool HikariPool-0 stats (total=4, active=0, idle=4, waiting=0)
+16-Jul-16 14:04:08 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  Before cleanup	pool HikariPool-0 stats (total=4, active=0, idle=4, waiting=0)
+16-Jul-16 14:04:08 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  After cleanup	pool HikariPool-0 stats (total=4, active=0, idle=4, waiting=0)
+16-Jul-16 14:04:08 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  Before cleanup	pool HikariPool-0 stats (total=4, active=0, idle=4, waiting=0)
+16-Jul-16 14:04:08 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  After cleanup	pool HikariPool-0 stats (total=4, active=0, idle=4, waiting=0)
+16-Jul-16 14:04:08 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  Before cleanup	pool HikariPool-0 stats (total=4, active=0, idle=4, waiting=0)
+16-Jul-16 14:04:08 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  After cleanup	pool HikariPool-0 stats (total=4, active=0, idle=4, waiting=0)
+16-Jul-16 14:04:08 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  Before cleanup	pool HikariPool-0 stats (total=4, active=0, idle=4, waiting=0)
+16-Jul-16 14:04:08 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  After cleanup	pool HikariPool-0 stats (total=4, active=0, idle=4, waiting=0)
+16-Jul-16 14:04:08 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  Before cleanup	pool HikariPool-0 stats (total=4, active=0, idle=4, waiting=0)
+16-Jul-16 14:04:08 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  After cleanup	pool HikariPool-0 stats (total=4, active=0, idle=4, waiting=0)
+16-Jul-16 14:04:08 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  Before cleanup	pool HikariPool-0 stats (total=4, active=0, idle=4, waiting=0)
+16-Jul-16 14:04:08 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  After cleanup	pool HikariPool-0 stats (total=4, active=0, idle=4, waiting=0)
+16-Jul-16 14:04:09 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  HikariPool-0 - Added connection org.postgresql.jdbc4.Jdbc4Connection@44e5b633
+16-Jul-16 14:04:09 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  HikariPool-0 - Added connection org.postgresql.jdbc4.Jdbc4Connection@33bdd79e
+16-Jul-16 14:04:09 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  After adding	pool HikariPool-0 stats (total=6, active=0, idle=6, waiting=0)
+16-Jul-16 14:04:10 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  Before cleanup	pool HikariPool-0 stats (total=6, active=0, idle=6, waiting=0)
+16-Jul-16 14:04:10 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  After cleanup	pool HikariPool-0 stats (total=6, active=0, idle=6, waiting=0)
+16-Jul-16 14:04:24 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  HikariPool-0 - Reset (nothing) on connection org.postgresql.jdbc4.Jdbc4Connection@34e76ca3
+16-Jul-16 14:04:31 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  HikariPool-0 - Reset (nothing) on connection org.postgresql.jdbc4.Jdbc4Connection@34e76ca3
+16-Jul-16 14:04:40 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  Before cleanup	pool HikariPool-0 stats (total=6, active=0, idle=6, waiting=0)
+16-Jul-16 14:04:40 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  After cleanup	pool HikariPool-0 stats (total=6, active=0, idle=6, waiting=0)
+16-Jul-16 14:05:10 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  Before cleanup	pool HikariPool-0 stats (total=6, active=0, idle=6, waiting=0)
+16-Jul-16 14:05:10 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  After cleanup	pool HikariPool-0 stats (total=6, active=0, idle=6, waiting=0)
+16-Jul-16 14:05:40 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  Before cleanup	pool HikariPool-0 stats (total=6, active=0, idle=6, waiting=0)
+16-Jul-16 14:05:40 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  After cleanup	pool HikariPool-0 stats (total=6, active=0, idle=6, waiting=0)
+16-Jul-16 14:06:10 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  Before cleanup	pool HikariPool-0 stats (total=6, active=0, idle=6, waiting=0)
+16-Jul-16 14:06:10 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  After cleanup	pool HikariPool-0 stats (total=6, active=0, idle=6, waiting=0)
+16-Jul-16 14:06:40 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  Before cleanup	pool HikariPool-0 stats (total=6, active=0, idle=6, waiting=0)
+16-Jul-16 14:06:40 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  After cleanup	pool HikariPool-0 stats (total=6, active=0, idle=6, waiting=0)
+16-Jul-16 14:07:10 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  Before cleanup	pool HikariPool-0 stats (total=6, active=0, idle=6, waiting=0)
+16-Jul-16 14:07:10 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  After cleanup	pool HikariPool-0 stats (total=6, active=0, idle=6, waiting=0)
+16-Jul-16 14:07:38 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  HikariPool-0 - Reset (nothing) on connection org.postgresql.jdbc4.Jdbc4Connection@34e76ca3
+16-Jul-16 14:07:40 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  Before cleanup	pool HikariPool-0 stats (total=6, active=0, idle=6, waiting=0)
+16-Jul-16 14:07:40 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  After cleanup	pool HikariPool-0 stats (total=6, active=0, idle=6, waiting=0)
+16-Jul-16 14:07:43 DESKTOP-C3SC9AR DEBUG [slf4j-timbre.adapter] -  HikariPool-0 - Reset (nothing) on connection org.postgresql.jdbc4.Jdbc4Connection@34e76ca3

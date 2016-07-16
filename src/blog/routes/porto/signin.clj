@@ -20,6 +20,10 @@
   [account]
   (:exists (first (db/exists_user? {:account account}))))
 
+(defn cookie-exists?
+  [request]
+  (:exists (get (-> request :cookies) (-> request :params :account))))
+
 (defn valid-token?
   [request]
   (if-let [token (get (-> request :cookies) (-> request :params :account))]
@@ -41,10 +45,11 @@
   (if (valid-token? request)
     (first
       (let [params (-> request :params)]
-        (b/validate params
-                    :account [[user-exists? :message "用户名不存在"]]
-                    :password [[#(> 30 (count %)) :message "用户授权或密码变更，当前凭据失效"]
-                               [hashers/check (:password (first (db/get_password (select-keys params [:account])))) :message "密码有误，请检查后重新输入"]])))
+      	(b/validate params
+      		:account [[user-exists? :message "用户名不存在"]]
+            :password [[hashers/check (:password (first (db/get_password (select-keys params [:account])))) 
+                        :message "密码有误或授权凭据失效，请重新输入"]])))
+	; )
     nil))
 
 (defn user-signin

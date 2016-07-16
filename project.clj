@@ -42,6 +42,7 @@
 
   :plugins [[lein-environ "1.0.1"]
             [migratus-lein "0.2.0"]]
+
   :profiles
   {:uberjar {:omit-source true
              :env {:production true}
@@ -57,7 +58,7 @@
                   
                   
                   :source-paths ["env/dev/clj"]
-                  :repl-options {:init-ns education.core}
+                  :repl-options {:init-ns blog.core}
                   :injections [(require 'pjstadig.humane-test-output)
                                (pjstadig.humane-test-output/activate!)]
                   ;;when :nrepl-port is set the application starts the nREPL server on load
