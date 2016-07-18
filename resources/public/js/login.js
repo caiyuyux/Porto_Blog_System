@@ -52,10 +52,10 @@ $('#password').bind('input propertychange', function() {
 });
 
 //用户名存在cookie，填充密码
-$('#account').blur(function () {
+$('#password').focus(function () {
     var account = $('#account').val();
     if(account.length>0 && $.cookie(account)!=null){
-//			alert("存在cookie，值为"+$.cookie(account));
+        alert("存在cookie，值为"+$.cookie(account));
         $('#rememberme').attr('checked',true);
         //密码填充
         var tmp = '8'

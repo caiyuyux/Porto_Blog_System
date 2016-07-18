@@ -12125,7 +12125,7 @@ ul.simple-todo-list li.completed:before {
 	top: 3px;
 	left: 0;
 	font-family: FontAwesome;
-	content: "\f00c";
+	content: "\f00d";
 	z-index: 1;
 }
 
