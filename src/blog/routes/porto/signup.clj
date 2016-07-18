@@ -5,6 +5,7 @@
             [bouncer.core :as b]
             [bouncer.validators :as v]
             [postal.core :as p]
+            [clojure.java.io :as io]
             [environ.core :refer [env]]
             [ring.util.response :refer [redirect response]]))
 
@@ -38,7 +39,8 @@
            :password [v/required
                       [v/min-count 6 :message "密码长度最少为6位"]
                       [v/max-count 25 :message "密码长度最多为25位"]
-                      [= (:password-repeat (-> request :params)) :message "两次输入的密码不匹配"]])))
+                      [= (:password-repeat (-> request :params)) :message "两次输入的密码不匹配"]]
+           )))
 
 (defn save-user!
   [params]
@@ -48,12 +50,26 @@
       [:password]
       hashers/encrypt {:algorithm :pbkdf2+sha256})))
 
+(defn create-config!
+  [request]
+  (let [path "resources/templates/business"
+        params (-> request :params)
+        account (-> request :params :account)]
+    (.mkdir (io/file path account))
+    (def filePath (str path "/" account "/" account ".config"))
+    (io/copy (io/file "resources/public/images/avatar.jpg")
+             (io/file path account "avatar.jpg"))
+    (spit filePath (str ":account\t" (params :account) "\n") :append true)
+    (spit filePath (str ":email\t" (params :email) "\n") :append true)
+    ))
+
 (defn user-signup
   [request]
   (if-let [errors (validate-user-signup request)]
     (-> (redirect "/")
         (assoc :flash (assoc (-> request :params) :errors (merge errors {:type "signup" :value "注册"}))))
     (do
+      (create-config! request)
       (save-user! (-> request :params))
       (-> (redirect "/")
           (assoc :flash (select-keys (-> request :params) [:account]))

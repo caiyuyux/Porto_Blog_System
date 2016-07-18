@@ -17,7 +17,7 @@
 ;                                                           ["porto/contact-us.html"])))
 
 (defn render
-  "renders the HTML template located relative to resources/templates"
+  "renders the HTML template located relative to resources/public/templates"
   [template & [params]]
   (content-type
     (ok

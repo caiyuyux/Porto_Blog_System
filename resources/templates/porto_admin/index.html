@@ -8,11 +8,11 @@
 		<div class="right-wrapper pull-right">
 			<ol class="breadcrumbs">
 				<li>
-					<a href="index.html">
+					<a href="/">
 						<i class="fa fa-home"></i>
 					</a>
 				</li>
-				<li><span>Pages</span></li>
+				<li><span>Admin</span></li>
 				<li><span>User Profile</span></li>
 			</ol>
 
@@ -112,75 +112,6 @@
 						<hr class="dotted short">
 					</div>
 				</div>
-				<div class="panel-footer">
-					<div class="input-group input-search">
-						<input type="text" class="form-control" name="q" id="q" placeholder="Search...">
-										<span class="input-group-btn">
-											<button class="btn btn-default" type="submit"><i class="fa fa-search"></i>
-											</button>
-										</span>
-					</div>
-				</div>
-			</section>
-
-			<section class="panel">
-				<header class="panel-heading">
-					<div class="panel-actions">
-						<a href="#" class="panel-action panel-action-toggle" data-panel-toggle></a>
-						<a href="#" class="panel-action panel-action-dismiss" data-panel-dismiss></a>
-					</div>
-
-					<h2 class="panel-title">最新评论</h2>
-				</header>
-				<div class="panel-body">
-					<ul class="simple-post-list">
-						<li>
-							<div class="post-image">
-								<div class="img-thumbnail">
-									<a href="#">
-										<img src="assets/images/post-thumb-1.jpg" alt="">
-									</a>
-								</div>
-							</div>
-							<div class="post-info">
-								<a href="#">Nullam Vitae Nibh Un Odiosters</a>
-								<div class="post-meta">
-									Jan 10, 2013
-								</div>
-							</div>
-						</li>
-						<li>
-							<div class="post-image">
-								<div class="img-thumbnail">
-									<a href="#">
-										<img src="assets/images/post-thumb-2.jpg" alt="">
-									</a>
-								</div>
-							</div>
-							<div class="post-info">
-								<a href="#">Vitae Nibh Un Odiosters</a>
-								<div class="post-meta">
-									Jan 10, 2013
-								</div>
-							</div>
-						</li>
-						<li>
-							<div class="post-image">
-								<div class="img-thumbnail">
-									<a href="#">
-										<img src="assets/images/post-thumb-3.jpg" alt="">
-									</a>
-								</div>
-							</div>
-							<div class="post-info">
-								<a href="#">Odiosters Nullam Vitae</a>
-								<div class="post-meta">
-									Jan 10, 2013
-								</div>
-							</div>
-						</li>
-					</ul>
-				</div>
 			</section>
 
 		</div>
@@ -262,70 +193,45 @@
 							<h4 class="mb-xlg">Personal Information</h4>
 							<fieldset>
 								<div class="form-group">
-									<label class="col-md-3 control-label" for="profileFirstName">First Name</label>
+									<label class="col-md-3 control-label" for="profileFirstName">姓名</label>
 									<div class="col-md-8">
-										<input type="text" class="form-control" id="profileFirstName">
+										<input type="text" class="form-control" id="profileName">
 									</div>
 								</div>
 								<div class="form-group">
-									<label class="col-md-3 control-label" for="profileLastName">Last Name</label>
-									<div class="col-md-8">
-										<input type="text" class="form-control" id="profileLastName">
-									</div>
-								</div>
-								<div class="form-group">
-									<label class="col-md-3 control-label" for="profileAddress">Address</label>
+									<label class="col-md-3 control-label" for="profileLastName">身份</label>
 									<div class="col-md-8">
 										<input type="text" class="form-control" id="profileAddress">
 									</div>
 								</div>
 								<div class="form-group">
-									<label class="col-md-3 control-label" for="profileCompany">Company</label>
+									<label class="col-md-3 control-label" for="profileCompany">简介</label>
 									<div class="col-md-8">
-										<input type="text" class="form-control" id="profileCompany">
+										<textarea class="form-control" rows="3" id="profileIntro"></textarea>
 									</div>
 								</div>
 							</fieldset>
 							<hr class="dotted tall">
-							<h4 class="mb-xlg">About Yourself</h4>
+							<h4 class="mb-xlg">Third-party binding</h4>
 							<fieldset>
 								<div class="form-group">
-									<label class="col-md-3 control-label" for="profileBio">Biographical Info</label>
+									<label class="col-md-3 control-label" for="profileBio">Disqus账号</label>
 									<div class="col-md-8">
-										<textarea class="form-control" rows="3" id="profileBio"></textarea>
+										<input type="text" class="form-control" id="profileDisqus">
 									</div>
 								</div>
 								<div class="form-group">
-									<label class="col-xs-3 control-label mt-xs pt-none">Public</label>
+									<label class="col-xs-3 control-label mt-xs pt-none">Leancloud账号</label>
 									<div class="col-md-8">
-										<div class="checkbox-custom checkbox-default checkbox-inline mt-xs">
-											<input type="checkbox" checked="" id="profilePublic">
-											<label for="profilePublic"></label>
-										</div>
+										<input type="text" class="form-control" id="profileLeancloud">
 									</div>
 								</div>
 							</fieldset>
 							<hr class="dotted tall">
-							<h4 class="mb-xlg">Change Password</h4>
-							<fieldset class="mb-xl">
-								<div class="form-group">
-									<label class="col-md-3 control-label" for="profileNewPassword">New Password</label>
-									<div class="col-md-8">
-										<input type="text" class="form-control" id="profileNewPassword">
-									</div>
-								</div>
-								<div class="form-group">
-									<label class="col-md-3 control-label" for="profileNewPasswordRepeat">Repeat New Password</label>
-									<div class="col-md-8">
-										<input type="text" class="form-control" id="profileNewPasswordRepeat">
-									</div>
-								</div>
-							</fieldset>
 							<div class="panel-footer">
 								<div class="row">
 									<div class="col-md-9 col-md-offset-3">
-										<button type="submit" class="btn btn-primary">Submit</button>
-										<button type="reset" class="btn btn-default">Reset</button>
+										<button type="submit" class="btn btn-primary pull-right">Submit</button>
 									</div>
 								</div>
 							</div>
@@ -354,57 +260,65 @@
 				</li>
 			</ul>
 
-			<h4 class="mb-md">Projects</h4>
-			<ul class="simple-bullet-list mb-xlg">
-				<li class="red">
-					<span class="title">Porto Template</span>
-					<span class="description truncate">Lorem ipsom dolor sit.</span>
-				</li>
-				<li class="green">
-					<span class="title">Tucson HTML5 Template</span>
-					<span class="description truncate">Lorem ipsom dolor sit amet</span>
-				</li>
-				<li class="blue">
-					<span class="title">Porto HTML5 Template</span>
-					<span class="description truncate">Lorem ipsom dolor sit.</span>
-				</li>
-				<li class="orange">
-					<span class="title">Tucson Template</span>
-					<span class="description truncate">Lorem ipsom dolor sit.</span>
-				</li>
-			</ul>
+			<section class="panel">
+				<header class="panel-heading">
+					<div class="panel-actions">
+						<a href="#" class="panel-action panel-action-toggle" data-panel-toggle></a>
+						<a href="#" class="panel-action panel-action-dismiss" data-panel-dismiss></a>
+					</div>
 
-			<h4 class="mb-md">Messages</h4>
-			<ul class="simple-user-list mb-xlg">
-				<li>
-					<figure class="image rounded">
-						<img src="assets/images/!sample-user.jpg" alt="Joseph Doe Junior" class="img-circle">
-					</figure>
-					<span class="title">Joseph Doe Junior</span>
-					<span class="message">Lorem ipsum dolor sit.</span>
-				</li>
-				<li>
-					<figure class="image rounded">
-						<img src="assets/images/!sample-user.jpg" alt="Joseph Junior" class="img-circle">
-					</figure>
-					<span class="title">Joseph Junior</span>
-					<span class="message">Lorem ipsum dolor sit.</span>
-				</li>
-				<li>
-					<figure class="image rounded">
-						<img src="assets/images/!sample-user.jpg" alt="Joe Junior" class="img-circle">
-					</figure>
-					<span class="title">Joe Junior</span>
-					<span class="message">Lorem ipsum dolor sit.</span>
-				</li>
-				<li>
-					<figure class="image rounded">
-						<img src="assets/images/!sample-user.jpg" alt="Joseph Doe Junior" class="img-circle">
-					</figure>
-					<span class="title">Joseph Doe Junior</span>
-					<span class="message">Lorem ipsum dolor sit.</span>
-				</li>
-			</ul>
+					<h2 class="panel-title">最新评论</h2>
+				</header>
+				<div class="panel-body">
+					<ul class="simple-post-list">
+						<li>
+							<div class="post-image">
+								<div class="img-thumbnail">
+									<a href="#">
+										<img src="assets/images/post-thumb-1.jpg" alt="">
+									</a>
+								</div>
+							</div>
+							<div class="post-info">
+								<a href="#">Nullam Vitae Nibh Un Odiosters</a>
+								<div class="post-meta">
+									Jan 10, 2013
+								</div>
+							</div>
+						</li>
+						<li>
+							<div class="post-image">
+								<div class="img-thumbnail">
+									<a href="#">
+										<img src="assets/images/post-thumb-2.jpg" alt="">
+									</a>
+								</div>
+							</div>
+							<div class="post-info">
+								<a href="#">Vitae Nibh Un Odiosters</a>
+								<div class="post-meta">
+									Jan 10, 2013
+								</div>
+							</div>
+						</li>
+						<li>
+							<div class="post-image">
+								<div class="img-thumbnail">
+									<a href="#">
+										<img src="assets/images/post-thumb-3.jpg" alt="">
+									</a>
+								</div>
+							</div>
+							<div class="post-info">
+								<a href="#">Odiosters Nullam Vitae</a>
+								<div class="post-meta">
+									Jan 10, 2013
+								</div>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</section>
 		</div>
 
 	</div>
