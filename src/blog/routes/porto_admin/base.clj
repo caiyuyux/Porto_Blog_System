@@ -16,9 +16,10 @@
       "porto_admin/index.html"
       (let [user {:account account}]
         (merge user
-               ;(when-let [all_info (not-empty (db/all_for_user user))] {:all_info all_info})
+               (when-let [info (not-empty (db/get_user_info user))] (first info))
                ;(when-let [followers (not-empty (db/follower_for_user user))] {:followers followers})
                ;;select result
-               (when-let [errors (get-in request [:flash :errors])] {:errors errors}))))
+               (when-let [errors (get-in request [:flash :errors])] {:errors errors}))
+        ))
     (-> (redirect "/")
         (assoc :flash {:errors {:type "signin" :value "登录" :warning "Please login first"}}))))

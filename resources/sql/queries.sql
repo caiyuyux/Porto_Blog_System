@@ -53,3 +53,10 @@ WHERE token = :value;
 ------------------------porto end----------------------------
 
 --------------------porto_admin start------------------------
+-- :name get_user_info :? :*
+-- :doc return all info of account
+SELECT nickname, email, describe, realmname, avatar, discussid, privilege, mind, lendcloud
+FROM users
+WHERE account = :account;
+
+---------------------porto_admin end-------------------------

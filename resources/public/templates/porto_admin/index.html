@@ -30,8 +30,8 @@
 					<div class="thumb-info mb-md">
 						<img src="templates/business/{{account}}/avatar.jpg" class="rounded img-responsive" alt="">
 						<div class="thumb-info-title">
-							<span class="thumb-info-inner">caiyuyu</span>
-							<span class="thumb-info-type">普通用户</span>
+							<span class="thumb-info-inner">{{account}}</span>
+							<span class="thumb-info-type">{% if privilege %}管理员{% else %}普通用户{% endif %}</span>
 						</div>
 					</div>
 
@@ -49,8 +49,12 @@
 						</div>
 						<div class="widget-content-expanded">
 							<ul class="simple-todo-list">
-								<li class="completed">Update Profile Picture</li>
-								<li class="completed">Change Personal Information</li>
+								{% if not describe %}<li class="completed">个人描述</li>{% endif %}
+								{% if not mind %}<li class="completed">心情状态</li>{% endif %}
+								{% if not realname %}<li class="completed">域名绑定</li>{% endif %}
+								{% if not discussid %}<li class="completed">discussid绑定</li>{% endif %}
+								{% if not lendcloud %}<li class="completed">lendcloud绑定</li>{% endif %}
+
 							</ul>
 						</div>
 					</div>
