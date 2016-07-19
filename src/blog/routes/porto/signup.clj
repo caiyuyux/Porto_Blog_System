@@ -82,7 +82,7 @@
    :ssl :yes!!!11})
 
 (defn mail [request]
-  {:from (env :mail-user)
+  {:from (str "Porto博客系统 <" (env :mail-user) ">")
    :to (-> request :params :to)
    :subject "来自Porto博客系统的验证邮件"
    :body (str "您好，感谢您注册Porto博客系统，\n您的验证码为：" (-> request :params :code) "，有效时间为10分钟。")})
