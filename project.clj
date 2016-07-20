@@ -55,8 +55,8 @@
                                  [ring/ring-devel "1.4.0"]
                                  [pjstadig/humane-test-output "0.7.0"]
                                  [mvxcvi/puget "1.0.0"]]
-                  
-                  
+
+
                   :source-paths ["env/dev/clj"]
                   :repl-options {:init-ns blog.core}
                   :injections [(require 'pjstadig.humane-test-output)
@@ -70,5 +70,9 @@
                         :port       3001
                         :nrepl-port 7001
                         :log-level  :trace}}
-   :profiles/dev {}
+
+   :profiles/dev  {:env {:database-url "jdbc:postgresql://localhost/blog?user=postgres&password=root"
+                          :mail-host "smtp.qq.com"
+                          :mail-user "519206112@qq.com"
+                          :mail-pass "ddglzxwrlofpbiih"}}
    :profiles/test {}})
