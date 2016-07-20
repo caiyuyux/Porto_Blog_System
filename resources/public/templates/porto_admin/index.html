@@ -1,6 +1,5 @@
 {% extends "porto_admin/base.html" %}
 {% block content %}
-
 <section role="main" class="content-body">
 	<header class="page-header">
 		<h2>用户概况</h2>
@@ -42,18 +41,19 @@
 						</div>
 						<div class="widget-content-collapsed">
 							<div class="progress progress-xs light">
-								<div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-									60%
+								<div class="progress-bar" id="countProfile" role="progressbar" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
 								</div>
 							</div>
 						</div>
 						<div class="widget-content-expanded">
 							<ul class="simple-todo-list">
-								{% if not describe %}<li class="completed">个人描述</li>{% endif %}
-								{% if not mind %}<li class="completed">心情状态</li>{% endif %}
-								{% if not realname %}<li class="completed">域名绑定</li>{% endif %}
-								{% if not discussid %}<li class="completed">discussid绑定</li>{% endif %}
-								{% if not lendcloud %}<li class="completed">lendcloud绑定</li>{% endif %}
+								{% if not name %}<li class="completed">真实姓名</li>{% endif %}
+								{% if not describe %}<li class="completed">自我描述</li>{% endif %}
+								{% if not nickname %}<li class="completed">个性昵称</li>{% endif %}
+								{% if not status %}<li class="completed">所属身份</li>{% endif %}
+								{% if not domain %}<li class="completed">域名绑定</li>{% endif %}
+								{% if not disqus %}<li class="completed">disqus绑定</li>{% endif %}
+								{% if not leancloud %}<li class="completed">lendcloud绑定</li>{% endif %}
 
 							</ul>
 						</div>
@@ -135,16 +135,18 @@
 						<h4 class="mb-md">更新心情</h4>
 
 						<section class="simple-compose-box mb-xlg">
-							<form method="get" action="/">
-								<textarea name="message-text" data-plugin-textarea-autosize placeholder="What's on your mind?" rows="1"></textarea>
+							<form method="post" action="/update-mind" id="mindForm">
+								{% csrf-field %}
+								<input name="account" value="{{account}}" hidden>
+								<textarea name="profileMind" data-plugin-textarea-autosize placeholder="What's on your mind?" rows="1">{{mind}}</textarea>
+								<div class="compose-box-footer">
+									<ul class="compose-btn">
+										<li>
+											<input class="btn btn-primary btn-xs" type="submit" value="Post"/>
+										</li>
+									</ul>
+								</div>
 							</form>
-							<div class="compose-box-footer">
-								<ul class="compose-btn">
-									<li>
-										<a class="btn btn-primary btn-xs">Post</a>
-									</li>
-								</ul>
-							</div>
 						</section>
 
 						<h4 class="mb-xlg">最新动态</h4>
@@ -193,31 +195,39 @@
 					</div>
 					<div id="edit" class="tab-pane">
 
-						<form class="form-horizontal" method="get">
+						<form class="form-horizontal" method="post" action="/update-profile">
+							{% csrf-field %}
+							<input name="account" value="{{account}}" hidden>
 							<h4 class="mb-xlg">Personal Information</h4>
 							<fieldset>
 								<div class="form-group">
-									<label class="col-md-3 control-label" for="profileFirstName">姓名</label>
+									<label class="col-md-3 control-label" for="">姓名</label>
 									<div class="col-md-8">
-										<input type="text" class="form-control" id="profileName">
+										<input type="text" class="form-control" name="profileName" value="{{name}}">
 									</div>
 								</div>
 								<div class="form-group">
-									<label class="col-md-3 control-label" for="profileLastName">身份</label>
+									<label class="col-md-3 control-label" for="">身份</label>
 									<div class="col-md-8">
-										<input type="text" class="form-control" id="profileAddress">
+										<input type="text" class="form-control" name="profileStatus" value="{{status}}">
 									</div>
 								</div>
 								<div class="form-group">
-									<label class="col-md-3 control-label" for="profileLastName">昵称</label>
+									<label class="col-md-3 control-label" for="">昵称</label>
 									<div class="col-md-8">
-										<input type="text" class="form-control" id="profileNickname">
+										<input type="text" class="form-control" name="profileNickname" value="{{nickname}}">
 									</div>
 								</div>
 								<div class="form-group">
-									<label class="col-md-3 control-label" for="profileCompany">简介</label>
+									<label class="col-md-3 control-label" for="">域名</label>
 									<div class="col-md-8">
-										<textarea class="form-control" rows="3" id="profileIntro"></textarea>
+										<input type="text" class="form-control" name="profileDomain" value="{{domain}}">
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="col-md-3 control-label" for="">简介</label>
+									<div class="col-md-8">
+										<textarea class="form-control" rows="3" name="profileDescribe">{{describe}}</textarea>
 									</div>
 								</div>
 							</fieldset>
@@ -225,15 +235,15 @@
 							<h4 class="mb-xlg">Third-party binding</h4>
 							<fieldset>
 								<div class="form-group">
-									<label class="col-md-3 control-label" for="profileBio">Disqus账号</label>
+									<label class="col-md-3 control-label" for="">Disqus账号</label>
 									<div class="col-md-8">
-										<input type="text" class="form-control" id="profileDisqus">
+										<input type="text" class="form-control" name="profileDisqus" value="{{disqus}}">
 									</div>
 								</div>
 								<div class="form-group">
-									<label class="col-xs-3 control-label mt-xs pt-none">Leancloud账号</label>
+									<label class="col-md-3 control-label" for="">Leancloud账号</label>
 									<div class="col-md-8">
-										<input type="text" class="form-control" id="profileLeancloud">
+										<input type="text" class="form-control" name="profileLeancloud" value="{{leancloud}}">
 									</div>
 								</div>
 							</fieldset>
@@ -334,5 +344,22 @@
 	</div>
 	<!-- end: page -->
 </section>
+<script type="text/javascript">
+	var count = 0;
+	var vector = new Array("{{name}}","{{describe}}","{{status}}","{{domain}}","{{disqus}}","{{leancloud}}");
+	for(var x in vector){
+		if(vector[x].length>0){
+			count++;
+		}
+	}
+	count =(count*10+40)+"%";
+	$('#countProfile').css("width",count);
 
+	$("form").submit(function() {
+		$(this).submit(function() {
+			return false;
+		});
+		return true;
+	});
+</script>
 {% endblock %}

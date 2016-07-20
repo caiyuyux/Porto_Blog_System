@@ -55,8 +55,25 @@ WHERE token = :value;
 --------------------porto_admin start------------------------
 -- :name get_user_info :? :*
 -- :doc return all info of account
-SELECT nickname, email, describe, realmname, avatar, discussid, privilege, mind, lendcloud
+SELECT nickname, name, status, email, describe, domain, avatar, disqus, privilege, mind, leancloud
 FROM users
 WHERE account = :account;
 
+-- :name update_user_mind! :! :n
+-- :doc
+UPDATE users
+SET mind = :profileMind
+WHERE account = :account;
+
+-- :name update_user_profile! :! :n
+-- :doc
+UPDATE users
+SET nickname = :profileNickname, describe = :profileDescribe, domain = :profileDomain, name = :profileName,
+    disqus = :profileDisqus, leancloud = :profileLeancloud,  status = :profileStatus
+WHERE account = :account;
+
+-- :name create_new! :! :n
+-- :doc
+INSERT INTO news (obj, create_time, account, photo, video, music, type, post)
+VALUES (:obj, :create_time, :account, :photo, :video, :music, :type, :post);
 ---------------------porto_admin end-------------------------

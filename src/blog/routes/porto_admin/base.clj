@@ -1,10 +1,6 @@
 (ns blog.routes.porto-admin.base
   (:require [blog.layout :as layout]
             [blog.db.core :as db]
-            [buddy.hashers :as hashers]
-            [bouncer.core :as b]
-            [clj-time.local :as l]
-            [clj-time.core :as t]
             [crypto.random :refer [url-part]]
             [cheshire.core :refer :all]
             [ring.util.response :refer [redirect response]]))
@@ -17,8 +13,6 @@
       (let [user {:account account}]
         (merge user
                (when-let [info (not-empty (db/get_user_info user))] (first info))
-               ;(when-let [followers (not-empty (db/follower_for_user user))] {:followers followers})
-               ;;select result
                (when-let [errors (get-in request [:flash :errors])] {:errors errors}))
         ))
     (-> (redirect "/")
