@@ -18,7 +18,9 @@
             [blog.routes.porto.signup :as signup]
             [blog.routes.porto.recover :as recover]
             [blog.routes.porto-admin.base :as admin]
-            [blog.routes.porto-admin.profile :as profile]))
+            [blog.routes.porto-admin.profile :as profile]
+            [blog.routes.porto-admin.post :as post]
+            [blog.routes.porto-admin.resources :as resources]))
 
 ;this is a handler, it takes a request and gives a response
 ;the response will render a template with an associated context-map
@@ -59,11 +61,14 @@
 
            ;; -----------------------porto_admin-----------------------------
 
-           (GET "/admin"           request (admin/admin_index_page request))
-           (POST "/admin"          request (admin/admin_index_page request))
-           (POST "/update-profile" request (profile/update-profile request))
-           (GET "/update-mind"     request (profile/update-mind    request))
-           (POST "/update-mind"    request (profile/update-mind    request))
+           (GET "/admin"                 request (admin/admin_index_page  request))
+           (POST "/admin"                request (admin/admin_index_page  request))
+           (POST "/admin_update-profile" request (profile/update-profile  request))
+           (POST "/admin_update-mind"    request (profile/update-mind     request))
+
+           (GET "/admin_edit-post"       request (post/edit_post_page     request))
+           (GET "/admin_consult-post"    request (post/consult_post_page  request))
+           (GET "/admin_resources"       request (resources/resources_index_page  request))
            ; (GET "/:account/panel"  request (panel/admin-panel-page  request))
            ; (POST "/:account/panel" request (panel/admin-panel       request))
 

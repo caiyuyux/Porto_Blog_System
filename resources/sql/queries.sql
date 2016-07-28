@@ -74,6 +74,12 @@ WHERE account = :account;
 
 -- :name create_new! :! :n
 -- :doc
-INSERT INTO news (obj, create_time, account, photo, video, music, type, post)
-VALUES (:obj, :create_time, :account, :photo, :video, :music, :type, :post);
+INSERT INTO news (obj, create_time, account, photo, video, music, type, post, content)
+VALUES (:obj, :create_time, :account, :photo, :video, :music, :type, :post, :content);
+
+-- :name get_news :? :*
+-- :doc
+SELECT obj, create_time, photo, video, music, type, post, content
+FROM news
+WHERE account = :account
 ---------------------porto_admin end-------------------------

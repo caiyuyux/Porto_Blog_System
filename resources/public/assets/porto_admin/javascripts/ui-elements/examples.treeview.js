@@ -59,7 +59,7 @@ Theme Version: 	1.5.2
 			'check_callback' : true,
 			'data' : {
 				'url' : function (node) {
-				  return 'assets/ajax/ajax-treeview-nodes.html';
+				  return 'assets/porto_admin/ajax/ajax-treeview-nodes.html';
 				},
 				'data' : function (node) {
 				  return { 'parent' : node.id };
@@ -88,7 +88,7 @@ Theme Version: 	1.5.2
 			'check_callback' : true,
 			'data' : {
 				'url' : function (node) {
-					return node.id === '#' ? 'assets/ajax/ajax-treeview-roots.json' : 'assets/ajax/ajax-treeview-children.json';
+					return node.id === '#' ? "templates/business/{{account}}/tree_root.json" : "templates/business/{{account}}/tree_children.json";
 				},
 				'data' : function (node) {
 					return { 'id' : node.id };
@@ -103,7 +103,7 @@ Theme Version: 	1.5.2
 				'icon' : 'fa fa-file'
 			}
 		},
-		'plugins': ['types']
+		'plugins': ['types','checkbox']
 	});
 
 	/*

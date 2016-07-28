@@ -1,0 +1,354 @@
+{% extends "porto_admin/base.html" %}
+{% block content %}
+<section role="main" class="content-body">
+    <header class="page-header">
+        <h2>概览</h2>
+
+        <div class="right-wrapper pull-right">
+            <ol class="breadcrumbs">
+                <li>
+                    <a href="/">
+                        <i class="fa fa-home"></i>
+                    </a>
+                </li>
+                <li><span>Admin</span></li>
+                <li><span>User Profile</span></li>
+            </ol>
+
+            <a class="sidebar-right-toggle" data-open="sidebar-right"><i class="fa fa-chevron-left"></i></a>
+        </div>
+    </header>
+
+    <!-- start: page -->
+
+    <div class="row">
+        <div class="col-md-4 col-lg-3">
+
+            <section class="panel">
+                <div class="panel-body">
+                    <div class="thumb-info mb-md">
+                        <img src="templates/business/{{account}}/avatar.jpg" class="rounded img-responsive" alt="">
+                        <div class="thumb-info-title">
+                            <span class="thumb-info-inner">{{account}}</span>
+                            <span class="thumb-info-type">{% if privilege %}管理员{% else %}普通用户{% endif %}</span>
+                        </div>
+                    </div>
+
+                    <div class="widget-toggle-expand mb-md">
+                        <div class="widget-header">
+                            <h6>资料完整度</h6>
+                            <div class="widget-toggle">+</div>
+                        </div>
+                        <div class="widget-content-collapsed">
+                            <div class="progress progress-xs light">
+                                <div class="progress-bar" id="countProfile" role="progressbar" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="widget-content-expanded">
+                            <ul class="simple-todo-list">
+                                {% if not name %}<li class="completed">真实姓名</li>{% endif %}
+                                {% if not describe %}<li class="completed">自我描述</li>{% endif %}
+                                {% if not nickname %}<li class="completed">个性昵称</li>{% endif %}
+                                {% if not status %}<li class="completed">所属身份</li>{% endif %}
+                                {% if not domain %}<li class="completed">域名绑定</li>{% endif %}
+                                {% if not disqus %}<li class="completed">disqus绑定</li>{% endif %}
+                                {% if not leancloud %}<li class="completed">lendcloud绑定</li>{% endif %}
+
+                            </ul>
+                        </div>
+                    </div>
+
+                    <hr class="dotted short">
+
+                    <h6 class="text-muted">注意</h6>
+                    <p>请尽可能的完善您的用户资料，否则可能导致您的博客资料或功能的不齐全</p>
+
+                    <hr class="dotted short">
+
+                </div>
+            </section>
+
+
+            <section class="panel">
+                <header class="panel-heading">
+                    <div class="panel-actions">
+                        <a href="#" class="panel-action panel-action-toggle" data-panel-toggle></a>
+                        <a href="#" class="panel-action panel-action-dismiss" data-panel-dismiss></a>
+                    </div>
+
+                    <h2 class="panel-title">
+                        <span class="va-middle">热门博文</span>
+                    </h2>
+                </header>
+                <div class="panel-body">
+                    <div class="content">
+                        <ul class="simple-user-list">
+                            <li>
+                                <figure class="image rounded">
+                                    <img src="assets/images/!sample-user.jpg" alt="Joseph Doe Junior" class="img-circle">
+                                </figure>
+                                <span class="title">Joseph Doe Junior</span>
+                                <span class="message truncate">Lorem ipsum dolor sit.</span>
+                            </li>
+                            <li>
+                                <figure class="image rounded">
+                                    <img src="assets/images/!sample-user.jpg" alt="Joseph Junior" class="img-circle">
+                                </figure>
+                                <span class="title">Joseph Junior</span>
+                                <span class="message truncate">Lorem ipsum dolor sit.</span>
+                            </li>
+                            <li>
+                                <figure class="image rounded">
+                                    <img src="assets/images/!sample-user.jpg" alt="Joe Junior" class="img-circle">
+                                </figure>
+                                <span class="title">Joe Junior</span>
+                                <span class="message truncate">Lorem ipsum dolor sit.</span>
+                            </li>
+                            <li>
+                                <figure class="image rounded">
+                                    <img src="assets/images/!sample-user.jpg" alt="Joseph Doe Junior" class="img-circle">
+                                </figure>
+                                <span class="title">Joseph Doe Junior</span>
+                                <span class="message truncate">Lorem ipsum dolor sit.</span>
+                            </li>
+                        </ul>
+                        <hr class="dotted short">
+                    </div>
+                </div>
+            </section>
+
+        </div>
+        <div class="col-md-8 col-lg-6">
+
+            <div class="tabs">
+                <ul class="nav nav-tabs tabs-primary">
+                    <li class="active">
+                        <a href="#overview" data-toggle="tab">Overview</a>
+                    </li>
+                    <li>
+                        <a href="#edit" data-toggle="tab">Edit</a>
+                    </li>
+                </ul>
+                <div class="tab-content">
+                    <div id="overview" class="tab-pane active">
+                        <h4 class="mb-md">更新心情</h4>
+
+                        <section class="simple-compose-box mb-xlg">
+                            <form method="post" action="/update-mind" id="mindForm">
+                                {% csrf-field %}
+                                <input name="account" value="{{account}}" hidden>
+                                <textarea name="profileMind" data-plugin-textarea-autosize placeholder="What's on your mind?" rows="1">{{mind}}</textarea>
+                                <div class="compose-box-footer">
+                                    <ul class="compose-btn">
+                                        <li>
+                                            <input class="btn btn-primary btn-xs" type="submit" value="Post"/>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </form>
+                        </section>
+
+                        <h4 class="mb-xlg">最新动态</h4>
+
+                        <div class="timeline timeline-simple mt-xlg mb-md">
+                            <div class="tm-body">
+                                <div class="tm-title">
+                                    <h3 class="h5 text-uppercase">NOW</h3>
+                                </div>
+                                <ol class="tm-items">
+                                    {% for new in news|sort-by-reversed:create_time %}
+                                    <li>
+                                        <div class="tm-box">
+                                            <p class="text-muted mb-none">{{new.create_time|date:longDateTime }}.</p>
+                                            <p>
+                                                {{nickname}}{{new.content}}
+                                            </p>
+                                            {% if new.photo %}
+                                            <div class="thumbnail-gallery">
+                                                <a class="img-thumbnail lightbox" href="images/avatar.jpg" data-plugin-options='{ "type":"image" }'>
+                                                    <img class="img-responsive" width="215" src="images/avatar.jpg">
+																	<span class="zoom">
+																		<i class="fa fa-search"></i>
+																	</span>
+                                                </a>
+                                            </div>
+                                            {% endif %}
+                                        </div>
+                                    </li>
+                                    {% endfor %}
+
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="edit" class="tab-pane">
+
+                        <form class="form-horizontal" method="post" action="/update-profile">
+                            {% csrf-field %}
+                            <input name="account" value="{{account}}" hidden>
+                            <h4 class="mb-xlg">Personal Information</h4>
+                            <fieldset>
+                                <div class="form-group">
+                                    <label class="col-md-3 control-label" for="">姓名</label>
+                                    <div class="col-md-8">
+                                        <input type="text" class="form-control" name="profileName" value="{{name}}">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-3 control-label" for="">身份</label>
+                                    <div class="col-md-8">
+                                        <input type="text" class="form-control" name="profileStatus" value="{{status}}">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-3 control-label" for="">昵称</label>
+                                    <div class="col-md-8">
+                                        <input type="text" class="form-control" name="profileNickname" value="{{nickname}}">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-3 control-label" for="">域名</label>
+                                    <div class="col-md-8">
+                                        <input type="text" class="form-control" name="profileDomain" value="{{domain}}">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-3 control-label" for="">简介</label>
+                                    <div class="col-md-8">
+                                        <textarea class="form-control" rows="3" name="profileDescribe">{{describe}}</textarea>
+                                    </div>
+                                </div>
+                            </fieldset>
+                            <hr class="dotted tall">
+                            <h4 class="mb-xlg">Third-party binding</h4>
+                            <fieldset>
+                                <div class="form-group">
+                                    <label class="col-md-3 control-label" for="">Disqus账号</label>
+                                    <div class="col-md-8">
+                                        <input type="text" class="form-control" name="profileDisqus" value="{{disqus}}">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-3 control-label" for="">Leancloud账号</label>
+                                    <div class="col-md-8">
+                                        <input type="text" class="form-control" name="profileLeancloud" value="{{leancloud}}">
+                                    </div>
+                                </div>
+                            </fieldset>
+                            <hr class="dotted tall">
+                            <div class="panel-footer">
+                                <div class="row">
+                                    <div class="col-md-9 col-md-offset-3">
+                                        <button type="submit" class="btn btn-primary pull-right">Submit</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-12 col-lg-3">
+
+            <h4 class="mb-md">站点统计</h4>
+            <ul class="simple-card-list mb-xlg">
+                <li class="primary">
+                    <h3>My blog</h3>
+                    <p>站点名称.</p>
+                </li>
+                <li class="primary">
+                    <h3>480</h3>
+                    <p>站点访问量.</p>
+                </li>
+                <li class="primary">
+                    <h3>16</h3>
+                    <p>博文数量.</p>
+                </li>
+            </ul>
+
+            <section class="panel">
+                <header class="panel-heading">
+                    <div class="panel-actions">
+                        <a href="#" class="panel-action panel-action-toggle" data-panel-toggle></a>
+                        <a href="#" class="panel-action panel-action-dismiss" data-panel-dismiss></a>
+                    </div>
+
+                    <h2 class="panel-title">最新评论</h2>
+                </header>
+                <div class="panel-body">
+                    <ul class="simple-post-list">
+                        <li>
+                            <div class="post-image">
+                                <div class="img-thumbnail">
+                                    <a href="#">
+                                        <img src="assets/images/post-thumb-1.jpg" alt="">
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="post-info">
+                                <a href="#">Nullam Vitae Nibh Un Odiosters</a>
+                                <div class="post-meta">
+                                    Jan 10, 2013
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="post-image">
+                                <div class="img-thumbnail">
+                                    <a href="#">
+                                        <img src="assets/images/post-thumb-2.jpg" alt="">
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="post-info">
+                                <a href="#">Vitae Nibh Un Odiosters</a>
+                                <div class="post-meta">
+                                    Jan 10, 2013
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="post-image">
+                                <div class="img-thumbnail">
+                                    <a href="#">
+                                        <img src="assets/images/post-thumb-3.jpg" alt="">
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="post-info">
+                                <a href="#">Odiosters Nullam Vitae</a>
+                                <div class="post-meta">
+                                    Jan 10, 2013
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+        </div>
+
+    </div>
+    <!-- end: page -->
+</section>
+<script type="text/javascript">
+    var count = 0;
+    var vector = new Array("{{name}}","{{describe}}","{{status}}","{{domain}}","{{disqus}}","{{leancloud}}");
+    for(var x in vector){
+        if(vector[x].length>0){
+            count++;
+        }
+    }
+    count =(count*10+40)+"%";
+    $('#countProfile').css("width",count);
+
+    $("form").submit(function() {
+        $(this).submit(function() {
+            return false;
+        });
+        return true;
+    });
+</script>
+{% endblock %}

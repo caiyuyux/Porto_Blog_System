@@ -24,10 +24,14 @@
 			$checks = $('.mg-option input[type=checkbox]');
 
 		if($this.attr('data-all-selected')) {
+			$('#wys_div').hide();
+			$('#markdown_div').show();
 			$this.removeAttr('data-all-selected');
 			$checks.prop('checked', false).trigger('change');
 			$label.html($label.data('all-text'));
 		} else {
+			$('#wys_div').show();
+			$('#markdown_div').hide();
 			$this.attr('data-all-selected', 'true');
 			$checks.prop('checked', true).trigger('change');
 			$label.html($label.data('none-text'));

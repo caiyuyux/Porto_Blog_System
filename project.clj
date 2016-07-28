@@ -4,7 +4,7 @@
   :url "http://example.com/FIXME"
 
   :dependencies [[org.clojure/clojure "1.8.0"]
-                 [selmer "0.9.5"]
+                 [selmer "1.0.7"]
                  [markdown-clj "0.9.80"]
                  [environ "1.0.1"]
                  [metosin/ring-middleware-format "0.6.0"]
@@ -29,7 +29,8 @@
                  [buddy "0.7.2"]
                  [clj-time "0.11.0"]
                  [cheshire "5.6.1"]
-                 [com.draines/postal "2.0.0"]]
+                 [com.draines/postal "2.0.0"]
+                 [me.raynes/fs "1.4.6"]]
 
 
 
@@ -71,8 +72,5 @@
                         :nrepl-port 7001
                         :log-level  :trace}}
 
-   :profiles/dev  {:env {:database-url "jdbc:postgresql://localhost/blog?user=postgres&password=root"
-                          :mail-host "smtp.qq.com"
-                          :mail-user "519206112@qq.com"
-                          :mail-pass "ddglzxwrlofpbiih"}}
+   :profiles/dev  {}
    :profiles/test {}})

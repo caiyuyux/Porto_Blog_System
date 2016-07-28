@@ -1,0 +1,23 @@
+[
+	{
+	"id": "resources_public_templates_business_caiyuyu_avatar.jpg",
+	"text": "avatar.jpg",
+	"parent": "resources_public_templates_business_caiyuyu"
+	},
+	{
+	"id": "resources_public_templates_business_caiyuyu_caiyuyu.config",
+	"text": "caiyuyu.config",
+	"parent": "resources_public_templates_business_caiyuyu"
+	},
+	{
+	"id": "resources_public_templates_business_caiyuyu_tree_children.json",
+	"text": "tree_children.json",
+	"parent": "resources_public_templates_business_caiyuyu"
+	},
+	{
+	"id": "resources_public_templates_business_caiyuyu_tree_root.json",
+	"text": "tree_root.json",
+	"parent": "resources_public_templates_business_caiyuyu"
+	},
+	{"id": "privilege", "text": "privilege", "parent": "resources_public_templates_business_caiyuyu","state":{"disabled": true}}
+]

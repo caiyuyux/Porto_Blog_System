@@ -1,0 +1,287 @@
+{% extends "porto_admin/base.html" %}
+{% block content %}
+<link rel="stylesheet" href="css/colorbox.css" />
+<script src="js/jquery.colorbox.js"></script>
+<section role="main" class="content-body">
+	<header class="page-header">
+		<h2>资源管理</h2>
+
+		<div class="right-wrapper pull-right">
+			<ol class="breadcrumbs">
+				<li>
+					<a href="/admin">
+						<i class="fa fa-home"></i>
+					</a>
+				</li>
+				<li><span>Admin</span></li>
+				<li><span>Media Gallery</span></li>
+			</ol>
+
+			<a class="sidebar-right-toggle" data-open="sidebar-right"><i class="fa fa-chevron-left"></i></a>
+		</div>
+	</header>
+
+	<!-- start: page -->
+	<section class="content-with-menu content-with-menu-has-toolbar media-gallery">
+		<div class="content-with-menu-container">
+			<div class="inner-menu-toggle">
+				<a href="#" class="inner-menu-expand" data-open="inner-menu">
+					Show Bar <i class="fa fa-chevron-right"></i>
+				</a>
+			</div>
+
+			<menu id="content-menu" class="inner-menu" role="menu">
+				<div class="nano">
+					<div class="nano-content">
+
+						<div class="inner-menu-toggle-inside">
+							<a href="#" class="inner-menu-collapse">
+								<i class="fa fa-chevron-up visible-xs-inline"></i><i class="fa fa-chevron-left hidden-xs-inline"></i> Hide Bar
+							</a>
+							<a href="#" class="inner-menu-expand" data-open="inner-menu">
+								Show Bar <i class="fa fa-chevron-down"></i>
+							</a>
+						</div>
+
+						<div class="inner-menu-content">
+
+							<a class="btn btn-block btn-primary btn-md pt-sm pb-sm text-md">
+								<i class="fa fa-upload mr-xs"></i>
+								Upload Files
+							</a>
+
+							<hr class="separator" />
+
+							<div class="btn-group">
+								<button type="button" class="btn btn-success btn-sm" onclick=""><i class="glyphicon glyphicon-asterisk"></i> Create</button>
+								<button type="button" class="btn btn-warning btn-sm" onclick=""><i class="glyphicon glyphicon-pencil"></i> Rename</button>
+								<button type="button" class="btn btn-danger btn-sm"  onclick=""><i class="glyphicon glyphicon-remove"></i> Delete</button>
+							</div>
+
+							<hr class="separator" />
+
+							<section class="panel">
+								<div class="panel-body">
+									<div class="col-md-12">
+										<h5 class="text-weight-semibold text-dark text-uppercase">JSON</h5>
+										<div id="treeAjaxJSON"></div>
+									</div>
+								</div>
+							</section>
+
+							<hr class="separator" />
+
+						</div>
+					</div>
+				</div>
+			</menu>
+			<div class="inner-body mg-main">
+
+				<div class="inner-toolbar clearfix">
+					<ul>
+						<li>
+							<a href="#" id="mgSelectAll"><i class="fa fa-check-square"></i> <span data-all-text="Select All" data-none-text="Select None">Select All</span></a>
+						</li>
+						<li>
+							<a href="#"><i class="fa fa-pencil"></i> Edit</a>
+						</li>
+						<li>
+							<a href="#"><i class="fa fa-trash-o"></i> Delete</a>
+						</li>
+						<li class="right" data-sort-source data-sort-id="media-gallery">
+							<ul class="nav nav-pills nav-pills-primary">
+								<li>
+									<label>Filter:</label>
+								</li>
+								<li class="active">
+									<a data-option-value="*" href="#all">All</a>
+								</li>
+								<li>
+									<a data-option-value=".document" href="#document">Posts</a>
+								</li>
+								<li>
+									<a data-option-value=".image" href="#image">Images</a>
+								</li>
+								<li>
+									<a data-option-value=".video" href="#video">Videos</a>
+								</li>
+							</ul>
+						</li>
+					</ul>
+				</div>
+
+				<div class="row mg-files" data-sort-destination data-sort-id="media-gallery">
+					<div class="isotope-item video col-sm-6 col-md-4 col-lg-4">
+						<div class="thumbnail">
+							<div class="thumb-preview">
+								<a class="thumb-image" style="height: 150px">
+									<video controls height="100%" poster="">
+										<source src="assets/porto_admin/images/projects/qq.mp4"
+												type='video/mp4;codecs="avc1.42E01E, mp4a.40.2"' />
+									</video>
+								</a>
+								<div class="mg-thumb-options">
+									<div class="mg-zoom thumbnail-video"
+										 href="assets/porto_admin/images/projects/qq.mp4">
+										<i class="fa fa-search"></i></div>
+									<div class="mg-toolbar">
+										<div class="mg-option checkbox-custom checkbox-inline">
+											<input type="checkbox" id="file_1" value="1">
+											<label for="file_3">SELECT</label>
+										</div>
+										<div class="mg-group pull-right">
+											<a href="#">EDIT</a>
+											<button class="dropdown-toggle mg-toggle" type="button" data-toggle="dropdown">
+												<i class="fa fa-caret-up"></i>
+											</button>
+											<ul class="dropdown-menu mg-menu" role="menu">
+												<li><a href="#"><i class="fa fa-download"></i> Download</a></li>
+												<li><a href="#"><i class="fa fa-trash-o"></i> Delete</a></li>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+							<h5 class="mg-title text-weight-semibold">Friends<small>.png</small></h5>
+							<div class="mg-description">
+								<small class="pull-left text-muted">Projects, Vacation</small>
+								<small class="pull-right text-muted">07/10/2014</small>
+							</div>
+						</div>
+					</div>
+					<div class="isotope-item image col-sm-6 col-md-4 col-lg-4">
+						<div class="thumbnail">
+							<div class="thumb-preview">
+								<a class="thumb-image" style="height: 150px">
+									<img src="assets/porto_admin/images/projects/project-1.jpg" class="img-responsive" alt="Project">
+								</a>
+								<div class="mg-thumb-options">
+									<div class="mg-zoom thumbnail-image"
+										 href="assets/porto_admin/images/projects/project-1.jpg">
+										<i class="fa fa-search"></i></div>
+									<div class="mg-toolbar">
+										<div class="mg-option checkbox-custom checkbox-inline">
+											<input type="checkbox" id="file_2" value="1">
+											<label for="file_3">SELECT</label>
+										</div>
+										<div class="mg-group pull-right">
+											<a href="#">EDIT</a>
+											<button class="dropdown-toggle mg-toggle" type="button" data-toggle="dropdown">
+												<i class="fa fa-caret-up"></i>
+											</button>
+											<ul class="dropdown-menu mg-menu" role="menu">
+												<li><a href="#"><i class="fa fa-download"></i> Download</a></li>
+												<li><a href="#"><i class="fa fa-trash-o"></i> Delete</a></li>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+							<h5 class="mg-title text-weight-semibold">Friends<small>.png</small></h5>
+							<div class="mg-description">
+								<small class="pull-left text-muted">Projects, Vacation</small>
+								<small class="pull-right text-muted">07/10/2014</small>
+							</div>
+						</div>
+					</div>
+					<div class="isotope-item document col-sm-6 col-md-4 col-lg-4">
+					<div class="thumbnail">
+						<div class="thumb-preview">
+							<a class="thumb-image" style="height: 150px" >
+								<iframe src="assets/porto_admin/images/projects/qq.html"
+										class="document"
+										width="100%" frameborder="1" scrolling="no"></iframe>
+							</a>
+							<div class="mg-thumb-options">
+								<div class="mg-zoom thumbnail-document"
+									 href="assets/porto_admin/images/projects/qq.html">
+									<i class="fa fa-search"></i></div>
+								<div class="mg-toolbar">
+									<div class="mg-option checkbox-custom checkbox-inline">
+										<input type="checkbox" id="file_3" value="1">
+										<label for="file_3">SELECT</label>
+									</div>
+									<div class="mg-group pull-right">
+										<a href="#">EDIT</a>
+										<button class="dropdown-toggle mg-toggle" type="button" data-toggle="dropdown">
+											<i class="fa fa-caret-up"></i>
+										</button>
+										<ul class="dropdown-menu mg-menu" role="menu">
+											<li><a href="#"><i class="fa fa-download"></i> Download</a></li>
+											<li><a href="#"><i class="fa fa-trash-o"></i> Delete</a></li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</div>
+						<h5 class="mg-title text-weight-semibold">Friends<small>.png</small></h5>
+						<div class="mg-description">
+							<small class="pull-left text-muted">Projects, Vacation</small>
+							<small class="pull-right text-muted">07/10/2014</small>
+						</div>
+					</div>
+				</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- end: page -->
+</section>
+<style type="text/css">
+	iframe.document html body p img{
+		width:100%;
+	}
+</style>
+<script type="text/javascript">
+	$('#treeAjaxJSON').jstree({
+		'core' : {
+			'themes' : {
+				'responsive': false
+			},
+			'check_callback' : true,
+			'data' : {
+				'url' : function (node) {
+					return node.id === '#' ? "templates/business/{{account}}/tree_root.json" : "templates/business/{{account}}/tree_children.json";
+				},
+				'data' : function (node) {
+					return { 'id' : node.id };
+				}
+			}
+		},
+		'types' : {
+			'default' : {
+				'icon' : 'fa fa-folder'
+			},
+			'file' : {
+				'icon' : 'fa fa-file'
+			}
+		},
+		'plugins': ['types','checkbox']
+	});
+
+	if(document.body.clientWidth>=900){
+		$(".thumbnail-image").colorbox({rel:'.thumbnail-image',innerWidth:600, innerHeight:500});
+		$(".thumbnail-video").colorbox({iframe:true, innerWidth:900, innerHeight:500});
+		$(".thumbnail-document").colorbox({iframe:true, innerWidth:900,innerHeight:500})
+	}else{
+		var w = document.body.clientWidth;
+		var h = w*9/16;
+		$(".thumbnail-image").colorbox({rel:'.thumbnail-image',innerWidth:w, innerHeight:h});
+		$(".thumbnail-video").colorbox({iframe:true, innerWidth:w, innerHeight:h});
+		$(".thumbnail-document").colorbox(
+				{iframe:true, innerWidth:w,innerHeight:h,
+					onComplete:function(){
+						$('iframe').load( function() {
+							$('iframe').contents().find("head")
+									.append($("<style type='text/css'>  img{max-width:250px;}  </style>"));
+						}); },}
+		)
+	}
+
+//	$('.document').contents().find("img").css("width","100%");
+	$('iframe').load( function() {
+		$('iframe').contents().find("head")
+				.append($("<style type='text/css'>  img{max-width:250px;}  </style>"));
+	});
+</script>
+{% endblock %}

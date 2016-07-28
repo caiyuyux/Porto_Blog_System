@@ -2,7 +2,7 @@
 {% block content %}
 <section role="main" class="content-body">
 	<header class="page-header">
-		<h2>用户概况</h2>
+		<h2>概览</h2>
 
 		<div class="right-wrapper pull-right">
 			<ol class="breadcrumbs">
@@ -135,7 +135,7 @@
 						<h4 class="mb-md">更新心情</h4>
 
 						<section class="simple-compose-box mb-xlg">
-							<form method="post" action="/update-mind" id="mindForm">
+							<form method="post" action="/admin_update-mind" id="mindForm">
 								{% csrf-field %}
 								<input name="account" value="{{account}}" hidden>
 								<textarea name="profileMind" data-plugin-textarea-autosize placeholder="What's on your mind?" rows="1">{{mind}}</textarea>
@@ -154,48 +154,39 @@
 						<div class="timeline timeline-simple mt-xlg mb-md">
 							<div class="tm-body">
 								<div class="tm-title">
-									<h3 class="h5 text-uppercase">November 2013</h3>
+									<h3 class="h5 text-uppercase">NOW</h3>
 								</div>
-								<ol class="tm-items">
-									<li>
+								<ol class="tm-items" id="myList">
+									{% for new in news|sort-by-reversed:create_time %}
+									<li hidden>
 										<div class="tm-box">
-											<p class="text-muted mb-none">7 months ago.</p>
+											<p class="text-muted mb-none">{{new.create_time|date:longDateTime }}.</p>
 											<p>
-												It's awesome when we find a good solution for our projects, Porto Admin is <span class="text-primary">#awesome</span>
+												{{nickname}}{{new.content}}
 											</p>
-										</div>
-									</li>
-									<li>
-										<div class="tm-box">
-											<p class="text-muted mb-none">7 months ago.</p>
-											<p>
-												What is your biggest developer pain point?
-											</p>
-										</div>
-									</li>
-									<li>
-										<div class="tm-box">
-											<p class="text-muted mb-none">7 months ago.</p>
-											<p>
-												Checkout! How cool is that!
-											</p>
+											{% if new.photo %}
 											<div class="thumbnail-gallery">
-												<a class="img-thumbnail lightbox" href="assets/images/projects/project-4.jpg" data-plugin-options='{ "type":"image" }'>
-													<img class="img-responsive" width="215" src="assets/images/projects/project-4.jpg">
+												<a class="img-thumbnail lightbox" href="images/avatar.jpg" data-plugin-options='{ "type":"image" }'>
+													<img class="img-responsive" width="215" src="images/avatar.jpg">
 																	<span class="zoom">
 																		<i class="fa fa-search"></i>
 																	</span>
 												</a>
 											</div>
+											{% endif %}
 										</div>
 									</li>
+									{% endfor %}
 								</ol>
+								<div class="tm-title">
+									<h3 class="h5 text-uppercase" id="loadMore">more</h3>
+								</div>
 							</div>
 						</div>
 					</div>
 					<div id="edit" class="tab-pane">
 
-						<form class="form-horizontal" method="post" action="/update-profile">
+						<form class="form-horizontal" method="post" action="/admin_update-profile">
 							{% csrf-field %}
 							<input name="account" value="{{account}}" hidden>
 							<h4 class="mb-xlg">Personal Information</h4>
@@ -360,6 +351,22 @@
 			return false;
 		});
 		return true;
+	});
+	$(document).ready(function () {
+		var size_li = $("#myList li").size();
+		x=3;
+		$('#myList li:lt('+x+')').show();
+		$('#loadMore').click(function () {
+			x= (x+5 <= size_li) ? x+5 : size_li;
+			$('#myList li:lt('+x+')').show();
+			if(x+5 >= size_li){
+				$('#loadMore').text('END');
+			}
+		});
+//		$('#showLess').click(function () {
+//			x=(x-5<0) ? 3 : x-5;
+//			$('#myList li').not(':lt('+x+')').hide();
+//		});
 	});
 </script>
 {% endblock %}

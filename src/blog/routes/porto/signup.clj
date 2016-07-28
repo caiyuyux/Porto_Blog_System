@@ -7,6 +7,7 @@
             [postal.core :as p]
             [clojure.java.io :as io]
             [environ.core :refer [env]]
+            [clj-time.local :as l]
             [ring.util.response :refer [redirect response]]))
 
 (defn user-signup-page
@@ -52,15 +53,26 @@
 
 (defn create-config!
   [request]
-  (let [path "resources/templates/business"
+  (let [path "resources/public/templates/business"
         params (-> request :params)
-        account (-> request :params :account)]
+        account (-> request :params :account)
+        filePath (str path "/" account "/" account ".config")
+        root_json (str path "/" account "/" "tree_root.json")]
     (.mkdir (io/file path account))
-    (def filePath (str path "/" account "/" account ".config"))
+    ;(def filePath (str path "/" account "/" account ".config"))
     (io/copy (io/file "resources/public/images/avatar.jpg")
              (io/file path account "avatar.jpg"))
-    (spit filePath (str ":account\t" (params :account) "\n") :append true)
+    (spit filePath (str ":account\t" (params :account) "\n"))
     (spit filePath (str ":email\t" (params :email) "\n") :append true)
+    ;;tree root
+    (spit root_json "[{\n")
+    (spit root_json
+          (str "\t\"id\": " (str "\"resources_public_templates_business_" account "\",\n")
+               "\t\"text\": " "\"" account "\",\n"
+               "\t\"children\": " "true,\n"
+               "\t\"type\": " "\"root\"\n")
+          :append true)
+    (spit root_json "}]\n" :append true)
     ))
 
 (defn user-signup
@@ -71,6 +83,8 @@
     (do
       (create-config! request)
       (save-user! (-> request :params))
+      (db/create_new! {:account (-> request :params :account), :obj "1", :type"add", :content "注册了账号", :create_time (l/local-now),
+                       :photo nil, :video nil, :music nil, :post nil})
       (-> (redirect "/")
           (assoc :flash (select-keys (-> request :params) [:account]))
           (assoc :session {:account (:account (-> request :params))})))))
