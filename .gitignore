@@ -13,3 +13,4 @@ profiles.clj
 /.idea
 *.iml
 *.log
+blog.*
