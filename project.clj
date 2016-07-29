@@ -72,5 +72,8 @@
                         :nrepl-port 7001
                         :log-level  :trace}}
 
-   :profiles/dev  {}
+   :profiles/dev  {:env {:database-url "jdbc:postgresql://localhost/blog?user=postgres&password=root"
+                          :mail-host "smtp.gmail.com"
+                          :mail-user "callmecaiyuyu@gmail.com"
+                          :mail-pass "qlhrbuzbjamcqqyl"}}
    :profiles/test {}})

@@ -56,9 +56,13 @@
   (let [path "resources/public/templates/business"
         params (-> request :params)
         account (-> request :params :account)
-        filePath (str path "/" account "/" account ".config")
-        root_json (str path "/" account "/" "tree_root.json")]
+        filePath (str path "/" account "/privilege/" account ".config")
+        root_json (str path "/" account "/privilege" "tree_root.json")]
     (.mkdir (io/file path account))
+    (.mkdir (io/file path account "privilege"))
+    (.mkdir (io/file path account "posts"))
+    (.mkdir (io/file path account "images"))
+    (.mkdir (io/file path account "videos"))
     ;(def filePath (str path "/" account "/" account ".config"))
     (io/copy (io/file "resources/public/images/avatar.jpg")
              (io/file path account "avatar.jpg"))

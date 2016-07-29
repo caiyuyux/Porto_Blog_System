@@ -62,8 +62,7 @@
 
 							<section class="panel">
 								<div class="panel-body">
-									<div class="col-md-12">
-										<h5 class="text-weight-semibold text-dark text-uppercase">JSON</h5>
+									<div class="col-md-12" style="margin-left: -25px">
 										<div id="treeAjaxJSON"></div>
 									</div>
 								</div>
@@ -241,7 +240,7 @@
 			'check_callback' : true,
 			'data' : {
 				'url' : function (node) {
-					return node.id === '#' ? "templates/business/{{account}}/tree_root.json" : "templates/business/{{account}}/tree_children.json";
+					return node.id === '#' ? "templates/business/{{account}}/privilege/tree_root.json" : "templates/business/{{account}}/privilege/tree_children.json";
 				},
 				'data' : function (node) {
 					return { 'id' : node.id };
