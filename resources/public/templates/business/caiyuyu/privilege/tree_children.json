@@ -1,0 +1,103 @@
+[
+	{
+	"id": "resources_public_templates_business_caiyuyu_avatar.jpg",
+	"text": "avatar.jpg",
+	"parent": "resources_public_templates_business_caiyuyu"
+	},
+	{
+	"id": "resources_public_templates_business_caiyuyu_images",
+	"text": "images",
+	"parent": "resources_public_templates_business_caiyuyu"
+	},
+	{
+	"id": "resources_public_templates_business_caiyuyu_images_001931vq17wbktwlktsqws.jpg",
+	"text": "001931vq17wbktwlktsqws.jpg",
+	"parent": "resources_public_templates_business_caiyuyu_images"
+	},
+	{
+	"id": "resources_public_templates_business_caiyuyu_images_1207255rcf8wueujcnjoj5.jpg",
+	"text": "1207255rcf8wueujcnjoj5.jpg",
+	"parent": "resources_public_templates_business_caiyuyu_images"
+	},
+	{
+	"id": "resources_public_templates_business_caiyuyu_images_125033ikkyzvfhfszgqqqo.jpg",
+	"text": "125033ikkyzvfhfszgqqqo.jpg",
+	"parent": "resources_public_templates_business_caiyuyu_images"
+	},
+	{
+	"id": "resources_public_templates_business_caiyuyu_images_125034h849f664vn8auaiv.jpg",
+	"text": "125034h849f664vn8auaiv.jpg",
+	"parent": "resources_public_templates_business_caiyuyu_images"
+	},
+	{
+	"id": "resources_public_templates_business_caiyuyu_images_1552032ca57f96fa7165a0.jpg",
+	"text": "1552032ca57f96fa7165a0.jpg",
+	"parent": "resources_public_templates_business_caiyuyu_images"
+	},
+	{
+	"id": "resources_public_templates_business_caiyuyu_images_164046k9c9k16mfq1km78t.jpg",
+	"text": "164046k9c9k16mfq1km78t.jpg",
+	"parent": "resources_public_templates_business_caiyuyu_images"
+	},
+	{
+	"id": "resources_public_templates_business_caiyuyu_images_191309q3vc13k8jc3vz3j3.png",
+	"text": "191309q3vc13k8jc3vz3j3.png",
+	"parent": "resources_public_templates_business_caiyuyu_images"
+	},
+	{
+	"id": "resources_public_templates_business_caiyuyu_images_191310pjfvimbbbvej10a3.png",
+	"text": "191310pjfvimbbbvej10a3.png",
+	"parent": "resources_public_templates_business_caiyuyu_images"
+	},
+	{
+	"id": "resources_public_templates_business_caiyuyu_images_191314h8owob715n8hi5i8.png",
+	"text": "191314h8owob715n8hi5i8.png",
+	"parent": "resources_public_templates_business_caiyuyu_images"
+	},
+	{
+	"id": "resources_public_templates_business_caiyuyu_images_235540vfvxk38vucc0y4y9.jpg",
+	"text": "235540vfvxk38vucc0y4y9.jpg",
+	"parent": "resources_public_templates_business_caiyuyu_images"
+	},
+	{
+	"id": "resources_public_templates_business_caiyuyu_images_57654238_p0.jpg",
+	"text": "57654238_p0.jpg",
+	"parent": "resources_public_templates_business_caiyuyu_images"
+	},
+	{
+	"id": "resources_public_templates_business_caiyuyu_images_57761718_p0.jpg",
+	"text": "57761718_p0.jpg",
+	"parent": "resources_public_templates_business_caiyuyu_images"
+	},
+	{
+	"id": "resources_public_templates_business_caiyuyu_images_57765133_p0.jpg",
+	"text": "57765133_p0.jpg",
+	"parent": "resources_public_templates_business_caiyuyu_images"
+	},
+	{
+	"id": "resources_public_templates_business_caiyuyu_images_xfWo2a7h.jpg.pagespeed.ic.UYkp5eryla.jpg",
+	"text": "xfWo2a7h.jpg.pagespeed.ic.UYkp5eryla.jpg",
+	"parent": "resources_public_templates_business_caiyuyu_images"
+	},
+	{
+	"id": "resources_public_templates_business_caiyuyu_posts",
+	"text": "posts",
+	"parent": "resources_public_templates_business_caiyuyu"
+	},
+	{
+	"id": "resources_public_templates_business_caiyuyu_posts_八分钟的温暖.txt",
+	"text": "八分钟的温暖.txt",
+	"parent": "resources_public_templates_business_caiyuyu_posts"
+	},
+	{
+	"id": "resources_public_templates_business_caiyuyu_videos",
+	"text": "videos",
+	"parent": "resources_public_templates_business_caiyuyu"
+	},
+	{
+	"id": "resources_public_templates_business_caiyuyu_videos_九九八十一 _ 双笙.mp4",
+	"text": "九九八十一 _ 双笙.mp4",
+	"parent": "resources_public_templates_business_caiyuyu_videos"
+	},
+	{"id": "resources_public_templates_business_caiyuyu_privilege","text": "privilege", "parent": "resources_public_templates_business_caiyuyu","state":{"disabled": true}}
+]

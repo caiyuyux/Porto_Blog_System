@@ -74,12 +74,62 @@ WHERE account = :account;
 
 -- :name create_new! :! :n
 -- :doc
-INSERT INTO news (obj, create_time, account, photo, video, music, type, post, content)
-VALUES (:obj, :create_time, :account, :photo, :video, :music, :type, :post, :content);
+INSERT INTO news (obj, create_time, account, image, video, music, type, post, content)
+VALUES (:obj, :create_time, :account, :image, :video, :music, :type, :post, :content);
 
 -- :name get_news :? :*
 -- :doc
-SELECT obj, create_time, photo, video, music, type, post, content
+SELECT obj, create_time, image, video, music, type, post, content
 FROM news
+WHERE account = :account;
+
+-- :name exists_image_file? :? :*
+-- :doc
+SELECT EXISTS (
+    SELECT id
+    FROM images
+    WHERE id = :imageid);
+
+-- :name exists_video_file? :? :*
+-- :doc
+SELECT EXISTS (
+    SELECT id
+    FROM videos
+    WHERE id = :videoid);
+
+-- :name exists_post_file? :? :*
+-- :doc
+SELECT EXISTS (
+    SELECT id
+    FROM posts
+    WHERE id = :postid);
+
+-- :name insert_image! :! :n
+-- :doc
+INSERT INTO images (id, filename, account, time, type)
+VALUES (:imageid, :filename, :account, :time, :type);
+
+-- :name insert_video! :! :n
+-- :doc
+INSERT INTO videos (id, filename, account, time, type)
+VALUES (:videoid, :filename, :account, :time, :type);
+
+-- :name insert_post! :! :n
+-- :doc
+INSERT INTO posts (id, title, account, time, type)
+VALUES (:postid, :filename, :account, :time, :type);
+
+-- :name get_file_info :? :*
+-- :doc
+SELECT id, type, time, filename
+FROM images
 WHERE account = :account
+UNION
+SELECT id, type, time, filename
+FROM videos
+WHERE account = :account
+UNION
+SELECT id, type, time, title
+FROM posts
+WHERE account = :account;
 ---------------------porto_admin end-------------------------

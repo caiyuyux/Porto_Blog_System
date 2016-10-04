@@ -15,7 +15,7 @@
     (do
       (db/update_user_mind! (-> request :params))
       (db/create_new! {:account account, :obj "2", :type"update", :content "更新了心情", :create_time (l/local-now),
-                       :photo nil, :video nil, :music nil, :post nil})
+                       :image nil, :video nil, :music nil, :post nil})
       (-> (redirect "/admin")
           (assoc :flash nil)))
     (-> (redirect "/")
@@ -29,7 +29,7 @@
     (do
       (db/update_user_profile! (-> request :params))
       (db/create_new! {:account account, :obj "3", :type"update", :content "更新了资料", :create_time (l/local-now),
-                       :photo nil, :video nil, :music nil, :post nil})
+                       :image nil, :video nil, :music nil, :post nil})
       (-> (redirect "/admin")
           (assoc :flash nil))
       )

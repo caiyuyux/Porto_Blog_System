@@ -20,7 +20,9 @@
             [blog.routes.porto-admin.base :as admin]
             [blog.routes.porto-admin.profile :as profile]
             [blog.routes.porto-admin.post :as post]
-            [blog.routes.porto-admin.resources :as resources]))
+            [blog.routes.porto-admin.resources :as resources]
+            [blog.routes.porto-admin.comment :as comment]
+            [ring.util.response :as response]))
 
 ;this is a handler, it takes a request and gives a response
 ;the response will render a template with an associated context-map
@@ -33,8 +35,21 @@
       (merge account
              (when-let [errors (get-in request [:flash :errors])] {:errors errors})))))
 
+(defn download
+  [request]
+  ;(-> (clojure.java.io/input-stream "http://localhost/templates/business/caiyuyu/images/125033ikkyzvfhfszgqqqo.jpg")
+  ;    response
+  ;    (response/content-type "application/octet-stream"))
+  {
+   :filename "demo.jpg"
+   :content-type "application/octet-stream"
+   :url "http://localhost/templates/business/caiyuyu/images/125033ikkyzvfhfszgqqqo.jpg"
+   }
+  )
+
 (defroutes home-routes
            (GET "/"                request (home-page               request))
+           (GET "/download"        request (download                request))
            ;(POST "/"                request (home-page               request))
 
            ;;--------------------------porto--------------------------------
@@ -61,14 +76,17 @@
 
            ;; -----------------------porto_admin-----------------------------
 
-           (GET "/admin"                 request (admin/admin_index_page  request))
-           (POST "/admin"                request (admin/admin_index_page  request))
-           (POST "/admin_update-profile" request (profile/update-profile  request))
-           (POST "/admin_update-mind"    request (profile/update-mind     request))
+           (GET "/admin"                 request (admin/admin_index_page          request))
+           (POST "/admin"                request (admin/admin_index_page          request))
+           (POST "/admin_update-profile" request (profile/update-profile          request))
+           (POST "/admin_update-mind"    request (profile/update-mind             request))
 
-           (GET "/admin_edit-post"       request (post/edit_post_page     request))
-           (GET "/admin_consult-post"    request (post/consult_post_page  request))
+           (GET "/admin_edit-post"       request (post/edit_post_page             request))
+           (GET "/admin_consult-post"    request (post/consult_post_page          request))
            (GET "/admin_resources"       request (resources/resources_index_page  request))
+           (GET "/admin_comments"        request (comment/comments_index_page     request))
+           (GET "admin_blogStyle"        request (blogStyle/blogStyle_index_page  request))
+           (POST "/admin_file-upload"    request (resources/file-upload!          request))
            ; (GET "/:account/panel"  request (panel/admin-panel-page  request))
            ; (POST "/:account/panel" request (panel/admin-panel       request))
 

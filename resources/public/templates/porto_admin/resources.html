@@ -1,7 +1,32 @@
 {% extends "porto_admin/base.html" %}
 {% block content %}
 <link rel="stylesheet" href="css/colorbox.css" />
+<link rel="stylesheet" href="css/fileinput.css" />
+
 <script src="js/jquery.colorbox.js"></script>
+<!--<script src="js/purify.min.js"></script>-->
+<script src="js/fileinput.js"></script>
+<script src="js/locales/zh.js"></script>
+<script src="assets/porto_admin/vendor/select2/js/select2.js"></script>
+<script src="assets/porto_admin/vendor/pnotify/pnotify.custom.js"></script>
+
+<style>
+	/*定义滚动条高宽及背景 高宽分别对应横竖滚动条的尺寸*/
+	::-webkit-scrollbar
+	{
+		width: 15px;
+		height: 10px;
+		background-color: #F5F5F5;
+	}
+
+	/*定义滑块 内阴影+圆角*/
+	::-webkit-scrollbar-thumb
+	{
+		border-radius: 10px;
+		-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+		background-color: #555;
+	}
+</style>
 <section role="main" class="content-body">
 	<header class="page-header">
 		<h2>资源管理</h2>
@@ -44,24 +69,38 @@
 						</div>
 
 						<div class="inner-menu-content">
-
-							<a class="btn btn-block btn-primary btn-md pt-sm pb-sm text-md">
+							<a class="btn btn-block btn-primary btn-md pt-sm pb-sm text-md modal-with-form"
+							   href="#uploadModalForm">
 								<i class="fa fa-upload mr-xs"></i>
 								Upload Files
 							</a>
+							<!-- Modal Form -->
+							<div id="uploadModalForm" class="modal-block modal-block-primary mfp-hide" style="min-width: 80%;">
+								<section class="panel">
+									<header class="panel-heading">
+										<h2 class="panel-title">资源上传</h2>
+									</header>
+									<div class="panel-body" style="max-height: 450px; overflow:scroll;">
+											<div class="form-group mt-lg">
+												<input id="inputfile" name="uploadfile[]" type="file" multiple=true class="file-loading">
+											</div>
+										<!--</form>-->
 
-							<hr class="separator" />
-
-							<div class="btn-group">
-								<button type="button" class="btn btn-success btn-sm" onclick=""><i class="glyphicon glyphicon-asterisk"></i> Create</button>
-								<button type="button" class="btn btn-warning btn-sm" onclick=""><i class="glyphicon glyphicon-pencil"></i> Rename</button>
-								<button type="button" class="btn btn-danger btn-sm"  onclick=""><i class="glyphicon glyphicon-remove"></i> Delete</button>
+									</div>
+									<footer class="panel-footer">
+										<div class="row">
+											<div class="col-md-12 text-right">
+												<button class="btn btn-default modal-dismiss" onclick="location.reload();">Cancel</button>
+											</div>
+										</div>
+									</footer>
+								</section>
 							</div>
 
 							<hr class="separator" />
 
 							<section class="panel">
-								<div class="panel-body">
+								<div class="panel-body" style="overflow: scroll">
 									<div class="col-md-12" style="margin-left: -25px">
 										<div id="treeAjaxJSON"></div>
 									</div>
@@ -80,9 +119,6 @@
 					<ul>
 						<li>
 							<a href="#" id="mgSelectAll"><i class="fa fa-check-square"></i> <span data-all-text="Select All" data-none-text="Select None">Select All</span></a>
-						</li>
-						<li>
-							<a href="#"><i class="fa fa-pencil"></i> Edit</a>
 						</li>
 						<li>
 							<a href="#"><i class="fa fa-trash-o"></i> Delete</a>
@@ -110,116 +146,166 @@
 				</div>
 
 				<div class="row mg-files" data-sort-destination data-sort-id="media-gallery">
-					<div class="isotope-item video col-sm-6 col-md-4 col-lg-4">
+					<!--<div class="isotope-item video col-sm-6 col-md-4 col-lg-4">-->
+						<!--<div class="thumbnail">-->
+							<!--<div class="thumb-preview">-->
+								<!--<a class="thumb-image" style="height: 150px">-->
+									<!--<video controls height="100%" poster="">-->
+										<!--<source src="assets/porto_admin/images/projects/qq.mp4"-->
+												<!--type='video/mp4;codecs="avc1.42E01E, mp4a.40.2"' />-->
+									<!--</video>-->
+								<!--</a>-->
+								<!--<div class="mg-thumb-options">-->
+									<!--<div class="mg-zoom thumbnail-video"-->
+										 <!--href="assets/porto_admin/images/projects/qq.mp4">-->
+										<!--<i class="fa fa-search"></i></div>-->
+									<!--<div class="mg-toolbar">-->
+										<!--<div class="mg-option checkbox-custom checkbox-inline">-->
+											<!--<input type="checkbox" id="file_1" value="1">-->
+											<!--<label for="file_3">SELECT</label>-->
+										<!--</div>-->
+										<!--<div class="mg-group pull-right">-->
+											<!--<a href="#">EDIT</a>-->
+											<!--<button class="dropdown-toggle mg-toggle" type="button" data-toggle="dropdown">-->
+												<!--<i class="fa fa-caret-up"></i>-->
+											<!--</button>-->
+											<!--<ul class="dropdown-menu mg-menu" role="menu">-->
+												<!--<li><a href="#"><i class="fa fa-download"></i> Download</a></li>-->
+												<!--<li><a href="#"><i class="fa fa-trash-o"></i> Delete</a></li>-->
+											<!--</ul>-->
+										<!--</div>-->
+									<!--</div>-->
+								<!--</div>-->
+							<!--</div>-->
+							<!--<h5 class="mg-title text-weight-semibold">Friends<small>.png</small></h5>-->
+							<!--<div class="mg-description">-->
+								<!--<small class="pull-left text-muted">Projects, Vacation</small>-->
+								<!--<small class="pull-right text-muted">07/10/2014</small>-->
+							<!--</div>-->
+						<!--</div>-->
+					<!--</div>-->
+					<!--<div class="isotope-item image col-sm-6 col-md-4 col-lg-4">-->
+						<!--<div class="thumbnail">-->
+							<!--<div class="thumb-preview">-->
+								<!--<a class="thumb-image" style="height: 150px">-->
+									<!--<img src="assets/porto_admin/images/projects/project-1.jpg" class="img-responsive" alt="Project">-->
+								<!--</a>-->
+								<!--<div class="mg-thumb-options">-->
+									<!--<div class="mg-zoom thumbnail-image"-->
+										 <!--href="assets/porto_admin/images/projects/project-1.jpg">-->
+										<!--<i class="fa fa-search"></i></div>-->
+									<!--<div class="mg-toolbar">-->
+										<!--<div class="mg-option checkbox-custom checkbox-inline">-->
+											<!--<input type="checkbox" id="file_2" value="1">-->
+											<!--<label for="file_3">SELECT</label>-->
+										<!--</div>-->
+										<!--<div class="mg-group pull-right">-->
+											<!--<a href="#">EDIT</a>-->
+											<!--<button class="dropdown-toggle mg-toggle" type="button" data-toggle="dropdown">-->
+												<!--<i class="fa fa-caret-up"></i>-->
+											<!--</button>-->
+											<!--<ul class="dropdown-menu mg-menu" role="menu">-->
+												<!--<li><a href="#"><i class="fa fa-download"></i> Download</a></li>-->
+												<!--<li><a href="#"><i class="fa fa-trash-o"></i> Delete</a></li>-->
+											<!--</ul>-->
+										<!--</div>-->
+									<!--</div>-->
+								<!--</div>-->
+							<!--</div>-->
+							<!--<h5 class="mg-title text-weight-semibold">Friends<small>.png</small></h5>-->
+							<!--<div class="mg-description">-->
+								<!--<small class="pull-left text-muted">Projects, Vacation</small>-->
+								<!--<small class="pull-right text-muted">07/10/2014</small>-->
+							<!--</div>-->
+						<!--</div>-->
+					<!--</div>-->
+					<!--<div class="isotope-item document col-sm-6 col-md-4 col-lg-4">-->
+					<!--<div class="thumbnail">-->
+						<!--<div class="thumb-preview">-->
+							<!--<a class="thumb-image" style="height: 150px" >-->
+								<!--<iframe src="assets/porto_admin/images/projects/qq.html"-->
+										<!--class="document"-->
+										<!--width="100%" frameborder="1" scrolling="no"></iframe>-->
+							<!--</a>-->
+							<!--<div class="mg-thumb-options">-->
+								<!--<div class="mg-zoom thumbnail-document"-->
+									 <!--href="assets/porto_admin/images/projects/qq.html">-->
+									<!--<i class="fa fa-search"></i></div>-->
+								<!--<div class="mg-toolbar">-->
+									<!--<div class="mg-option checkbox-custom checkbox-inline">-->
+										<!--<input type="checkbox" id="file_3" value="1">-->
+										<!--<label for="file_3">SELECT</label>-->
+									<!--</div>-->
+									<!--<div class="mg-group pull-right">-->
+										<!--<a href="#">EDIT</a>-->
+										<!--<button class="dropdown-toggle mg-toggle" type="button" data-toggle="dropdown">-->
+											<!--<i class="fa fa-caret-up"></i>-->
+										<!--</button>-->
+										<!--<ul class="dropdown-menu mg-menu" role="menu">-->
+											<!--<li><a href="#"><i class="fa fa-download"></i> Download</a></li>-->
+											<!--<li><a href="#"><i class="fa fa-trash-o"></i> Delete</a></li>-->
+										<!--</ul>-->
+									<!--</div>-->
+								<!--</div>-->
+							<!--</div>-->
+						<!--</div>-->
+						<!--<h5 class="mg-title text-weight-semibold">Friends<small>.png</small></h5>-->
+						<!--<div class="mg-description">-->
+							<!--<small class="pull-left text-muted">Projects, Vacation</small>-->
+							<!--<small class="pull-right text-muted">07/10/2014</small>-->
+						<!--</div>-->
+					<!--</div>-->
+				<!--</div>-->
+					{% for f in file %}
+					<div class="isotope-item {{f.type}} col-xs-12 col-sm-4 col-md-4 col-lg-3">
 						<div class="thumbnail">
 							<div class="thumb-preview">
 								<a class="thumb-image" style="height: 150px">
-									<video controls height="100%" poster="">
-										<source src="assets/porto_admin/images/projects/qq.mp4"
+									{% ifequal f.type "video" %}
+									<video controls height="100%" width="100%"  poster="">
+										<source src="{{f.id}}"
 												type='video/mp4;codecs="avc1.42E01E, mp4a.40.2"' />
 									</video>
+									{% endifequal %}
+									{% ifequal f.type "image" %}
+									<img src="{{f.id}}" class="img-responsive" alt="Project">
+									{% endifequal %}
+									{% ifequal f.type "document" %}
+									<iframe src="{{f.id}}"
+									class="document"
+									width="100%" frameborder="1" scrolling="no"></iframe>
+									{% endifequal %}
 								</a>
 								<div class="mg-thumb-options">
-									<div class="mg-zoom thumbnail-video"
-										 href="assets/porto_admin/images/projects/qq.mp4">
+									<div class="mg-zoom thumbnail-{{f.type}}"
+										 href="{{f.id}}">
 										<i class="fa fa-search"></i></div>
 									<div class="mg-toolbar">
 										<div class="mg-option checkbox-custom checkbox-inline">
-											<input type="checkbox" id="file_1" value="1">
-											<label for="file_3">SELECT</label>
+											<input type="checkbox" id="{{f.id}}" value="1">
+											<label for="{{f.id}}">SELECT</label>
 										</div>
 										<div class="mg-group pull-right">
-											<a href="#">EDIT</a>
+											<!--<a href="#">EDIT</a>-->
 											<button class="dropdown-toggle mg-toggle" type="button" data-toggle="dropdown">
 												<i class="fa fa-caret-up"></i>
 											</button>
 											<ul class="dropdown-menu mg-menu" role="menu">
-												<li><a href="#"><i class="fa fa-download"></i> Download</a></li>
+												<li><a href="#" onclick="location.href='/download'"><i class="fa fa-download"></i> Download</a></li>
 												<li><a href="#"><i class="fa fa-trash-o"></i> Delete</a></li>
 											</ul>
 										</div>
 									</div>
 								</div>
 							</div>
-							<h5 class="mg-title text-weight-semibold">Friends<small>.png</small></h5>
+							<h6 class="mg-title text-weight-semibold col-lg-12" style="height: 33px; overflow:auto;">{{f.filename}}</h6>
 							<div class="mg-description">
-								<small class="pull-left text-muted">Projects, Vacation</small>
-								<small class="pull-right text-muted">07/10/2014</small>
+								<!--<small class="pull-left text-muted">Projects, Vacation</small>-->
+								<small class="pull-right text-muted">{{f.time|date:mediumDate }}</small>
 							</div>
 						</div>
 					</div>
-					<div class="isotope-item image col-sm-6 col-md-4 col-lg-4">
-						<div class="thumbnail">
-							<div class="thumb-preview">
-								<a class="thumb-image" style="height: 150px">
-									<img src="assets/porto_admin/images/projects/project-1.jpg" class="img-responsive" alt="Project">
-								</a>
-								<div class="mg-thumb-options">
-									<div class="mg-zoom thumbnail-image"
-										 href="assets/porto_admin/images/projects/project-1.jpg">
-										<i class="fa fa-search"></i></div>
-									<div class="mg-toolbar">
-										<div class="mg-option checkbox-custom checkbox-inline">
-											<input type="checkbox" id="file_2" value="1">
-											<label for="file_3">SELECT</label>
-										</div>
-										<div class="mg-group pull-right">
-											<a href="#">EDIT</a>
-											<button class="dropdown-toggle mg-toggle" type="button" data-toggle="dropdown">
-												<i class="fa fa-caret-up"></i>
-											</button>
-											<ul class="dropdown-menu mg-menu" role="menu">
-												<li><a href="#"><i class="fa fa-download"></i> Download</a></li>
-												<li><a href="#"><i class="fa fa-trash-o"></i> Delete</a></li>
-											</ul>
-										</div>
-									</div>
-								</div>
-							</div>
-							<h5 class="mg-title text-weight-semibold">Friends<small>.png</small></h5>
-							<div class="mg-description">
-								<small class="pull-left text-muted">Projects, Vacation</small>
-								<small class="pull-right text-muted">07/10/2014</small>
-							</div>
-						</div>
-					</div>
-					<div class="isotope-item document col-sm-6 col-md-4 col-lg-4">
-					<div class="thumbnail">
-						<div class="thumb-preview">
-							<a class="thumb-image" style="height: 150px" >
-								<iframe src="assets/porto_admin/images/projects/qq.html"
-										class="document"
-										width="100%" frameborder="1" scrolling="no"></iframe>
-							</a>
-							<div class="mg-thumb-options">
-								<div class="mg-zoom thumbnail-document"
-									 href="assets/porto_admin/images/projects/qq.html">
-									<i class="fa fa-search"></i></div>
-								<div class="mg-toolbar">
-									<div class="mg-option checkbox-custom checkbox-inline">
-										<input type="checkbox" id="file_3" value="1">
-										<label for="file_3">SELECT</label>
-									</div>
-									<div class="mg-group pull-right">
-										<a href="#">EDIT</a>
-										<button class="dropdown-toggle mg-toggle" type="button" data-toggle="dropdown">
-											<i class="fa fa-caret-up"></i>
-										</button>
-										<ul class="dropdown-menu mg-menu" role="menu">
-											<li><a href="#"><i class="fa fa-download"></i> Download</a></li>
-											<li><a href="#"><i class="fa fa-trash-o"></i> Delete</a></li>
-										</ul>
-									</div>
-								</div>
-							</div>
-						</div>
-						<h5 class="mg-title text-weight-semibold">Friends<small>.png</small></h5>
-						<div class="mg-description">
-							<small class="pull-left text-muted">Projects, Vacation</small>
-							<small class="pull-right text-muted">07/10/2014</small>
-						</div>
-					</div>
-				</div>
+					{% endfor %}
 				</div>
 			</div>
 		</div>
@@ -258,6 +344,7 @@
 		'plugins': ['types','checkbox']
 	});
 
+	//资源预览功能显示大小设置
 	if(document.body.clientWidth>=900){
 		$(".thumbnail-image").colorbox({rel:'.thumbnail-image',innerWidth:600, innerHeight:500});
 		$(".thumbnail-video").colorbox({iframe:true, innerWidth:900, innerHeight:500});
@@ -277,10 +364,62 @@
 		)
 	}
 
-//	$('.document').contents().find("img").css("width","100%");
+	//资源预览功能加载
 	$('iframe').load( function() {
 		$('iframe').contents().find("head")
 				.append($("<style type='text/css'>  img{max-width:250px;}  </style>"));
 	});
+	var $el2 = $("#inputfile");
+
+	//上传插件样式调整
+	var footerTemplate = '<div class="file-thumbnail-footer">\n' +
+			'   <div style="margin:5px 0">\n' +
+			'       <input class="kv-input kv-new form-control input-sm text-center {TAG_CSS_NEW}" value="{caption}" placeholder="Enter caption...">\n' +
+			'       <input class="kv-input kv-init form-control input-sm text-center {TAG_CSS_INIT}" value="{TAG_VALUE}" placeholder="Enter caption...">\n' +
+			'   </div>\n' +
+			'   {size}\n' +
+			'   {actions}\n' +
+			'</div>';
+
+		$el2.fileinput({
+			language: "zh",
+			uploadUrl: '/admin_file-upload',
+			uploadExtraData: {'__anti-forgery-token': "{{csrf-token}}"},
+			uploadAsync: true,
+			maxFileCount: 50,
+			overwriteInitial: false,
+			layoutTemplates: {footer: footerTemplate, size: '<samp><small>({sizeText})</small></samp>'},
+			previewThumbTags: {
+				'{TAG_VALUE}': '',        // no value
+				'{TAG_CSS_NEW}': '',      // new thumbnail input
+				'{TAG_CSS_INIT}': 'hide'  // hide the initial input
+			},
+			previewSettings:{
+				image: {width: "160px", height: "140px"},
+				html: {width: "160px", height: "140px"},
+				text: {width: "160px", height: "140px"},
+				video: {width: "160px", height: "140px"},
+				audio: {width: "160px", height: "140px"},
+				flash: {width: "160px", height: "140px"},
+				object: {width: "160px", height: "140px"},
+				other: {width: "160px", height: "140px"}
+			},
+			previewZoomSettings:{
+				image: {width: "auto", height: "100%"},
+				html: {width: "100%", height: "100%", 'min-height': "480px"},
+				text: {width: "100%", height: "100%", 'min-height': "480px"},
+				video: {width: "auto", height: "100%", 'max-width': "100%"},
+				audio: {width: "100%", height: "30px"},
+				flash: {width: "auto", height: "480px"},
+				object: {width: "auto", height: "480px"},
+				pdf: {width: "100%", height: "100%", 'min-height': "480px"},
+				other: {width: "auto", height: "100%", 'min-height': "480px"}
+			},
+			allowedFileExtensions:['jpg', 'jpeg', 'gif', 'png', 'avi', 'flv', 'mp4', 'txt', 'doc', 'html', 'md']
+		});
+
+
+
 </script>
+
 {% endblock %}

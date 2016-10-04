@@ -44,12 +44,14 @@
     <link rel="stylesheet" href="assets/porto_admin/vendor/codemirror/lib/codemirror.css" />
     <link rel="stylesheet" href="assets/porto_admin/vendor/bootstrap-fileupload/bootstrap-fileupload.min.css" />
     <link rel="stylesheet" href="assets/porto_admin/vendor/jstree/themes/default/style.css" />
+    <link rel="stylesheet" href="assets/porto_admin/vendor/pnotify/pnotify.custom.css" />
+
 
 
     <!-- Theme CSS -->
     <link rel="stylesheet" href="assets/porto_admin/stylesheets/theme.css" />
 
-    <!-- Skin CSS -->
+    <!--&lt;!&ndash; Skin CSS &ndash;&gt;-->
     <link rel="stylesheet" href="assets/porto_admin/stylesheets/skins/default.css" />
 
     <!-- Theme Custom CSS -->
@@ -62,7 +64,6 @@
 
     <script src="assets/porto_admin/vendor/isotope/isotope.js"></script>
     <script src="assets/porto_admin/vendor/jstree/jstree.js"></script>
-
 
 </head>
 <body>
@@ -309,8 +310,9 @@
                                     <span>首页</span>
                                 </a>
                             </li>
-                            <li class='nav-parent {% ifequal page "porto_admin/index.html" %} nav-active{%endifequal%}'>
-                                <a>
+                            <li class='nav-parent'>
+                            <!--<li class='nav-parent {% ifequal page "porto_admin/index.html" %} nav-active{%endifequal%}'>-->
+                            <a>
                                     <i class="fa fa-edit" aria-hidden="true"></i>
                                     <span>博文管理</span>
                                 </a>
@@ -327,177 +329,25 @@
                                     </li>
                                 </ul>
                             </li>
-                            <li {% ifequal page "porto_admin/index.html" %}class='nav-active'{%endifequal%}>
+                            <li class="">
                                 <a href="/admin_resources">
                                     <i class="fa fa-tasks" aria-hidden="true"></i>
                                     <span>资源管理</span>
                                 </a>
                             </li>
-                            <li class="nav-parent nav-expanded">
-                                <a>
+                            <li class="">
+                                <a href="/admin_comments">
                                     <i class="fa fa-codepen" aria-hidden="true"></i>
                                     <span>评论管理</span>
                                 </a>
-                                <ul class="nav nav-children">
-                                    <li>
-                                        <a href="layouts-default.html">
-                                            Default
-                                        </a>
-                                    </li>
-                                    <li class="nav-parent">
-                                        <a>
-                                            Boxed
-                                        </a>
-                                        <ul class="nav nav-children">
-                                            <li>
-                                                <a href="layouts-boxed.html">
-                                                    Static Header
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="layouts-boxed-fixed-header.html">
-                                                    Fixed Header
-                                                </a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li>
-                                        <a href="layouts-dark.html">
-                                            Dark
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="layouts-dark-header.html">
-                                            Dark Header
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="layouts-light-sidebar.html">
-                                            Light Sidebar
-                                        </a>
-                                    </li>
-                                    <li class="nav-active">
-                                        <a href="layouts-left-sidebar-collapsed.html">
-                                            Left Sidebar Collapsed
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="layouts-left-sidebar-scroll.html">
-                                            Left Sidebar Scroll
-                                        </a>
-                                    </li>
-                                    <li class="nav-parent">
-                                        <a>
-                                            Left Sidebar Sizes
-                                        </a>
-                                        <ul class="nav nav-children">
-                                            <li>
-                                                <a href="layouts-sidebar-sizes-xs.html">
-                                                    Left Sidebar XS
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="layouts-sidebar-sizes-sm.html">
-                                                    Left Sidebar SM
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="layouts-sidebar-sizes-md.html">
-                                                    Left Sidebar MD
-                                                </a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li>
-                                        <a href="layouts-square-borders.html">
-                                            Square Borders
-                                        </a>
-                                    </li>
-                                </ul>
                             </li>
-                            <li class="nav-parent nav-expanded">
-                                <a>
+                            <li class="">
+                                <a href="/admin_blogStyle">
                                     <i class="fa fa-asterisk" aria-hidden="true"></i>
                                     <span>博客定制</span>
                                 </a>
-                                <ul class="nav nav-children">
-                                    <li>
-                                        <a href="layouts-default.html">
-                                            Default
-                                        </a>
-                                    </li>
-                                    <li class="nav-parent">
-                                        <a>
-                                            Boxed
-                                        </a>
-                                        <ul class="nav nav-children">
-                                            <li>
-                                                <a href="layouts-boxed.html">
-                                                    Static Header
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="layouts-boxed-fixed-header.html">
-                                                    Fixed Header
-                                                </a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li>
-                                        <a href="layouts-dark.html">
-                                            Dark
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="layouts-dark-header.html">
-                                            Dark Header
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="layouts-light-sidebar.html">
-                                            Light Sidebar
-                                        </a>
-                                    </li>
-                                    <li class="nav-active">
-                                        <a href="layouts-left-sidebar-collapsed.html">
-                                            Left Sidebar Collapsed
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="layouts-left-sidebar-scroll.html">
-                                            Left Sidebar Scroll
-                                        </a>
-                                    </li>
-                                    <li class="nav-parent">
-                                        <a>
-                                            Left Sidebar Sizes
-                                        </a>
-                                        <ul class="nav nav-children">
-                                            <li>
-                                                <a href="layouts-sidebar-sizes-xs.html">
-                                                    Left Sidebar XS
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="layouts-sidebar-sizes-sm.html">
-                                                    Left Sidebar SM
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="layouts-sidebar-sizes-md.html">
-                                                    Left Sidebar MD
-                                                </a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li>
-                                        <a href="layouts-square-borders.html">
-                                            Square Borders
-                                        </a>
-                                    </li>
-                                </ul>
                             </li>
-                            <li class="nav-parent nav-expanded">
+                            <li class="nav-parent">
                                 <a>
                                     <i class="fa fa-sitemap" aria-hidden="true"></i>
                                     <span>统计分析</span>
@@ -721,8 +571,6 @@
 <script src="assets/porto_admin/vendor/ios7-switch/ios7-switch.js"></script>
 <script src="assets/porto_admin/vendor/bootstrap-confirmation/bootstrap-confirmation.js"></script>
 <script src="assets/porto_admin/vendor/autosize/autosize.js"></script>
-<script src="assets/porto_admin/vendor/bootstrap-fileupload/bootstrap-fileupload.min.js"></script>
-
 
 <!-- Theme Base, Components and Settings -->
 <script src="assets/porto_admin/javascripts/theme.js"></script>
@@ -738,6 +586,8 @@
 <script src="assets/porto_admin/javascripts/pages/examples.mediagallery.js"></script>
 <script src="assets/porto_admin/javascripts/forms/examples.advanced.form.js"></script>
 <script src="assets/porto_admin/javascripts/ui-elements/examples.treeview.js"></script>
+<script src="assets/porto_admin/javascripts/ui-elements/examples.modals.js"></script>
+
 
 
 </body>

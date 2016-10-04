@@ -57,7 +57,7 @@
         params (-> request :params)
         account (-> request :params :account)
         filePath (str path "/" account "/privilege/" account ".config")
-        root_json (str path "/" account "/privilege" "tree_root.json")]
+        root_json (str path "/" account "/privilege/tree_root.json")]
     (.mkdir (io/file path account))
     (.mkdir (io/file path account "privilege"))
     (.mkdir (io/file path account "posts"))
@@ -74,7 +74,8 @@
           (str "\t\"id\": " (str "\"resources_public_templates_business_" account "\",\n")
                "\t\"text\": " "\"" account "\",\n"
                "\t\"children\": " "true,\n"
-               "\t\"type\": " "\"root\"\n")
+               "\t\"type\": " "\"root\",\n"
+               "\t\"state\": {\"opened\": true}\n")
           :append true)
     (spit root_json "}]\n" :append true)
     ))

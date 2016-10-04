@@ -1217,20 +1217,20 @@ html.fixed .col-xl-12 {
 		margin-left: 25%;
 	}
 
-	html.scroll .col-xl-offset-2,
-	html.fixed .col-xl-offset-2 {
-		margin-left: 16.66666667%;
-	}
+html.scroll .col-xl-offset-2,
+html.fixed .col-xl-offset-2 {
+	margin-left: 16.66666667%;
+}
 
-	html.scroll .col-xl-offset-1,
-	html.fixed .col-xl-offset-1 {
-		margin-left: 8.33333333%;
-	}
+html.scroll .col-xl-offset-1,
+html.fixed .col-xl-offset-1 {
+	margin-left: 8.33333333%;
+}
 
-	html.scroll .col-xl-offset-0,
-	html.fixed .col-xl-offset-0 {
-		margin-left: 0;
-	}
+html.scroll .col-xl-offset-0,
+html.fixed .col-xl-offset-0 {
+	margin-left: 0;
+}
 }
 
 html.scroll .visible-xl,
@@ -4967,7 +4967,7 @@ body .btn.active:focus {
 }
 
 body .btn {
-	white-space: normal;
+	/*white-space: normal;*/
 }
 
 body .btn-facebook, body .btn-facebook:active, body .btn-facebook:hover, body .btn-facebook:focus,
