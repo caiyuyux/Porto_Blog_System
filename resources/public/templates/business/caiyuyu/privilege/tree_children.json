@@ -99,5 +99,6 @@
 	"text": "九九八十一 _ 双笙.mp4",
 	"parent": "resources_public_templates_business_caiyuyu_videos"
 	},
-	{"id": "resources_public_templates_business_caiyuyu_privilege","text": "privilege", "parent": "resources_public_templates_business_caiyuyu","state":{"disabled": true}}
+	{"id": "resources_public_templates_business_caiyuyu_privilege","text": "privilege", "parent": "resources_public_templates_business_caiyuyu","state":{"disabled": true}},
+	{"id": "resources_public_templates_business_caiyuyu_blog","text": "blog", "parent": "resources_public_templates_business_caiyuyu","state":{"disabled": true}}
 ]

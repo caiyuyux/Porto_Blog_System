@@ -30,6 +30,8 @@
                  [clj-time "0.11.0"]
                  [cheshire "5.6.1"]
                  [com.draines/postal "2.0.0"]
+                 [me.raynes/fs "1.4.6"]
+                 [clj-jgit "0.8.9"]
                  [me.raynes/fs "1.4.6"]]
 
 

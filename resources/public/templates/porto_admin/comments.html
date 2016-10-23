@@ -1,54 +1,233 @@
-<html>
-<head>
-    <title>My Page</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-</head>
-<style>
-    .comment {
-        background-color: #c0c0c0;
-        border-style: solid;
-        border-width: thin;
-        width: 500px;
-        margin-bottom: 10px;
-    }
+{% extends "porto_admin/base.html" %}
+{% block content %}
 
-    .postRef {
-        font-size: 12px;
-        font-style: italic;
-        text-align: right;
-    }
-</style>
-<body>
-sdfsdfsdfsdfsdfsd
-<div id="comments"></div>
+<section role="main" class="content-body">
+    <header class="page-header">
+        <h2>评论管理</h2>
 
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+        <div class="right-wrapper pull-right">
+            <ol class="breadcrumbs">
+                <li>
+                    <a href="/">
+                        <i class="fa fa-home"></i>
+                    </a>
+                </li>
+                <li><span>Admin</span></li>
+                <li><span>Comment Manage</span></li>
+            </ol>
+
+            <a class="sidebar-right-toggle" data-open="sidebar-right"><i class="fa fa-chevron-left"></i></a>
+        </div>
+    </header>
+
+    <!-- start: page -->
+    <section class="content-with-menu content-with-menu-has-toolbar media-gallery">
+        <div class="inner-menu-toggle">
+            <a href="#" class="inner-menu-expand" data-open="inner-menu">
+                Show Bar <i class="fa fa-chevron-right"></i>
+            </a>
+        </div>
+
+        <menu id="content-menu" class="inner-menu" role="menu">
+            <div class="nano">
+                <div class="nano-content">
+
+                    <div class="inner-menu-toggle-inside">
+                        <a href="#" class="inner-menu-collapse">
+                            <i class="fa fa-chevron-up visible-xs-inline"></i><i class="fa fa-chevron-left hidden-xs-inline"></i> Hide Bar
+                        </a>
+                        <a href="#" class="inner-menu-expand" data-open="inner-menu">
+                            Show Bar <i class="fa fa-chevron-down"></i>
+                        </a>
+                    </div>
+
+                    <div class="inner-menu-content">
+
+                        <a class="btn btn-block btn-primary btn-md pt-sm pb-sm text-md">
+                            <i class="fa fa-upload mr-xs"></i>
+                            Upload Files
+                        </a>
+
+                        <hr class="separator" />
+
+                        <div class="sidebar-widget m-none">
+                            <div class="widget-header clearfix">
+                                <h6 class="title pull-left mt-xs">TAGS</h6>
+                                <div class="pull-right">
+                                    <a href="#" class="btn btn-dark btn-sm btn-widget-act">Add Tag</a>
+                                </div>
+                            </div>
+                            <div class="widget-content">
+                                <ul class="mg-tags">
+                                    <li><a href="#">Design</a></li>
+                                    <li><a href="#">Projects</a></li>
+                                    <li><a href="#">Photos</a></li>
+                                    <li><a href="#">Websites</a></li>
+                                    <li><a href="#">Documentation</a></li>
+                                    <li><a href="#">Download</a></li>
+                                    <li><a href="#">Images</a></li>
+                                    <li><a href="#">Vacation</a></li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <hr class="separator" />
+
+                    </div>
+                </div>
+            </div>
+        </menu>
+        <div class="content-with-menu-container">
+            <div class="inner-body mg-main">
+
+                <section class="panel">
+                    <header class="panel-heading" style="padding: 0">
+                        <div class="panel-actions">
+                            <a href="#" class="panel-action panel-action-toggle" data-panel-toggle></a>
+                            <a href="#" class="panel-action panel-action-dismiss" data-panel-dismiss></a>
+                        </div>
+
+                        <ul class="nav nav-tabs ">
+                            <li class="active">
+                                <a href="###" onclick="getData('all')" data-toggle="tab">全部</a>
+                            </li>
+                            <li>
+                                <a href="###" onclick="getData('approved')"  data-toggle="tab">已允许</a>
+                            </li>
+                            <li>
+                                <a href="###" onclick="getData('spam')"  data-toggle="tab">已屏蔽</a>
+                            </li>
+                            <li>
+                                <a href="###" onclick="getData('deleted')"  data-toggle="tab">已删除</a>
+                            </li>
+                        </ul>
+                    </header>
+                        <div class="tab-content">
+                            <table class="table table-bordered table-striped mb-none" style="width: 100%" id="datatable-details">
+                                <thead>
+                                <tr>
+                                    <th>评论者</th>
+                                    <th>评论主题</th>
+                                    <th>评论内容</th>
+                                    <th>评论时间</th>
+                                    <th>操作</th>
+                                    <th hidden>评论ID</th>
+                                    <th hidden>头像地址</th>
+                                    <th hidden>disqus主页</th>
+                                    <th hidden>个人主页</th>
+                                    <th hidden>点赞次数</th>
+                                    <th hidden>评论地址</th>
+                                    <th hidden>邮箱</th>
+                                    <th hidden>IP</th>
+                                    <th hidden>类别</th>
+                                </tr>
+                                </thead>
+                                <tbody id='postData'>
+                                </tbody>
+                            </table>
+
+                        </div>
+                </section>
+            </div>
+        </div>
+    </section>
+    <!-- end: page -->
+</section>
+
+
 <script>
-
-    $(document).ready(function() {
-
         $commentDiv = $("#comments");
+        var datatable = "";
+        var forum = "porto-blog-system";
+        var APIKEY = "r1GglbTmZuZLWl6Bw8ssQ4Lxi7gutvkkOWN2dNNTW9K86Y73mr6YyIBRtJNZf7SL";
+        var SECRETKEY = "Ep6y6Fgp9VMHvZNT22M31jbVBavgNXKM9Pi9ZA4xJvgOUrQm3vKm5ygJKbpslTnx";
+        var ACCESS_TOKEN = "7daa8127163143c1a2a739bfd6ace0b3";
 
-        $.get("https://disqus.com/api/3.0/forums/listPosts.json?forum=cflib&limit=10&related=thread&api_key=vSK5ndtqzaZGn4aEsYsR9xCrV1z656kxT0VODoLLbCOQvFQezy6wtBWNe9Jy3GW4", function(res, code) {
-            //Good response?
-            if(res.code === 0) {
-                var result = "";
-                for(var i=0, len=res.response.length; i<len; i++) {
-                    var post = res.response[i];
-                    console.dir(post);
-                    var html = "<div class='comment'>";
-                    html += "<img src='" + post.author.avatar.small.permalink + "'>";
-                    html += "<a href='"+ post.author.profileUrl + "'>" + post.author.name + "</a>";
-                    html += "<p>"+post.raw_message+"</p>";
-                    html += "<p class='postRef'>Posted at " + post.createdAt + " on <a href='"+ post.thread.link + "'>" + post.thread.title + "</a></p>";
-                    html += "</div>";
+        function getData(type) {
+            $.ajax({
+                type : "get",
+                url : "https://disqus.com/api/3.0/forums/listPosts.json",
+                data : "related=thread&forum="+forum+"&api_key="+APIKEY+"&access_token="+ACCESS_TOKEN+"&include=approved&include=spam&include=deleted",
+                async : false,
+                success : function(res, code){
+                    if(res.code === 0) {
+                        var result = "";
 
-                    result+=html;
+                        for(var i=0, len=res.response.length; i<len; i++) {
+                            var post = res.response[i];
+                            var approved = "";
+                            var spam = "";
+                            var deleted = "";
+
+
+                            if(!post.isDeleted){
+                                if(!post.isApproved){
+                                    approved = "<i class='fa fa-check fa-fw text-muted text-md va-middle disable'></i><span class='va-middle'>允许</span> ";
+                                    deleted = "<i class='fa fa-trash-o fa-fw text-muted text-md va-middle'></i><span class='va-middle'>删除</span>";
+
+                                }else if(!post.isSpam){
+                                    spam = "<i class='fa fa-ban fa-fw text-muted text-md va-middle'></i><span class='va-middle'>屏蔽</span> ";
+                                    deleted = "<i class='fa fa-trash-o fa-fw text-muted text-md va-middle'></i><span class='va-middle'>删除</span>";
+                                }
+                            }else{
+                                deleted = "<i class='fa fa-remove fa-fw text-muted text-md va-middle'></i><span class='va-middle'>不可操作</span>";
+                            }
+
+                            var html = "<tr>";
+                            html += "<td>"+post.author.name+"</td>";
+                            html += "<td><a href="+post.thread.link+">"+post.thread.title+"</a></td>";
+                            html += "<td>"+post.message+"</td>";
+                            html += "<td>"+post.createdAt+"</td>";
+                            html += "<td>" + approved + spam + deleted + "</td>";
+                            html += "<td hidden>"+post.id+"</td>";
+                            html += "<td hidden>"+post.author.avatar.small.permalink+"</td>";
+                            html += "<td hidden>"+post.author.profileUrl+"</td>";
+                            html += "<td hidden>"+post.author.url+"</td>";
+                            html += "<td hidden>"+post.likes+"</td>";
+                            html += "<td hidden>"+post.url+"</td>";
+                            html += "<td hidden>"+post.author.email+"</td>";
+                            html += "<td hidden>"+post.ipAddress+"</td>";
+                            html += "<td hidden>"+post.ipAddress+"</td>";
+
+                            html += "</tr>";
+
+                            result += html;
+                        }
+                        $('#postData').html(result);
+                        if(type!="all"){
+                            if(type=="approved"){
+                                datatable.fnFilter( '屏蔽', 5, false, true, false);
+                            }
+                            else if(type=="spam"){
+                                datatable.fnFilter( '允许', 5, false, true, false);
+
+                            }
+                            else if(type=="deleted"){
+                                datatable.fnFilter( '不可操作', 5, false, true, false);
+                            }
+                        }else if(datatable!==""){
+                            datatable.fnFilter( '', 5, false, true, false);
+                        }
+
+                    }
                 }
-                $commentDiv.html(result);
-            }
+            });
+        }
+        //必须调用，datatable需实例化
+        $(document).ready(function(){
+            getData("all");
         });
-    });
+
+
+//        jQuery.post('https://disqus.com/api/3.0/posts/update.json',{
+//            post:"2957858030",
+//            access_token:ACCESS_TOKEN,
+//            message:"This comment has been overwritten",
+//            api_key:APIKEY})
+
 </script>
-</body>
-</html>
+<script src="assets/porto_admin/vendor/jquery-datatables/media/js/jquery.dataTables.js"></script>
+<script src="assets/porto_admin/vendor/jquery-datatables/extras/TableTools/js/dataTables.tableTools.min.js"></script>
+<script src="assets/porto_admin/vendor/jquery-datatables-bs3/assets/js/datatables.js"></script>
+<script src="assets/porto_admin/javascripts/tables/examples.datatables.row.with.details.js"></script>
+{% endblock %}

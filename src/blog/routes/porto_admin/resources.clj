@@ -14,12 +14,15 @@
   [account]
   (let [children_json (str "resources/public/templates/business/" account "/privilege/tree_children.json")
         file-tree (file-seq (io/file "resources/public/templates/business" account))
-        filter_dir (str "resources\\public\\templates\\business\\" account "\\privilege")]
+        filter_dir (str "resources\\public\\templates\\business\\" account "\\privilege")
+        blog_dir (str "resources\\public\\templates\\business\\" account "\\blog")]
     (spit children_json "[\n")
     (doseq [f (sort file-tree)
             :when (not (= (.getName f) account))
             :when (not (= (.getParent f) filter_dir))
-            :when (not (= (.getPath f) filter_dir))]
+            :when (not (= (.getPath f) filter_dir))
+            :when (not (= (.getParent f) blog_dir))
+            :when (not (= (.getPath f) blog_dir))]
       (spit children_json
             (clojure.string/escape
               (str "\t{\n"
@@ -47,6 +50,10 @@
 
     (spit children_json
           (str "\t{\"id\": \"resources_public_templates_business_" account "_privilege\",\"text\": \"privilege\", \"parent\": \""
+               "resources_public_templates_business_" account
+               "\",\"state\":{\"disabled\": true}},\n") :append true)
+    (spit children_json
+          (str "\t{\"id\": \"resources_public_templates_business_" account "_blog\",\"text\": \"blog\", \"parent\": \""
                "resources_public_templates_business_" account
                "\",\"state\":{\"disabled\": true}}\n") :append true)
     (spit children_json "]\n" :append true)

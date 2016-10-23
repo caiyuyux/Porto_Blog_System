@@ -18,16 +18,15 @@ Theme Version: 	1.5.2
 			return [
 				'<table class="table mb-none">',
 					'<tr class="b-top-none">',
-						'<td><label class="mb-none">Rendering engine:</label></td>',
-						'<td>' + data[1]+ ' ' + data[4] + '</td>',
+						'<td class="col-lg-2 col-xs-2" rowspan="2"><label class="mb-none"><img src=' + data[7] + '></label></td>',
+						'<td class="col-lg-3 col-xs-2"><a href="' + data[9] + '">个人主页</a></td>',
+						'<td class="col-lg-3 col-xs-2"><a href="' + data[8] + '">DISQUS主页</a></td>',
+						'<td class="col-lg-3 col-xs-2"><a href="' + data[11] + '">评论位置</a></td>',
 					'</tr>',
 					'<tr>',
-						'<td><label class="mb-none">Link to source:</label></td>',
-						'<td>Could provide a link here</td>',
-					'</tr>',
-					'<tr>',
-						'<td><label class="mb-none">Extra info:</label></td>',
-						'<td>And any further details here (images etc)</td>',
+						'<td>邮箱： <span>' + data[12] + '</span> </td>',
+						'<td>点赞次数： <span>' + data[10] + '</span></td>',
+						'<td>IP记录： <span>' + data[13] + '</span> </td>',
 					'</tr>',
 				'</table>'
 			].join('');
@@ -50,7 +49,7 @@ Theme Version: 	1.5.2
 			});
 
 		// initialize
-		var datatable = $table.dataTable({
+		datatable = $table.dataTable({
 			aoColumnDefs: [{
 				bSortable: false,
 				aTargets: [ 0 ]
@@ -59,6 +58,8 @@ Theme Version: 	1.5.2
 				[1, 'asc']
 			]
 		});
+		// console.dir(datatable);
+		// datatable.fnFilter( "允许", 5, false, true, false);
 
 		// add a listener
 		$table.on('click', 'i[data-toggle]', function() {
