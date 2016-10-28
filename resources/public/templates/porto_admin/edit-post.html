@@ -1,6 +1,9 @@
 {% extends "porto_admin/base.html" %}
 {% block content %}
 
+<script src="assets/porto_admin/vendor/autosize/autosize.js"></script>
+<script src="assets/porto_admin/vendor/bootstrap-fileupload/bootstrap-fileupload.min.js"></script>
+
 <section role="main" class="content-body">
     <header class="page-header">
         <h2>新增博文</h2>
@@ -101,23 +104,32 @@
                             <div class="panel-body">
                                 <form class="form-horizontal form-bordered">
                                     <div class="form-group">
-                                        <div class="col-md-6">
+                                        <div class="col-xs-12 col-md-6 col-lg-6">
                                             <input class="form-control" type="text" placeholder="请输入标题" required>
                                         </div>
-                                        <div class="col-md-6">
-                                            <div class="fileupload fileupload-new" data-provides="fileupload">
-                                                <div class="input-append">
-                                                    <div class="uneditable-input">
-                                                        <i class="fa fa-file fileupload-exists"></i>
-                                                        <span class="fileupload-preview"></span>
-                                                    </div>
+                                        <div id="local" class="fileupload fileupload-new col-xs-12 col-md-5 col-lg-5" data-provides="fileupload">
+                                            <div class="input-append">
+                                                <div class="uneditable-input col-xs-6 col-md-6">
+                                                    <i class="fa fa-file fileupload-exists"></i>
+                                                    <span class="fileupload-preview"></span>
+                                                </div>
+                                                <span class="col-xs-6 col-md-6" style="padding: 0">
                                                     <span class="btn btn-default btn-file">
                                                         <span class="fileupload-exists">Change</span>
-                                                        <span class="fileupload-new">选择封面</span>
-                                                        <input type="file" />
+                                                        <span class="fileupload-new">上传封面</span>
+                                                        <input id="file" type="file" />
                                                     </span>
                                                     <a href="#" class="btn btn-default fileupload-exists" data-dismiss="fileupload">Remove</a>
-                                                </div>
+                                                </span>
+
+                                            </div>
+                                        </div>
+                                        <div id="web" class="col-xs-12 col-md-5 col-lg-5" disabled hidden>
+                                            <input id="url" type="url" class="form-control" placeholder="网络文件地址" required>
+                                        </div>
+                                        <div class="col-xs-2 col-md-1 col-lg-1">
+                                            <div class="switch switch-sm switch-primary">
+                                                <input type="checkbox" id="switch" data-plugin-ios-switch checked="checked" />
                                             </div>
                                         </div>
                                     </div>
@@ -143,6 +155,7 @@ Enjoy!
                                             <div class="summernote" data-plugin-summernote data-plugin-options='{ "height": 330, "codemirror": { "theme": "ambiance" } }'>Start typing...</div>
                                         </div>
                                     </div>
+                                    <input type="submit" class="form-control">
                                 </form>
                             </div>
                         </section>
@@ -153,4 +166,23 @@ Enjoy!
     </section>
     <!-- end: page -->
 </section>
+<script>
+    //指示器
+    var flag = 0;
+    $('#switch').change(function () {
+        if(flag==0){
+            $('#file').attr('disabled',true);
+            $('#local').hide();
+            $('#url').attr('disabled',false);
+            $('#web').show();
+            flag=1;
+        }else{
+            $('#file').attr('disabled',false);
+            $('#local').show();
+            $('#url').attr('disabled',true);
+            $('#web').hide();
+            flag=0;
+        }
+    })
+</script>
 {% endblock %}

@@ -5,6 +5,86 @@
 	"parent": "resources_public_templates_business_caiyuyu"
 	},
 	{
+	"id": "resources_public_templates_business_caiyuyu_blog_.git_branches",
+	"text": "branches",
+	"parent": "resources_public_templates_business_caiyuyu_blog_.git"
+	},
+	{
+	"id": "resources_public_templates_business_caiyuyu_blog_.git_config",
+	"text": "config",
+	"parent": "resources_public_templates_business_caiyuyu_blog_.git"
+	},
+	{
+	"id": "resources_public_templates_business_caiyuyu_blog_.git_HEAD",
+	"text": "HEAD",
+	"parent": "resources_public_templates_business_caiyuyu_blog_.git"
+	},
+	{
+	"id": "resources_public_templates_business_caiyuyu_blog_.git_hooks",
+	"text": "hooks",
+	"parent": "resources_public_templates_business_caiyuyu_blog_.git"
+	},
+	{
+	"id": "resources_public_templates_business_caiyuyu_blog_.git_index",
+	"text": "index",
+	"parent": "resources_public_templates_business_caiyuyu_blog_.git"
+	},
+	{
+	"id": "resources_public_templates_business_caiyuyu_blog_.git_logs",
+	"text": "logs",
+	"parent": "resources_public_templates_business_caiyuyu_blog_.git"
+	},
+	{
+	"id": "resources_public_templates_business_caiyuyu_blog_.git_logs_refs",
+	"text": "refs",
+	"parent": "resources_public_templates_business_caiyuyu_blog_.git_logs"
+	},
+	{
+	"id": "resources_public_templates_business_caiyuyu_blog_.git_logs_refs_heads",
+	"text": "heads",
+	"parent": "resources_public_templates_business_caiyuyu_blog_.git_logs_refs"
+	},
+	{
+	"id": "resources_public_templates_business_caiyuyu_blog_.git_objects",
+	"text": "objects",
+	"parent": "resources_public_templates_business_caiyuyu_blog_.git"
+	},
+	{
+	"id": "resources_public_templates_business_caiyuyu_blog_.git_objects_09",
+	"text": "09",
+	"parent": "resources_public_templates_business_caiyuyu_blog_.git_objects"
+	},
+	{
+	"id": "resources_public_templates_business_caiyuyu_blog_.git_objects_09_b4edc75f1a23daba7e3356add203dc7350c2ba",
+	"text": "b4edc75f1a23daba7e3356add203dc7350c2ba",
+	"parent": "resources_public_templates_business_caiyuyu_blog_.git_objects_09"
+	},
+	{
+	"id": "resources_public_templates_business_caiyuyu_blog_.git_objects_info",
+	"text": "info",
+	"parent": "resources_public_templates_business_caiyuyu_blog_.git_objects"
+	},
+	{
+	"id": "resources_public_templates_business_caiyuyu_blog_.git_objects_pack",
+	"text": "pack",
+	"parent": "resources_public_templates_business_caiyuyu_blog_.git_objects"
+	},
+	{
+	"id": "resources_public_templates_business_caiyuyu_blog_.git_refs",
+	"text": "refs",
+	"parent": "resources_public_templates_business_caiyuyu_blog_.git"
+	},
+	{
+	"id": "resources_public_templates_business_caiyuyu_blog_.git_refs_heads",
+	"text": "heads",
+	"parent": "resources_public_templates_business_caiyuyu_blog_.git_refs"
+	},
+	{
+	"id": "resources_public_templates_business_caiyuyu_blog_.git_refs_tags",
+	"text": "tags",
+	"parent": "resources_public_templates_business_caiyuyu_blog_.git_refs"
+	},
+	{
 	"id": "resources_public_templates_business_caiyuyu_images",
 	"text": "images",
 	"parent": "resources_public_templates_business_caiyuyu"

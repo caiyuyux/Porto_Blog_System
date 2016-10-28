@@ -13784,9 +13784,9 @@ html.dark .pricing-table .plan {
 	border-radius: 0;
 }
 
-@media only screen and (max-width: 479px) {
+@media only screen {
 	.fileupload .uneditable-input {
-		width: 170px;
+		/*width: 170px;*/
 	}
 }
 /* Datepicker - Input Group Addon */

@@ -30,7 +30,7 @@
 .control-group.success .fileupload .fileupload-preview{color:#468847;}
 .control-group.success .fileupload .thumbnail{border-color:#468847;}
 .uneditable-input {
-   border: 1px solid #ccc; height: 35px; padding: 6px 10px; width: 200px; overflow: hidden;
+   border: 1px solid #ccc; height: 35px; padding: 6px 10px; overflow: hidden;
    -moz-border-radius: 2px; -webkit-border-radius: 2px; border-radius: 2px; }
 .uneditable-input .glyphicon { float: left; margin-right: 5px; vertical-align: middle; margin-top: 2px; opacity: 0.5; }
 .fileupload-preview { width: 400px; display: block; color: #666; }
