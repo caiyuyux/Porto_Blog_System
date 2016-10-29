@@ -83,12 +83,13 @@
            (POST "/admin_update-profile"  request (profile/update-profile          request))
            (POST "/admin_update-mind"     request (profile/update-mind             request))
 
-           (GET  "/admin_edit-post"       request (post/edit_post_page             request))
+           (GET  "/admin_edit-post"       request (post/edit_post_page!            request))
            (GET  "/admin_consult-post"    request (post/consult_post_page          request))
            (GET  "/admin_resources"       request (resources/resources_index_page  request))
            (GET  "/admin_comments"        request (comment/comments_index_page     request))
            (GET  "/admin_blogStyle"       request (blogStyle/blogStyle_index_page  request))
            (POST "/admin_file-upload"     request (resources/file-upload!          request))
+           (POST "/admin_deletedPost"     request (post/deleted_post!              request))
 
            ;;------------------------------ blog -----------------------------------------
            (GET  "/blog/:account" request (blog/index_page request))

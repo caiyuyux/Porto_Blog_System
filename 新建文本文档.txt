@@ -1,4 +1,4 @@
-type     value
+obj     value
 1        账号
 2        心情
 3        资料

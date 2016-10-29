@@ -41,19 +41,19 @@
 	/*
 	Image Preview: Lightbox
 	*/
-	$('.thumb-preview a[href]').magnificPopup({
-		type: 'image',
-		closeOnContentClick: true,
-		mainClass: 'mfp-img-mobile',
-		image: {
-			verticalFit: true
-		}
-	});
-
-	$('.thumb-preview .mg-zoom').on('click.lightbox', function( ev ) {
-		ev.preventDefault();
-		$(this).closest('.thumb-preview').find('a.thumb-image').triggerHandler('click');
-	});
+	// $('.thumb-preview a[href]').magnificPopup({
+	// 	type: 'image',
+	// 	closeOnContentClick: true,
+	// 	mainClass: 'mfp-img-mobile',
+	// 	image: {
+	// 		verticalFit: true
+	// 	}
+	// });
+    //
+	// $('.thumb-preview .mg-zoom').on('click.lightbox', function( ev ) {
+	// 	ev.preventDefault();
+	// 	$(this).closest('.thumb-preview').find('a.thumb-image').triggerHandler('click');
+	// });
 
 	/*
 	Thumnail: Dropdown Options

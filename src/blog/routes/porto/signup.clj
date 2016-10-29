@@ -57,7 +57,8 @@
         params (-> request :params)
         account (-> request :params :account)
         filePath (str path "/" account "/privilege/" account ".config")
-        root_json (str path "/" account "/privilege/tree_root.json")]
+        ;root_json (str path "/" account "/privilege/tree_root.json")
+        ]
     (.mkdir (io/file path account))
     (.mkdir (io/file path account "privilege"))
     (.mkdir (io/file path account "posts"))
@@ -69,15 +70,15 @@
     (spit filePath (str ":account\t" (params :account) "\n"))
     (spit filePath (str ":email\t" (params :email) "\n") :append true)
     ;;tree root
-    (spit root_json "[{\n")
-    (spit root_json
-          (str "\t\"id\": " (str "\"resources_public_templates_business_" account "\",\n")
-               "\t\"text\": " "\"" account "\",\n"
-               "\t\"children\": " "true,\n"
-               "\t\"type\": " "\"root\",\n"
-               "\t\"state\": {\"opened\": true}\n")
-          :append true)
-    (spit root_json "}]\n" :append true)
+    ;(spit root_json "[{\n")
+    ;(spit root_json
+    ;      (str "\t\"id\": " (str "\"resources_public_templates_business_" account "\",\n")
+    ;           "\t\"text\": " "\"" account "\",\n"
+    ;           "\t\"children\": " "true,\n"
+    ;           "\t\"type\": " "\"root\",\n"
+    ;           "\t\"state\": {\"opened\": true}\n")
+    ;      :append true)
+    ;(spit root_json "}]\n" :append true)
     ))
 
 (defn user-signup
@@ -88,8 +89,8 @@
     (do
       (create-config! request)
       (save-user! (-> request :params))
-      (db/create_new! {:account (-> request :params :account), :obj "1", :type"add", :content "注册了账号", :create_time (l/local-now),
-                       :photo nil, :video nil, :music nil, :post nil})
+      (db/create_new! {:account (-> request :params :account), :obj "signup", :type"add", :content "注册了账号", :create_time (l/local-now),
+                       :image nil, :video nil, :music nil, :post nil})
       (-> (redirect "/")
           (assoc :flash (select-keys (-> request :params) [:account]))
           (assoc :session {:account (:account (-> request :params))})))))

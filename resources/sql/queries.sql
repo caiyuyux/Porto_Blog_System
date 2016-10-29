@@ -109,15 +109,24 @@ SELECT EXISTS (
 INSERT INTO images (id, filename, account, time, type)
 VALUES (:imageid, :filename, :account, :time, :type);
 
+-- :name delete-image-by-id :! :n
+delete from images where id = :id;
+
 -- :name insert_video! :! :n
 -- :doc
 INSERT INTO videos (id, filename, account, time, type)
 VALUES (:videoid, :filename, :account, :time, :type);
 
+-- :name delete-video-by-id :! :n
+delete from videos where id = :id;
+
 -- :name insert_post! :! :n
 -- :doc
 INSERT INTO posts (id, title, account, time, type)
 VALUES (:postid, :filename, :account, :time, :type);
+
+-- :name delete-post-by-id :! :n
+delete from posts where id = :id;
 
 -- :name get_file_info :? :*
 -- :doc

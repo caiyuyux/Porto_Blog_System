@@ -10,7 +10,7 @@
             [ring.util.response :refer [redirect response]]))
 
 
-(defn edit_post_page
+(defn edit_post_page!
   [request]
   (if-let [account (-> request :session :account)]
     (layout/render
@@ -40,3 +40,10 @@
         (assoc :flash {:errors {:type "signin" :value "登录" :warning "Please login first"}}))
     )
   )
+
+(defn deleted_post!
+  [request]
+  (let [id (-> request :params :id)
+        type (-> request :params :type)]
+    (println id)
+    (println )))
