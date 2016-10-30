@@ -132,7 +132,7 @@
 							<a href="#" id="mgSelectAll"><i class="fa fa-check-square"></i> <span data-all-text="Select All" data-none-text="Select None">Select All</span></a>
 						</li>
 						<li>
-							<a href="#"><i class="fa fa-trash-o"></i> Delete</a>
+							<a href="###" onclick="delete_all()"><i class="fa fa-trash-o"></i> Delete</a>
 						</li>
 						<li class="right" data-sort-source data-sort-id="media-gallery">
 							<ul class="nav nav-pills nav-pills-primary">
@@ -183,7 +183,7 @@
 										<i class="fa fa-search"></i></div>
 									<div class="mg-toolbar">
 										<div class="mg-option checkbox-custom checkbox-inline">
-											<input type="checkbox" id="{{f.id}}" value="1">
+											<input class="select_checkbox" type="checkbox" id="{{f.id}}" value="1">
 											<label for="{{f.id}}">SELECT</label>
 										</div>
 										<div class="mg-group pull-right">
@@ -191,8 +191,8 @@
 												<i class="fa fa-caret-up"></i>
 											</button>
 											<ul class="dropdown-menu mg-menu">
-												<li><a href="/templates/business/caiyuyu/images/125034h849f664vn8auaiv.jpg" download="{{f.filename}}"><i class="fa fa-download"></i> Download</a></li>
-												<li><a href="/admin_deletedPost?id={{f.id}}&type={{f.type}}"><i class="fa fa-trash-o"></i> Delete</a></li>
+												<li><a id="download" href="{{f.id}}" download="{{f.filename}}"><i class="fa fa-download"></i> Download</a></li>
+												<li><a href="###" onclick="delete_post('{{f.id}}');"><i class="fa fa-trash-o"></i> Delete</a></li>
 											</ul>
 										</div>
 									</div>
@@ -211,6 +211,23 @@
 		</div>
 	</section>
 	<!-- end: page -->
+
+	<!-- 模态框（Modal） -->
+	<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+					<h4 class="modal-title" id="myModalLabel">警告</h4>
+				</div>
+				<div class="modal-body">请选中您要操作的对象。</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+				</div>
+			</div><!-- /.modal-content -->
+		</div><!-- /.modal-dialog -->
+	</div>
+	<!-- /.modal -->
 </section>
 <script type="text/javascript">
 
@@ -289,7 +306,36 @@
 		});
 
 
+	function delete_post(id) {
+		$.ajax({
+			type : "post",
+			url : "/admin_deletedPost",
+			data : "id="+id,
+			async : false,
+			success : function(data){
+				window.location.reload();
+			}
+		})
+	}
+	function delete_all() {
+		if($('.thumbnail-selected').length>0)
+		{
+			$('.thumbnail-selected a[download]').each(function () {
+				var id = $(this).attr("href");
+				$.ajax({
+					type : "post",
+					url : "/admin_deletedPost",
+					data : "id="+id,
+					async : false,
+					success : function(data){}
+				})
+			});
+			window.location.reload();
+		}else{
+			$('#myModal').modal({});
+		}
 
+	}
 </script>
 
 {% endblock %}

@@ -43,7 +43,11 @@
 
 (defn deleted_post!
   [request]
-  (let [id (-> request :params :id)
-        type (-> request :params :type)]
-    (println id)
-    (println )))
+  (let [type (get (clojure.string/split (-> request :params :id) #"/") 4)]
+    (if (= type "images")
+      (db/delete-image-by-id (-> request :params)))
+    (if (= type "videos")
+      (db/delete-video-by-id (-> request :params)))
+    (if (= type "posts")
+      (db/delete-post-by-id (-> request :params)))
+    "return"))
