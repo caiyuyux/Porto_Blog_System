@@ -22,7 +22,7 @@
 		var $this = $(this),
 			$label = $this.find('> span');
 			$checks = $('.mg-option input[type=checkbox]');
-
+    
 		if($this.attr('data-all-selected')) {
 			$('#wys_div').hide();
 			$('#markdown_div').show();

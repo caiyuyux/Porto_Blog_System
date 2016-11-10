@@ -122,8 +122,13 @@ delete from videos where id = :id;
 
 -- :name insert_post! :! :n
 -- :doc
-INSERT INTO posts (id, title, account, time, type)
-VALUES (:postid, :filename, :account, :time, :type);
+INSERT INTO  posts (id, title, tags, categories, md, html, account, time, type, image, video)
+VALUES (:postid, :title, :tags, :categories, :md, :html, :account, :time, :type, :image, :video);
+
+-- :name update_post! :! :n
+-- :doc
+UPDATE  posts SET id=:postid, title=:title, tags=:tags, categories=:categories, md=:md, html=:html, update_time=:time, type=:type, image=:image, video=:video
+WHERE id=:id;
 
 -- :name delete-post-by-id :! :n
 delete from posts where id = :id;
@@ -141,4 +146,65 @@ UNION
 SELECT id, type, time, title
 FROM posts
 WHERE account = :account;
+
+-- :name insert_categories! :! :n
+-- :doc
+INSERT INTO categories (id, count, account)
+VALUES (:name, :count, :account);
+
+-- :name get_categories :? :*
+-- :doc
+SELECT id, count
+FROM categories
+WHERE account = :account;
+
+-- :name get_posts :? :*
+-- :doc
+SELECT id, title, tags, md, html, image, video, music, update_time, type, time, categories
+FROM posts
+WHERE account = :account;
+
+-- :name get_single_posts :? :*
+-- :doc
+SELECT id, account, title, tags, md, html, image, video, music, update_time, type, time, categories
+FROM posts
+WHERE id = :id;
+
+-- :name add_categories_count! :! :n
+-- :doc
+UPDATE categories SET count=count+1
+WHERE account=:account AND id=:categories;
+
+-- :name remove_categories_count! :! :n
+-- :doc
+UPDATE categories SET count=count-1
+WHERE account=:account AND id=:old_cate;
+
+-- :name delete_categories! :! :n
+-- :doc
+DELETE FROM categories
+WHERE id=:id AND account=:account;
+
+-- :name insert_tags! :! :n
+-- :doc
+INSERT INTO tags (id, count, account)
+VALUES (:id, :count, :account);
+
+-- :name add_tags_count! :! :n
+-- :doc
+UPDATE tags SET count=count+1
+WHERE account=:account AND id=:id;
+
+-- :name remove_tags_count! :! :n
+-- :doc
+UPDATE tags SET count=count-1
+WHERE account=:account AND id=:tags;
+
+-- :name exists_tag? :? :*
+-- :doc
+SELECT EXISTS (
+    SELECT id
+    FROM tags
+    WHERE account = :account AND id = :id);
+
 ---------------------porto_admin end-------------------------

@@ -64,7 +64,7 @@
     (.mkdir (io/file path account "posts"))
     (.mkdir (io/file path account "images"))
     (.mkdir (io/file path account "videos"))
-    ;(def filePath (str path "/" account "/" account ".config"))
+
     (io/copy (io/file "resources/public/images/avatar.jpg")
              (io/file path account "avatar.jpg"))
     (spit filePath (str ":account\t" (params :account) "\n"))
@@ -79,6 +79,7 @@
     ;           "\t\"state\": {\"opened\": true}\n")
     ;      :append true)
     ;(spit root_json "}]\n" :append true)
+    (db/insert_categories! {:name "默认分类", :count 0, :account account})
     ))
 
 (defn user-signup

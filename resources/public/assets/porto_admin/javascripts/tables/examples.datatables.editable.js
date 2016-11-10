@@ -46,8 +46,12 @@ Theme Version: 	1.5.2
 					null,
 					null,
 					null,
+					null,
+					null,
+					null,
 					{ "bSortable": false }
-				]
+				],
+				"order": [[ 5, "desc" ]]
 			});
 
 			window.dt = this.datatable;
