@@ -132,7 +132,8 @@
 							<a href="javascript:void(0);" id="mgSelectAll"><i class="fa fa-check-square"></i> <span data-all-text="Select All" data-none-text="Select None">Select All</span></a>
 						</li>
 						<li>
-							<a href="javascript:void(0);" onclick="delete_all()"><i class="fa fa-trash-o"></i> Delete</a>
+							<a href="javascript:void(0);" onclick="delete_all_confirm();"><i class="fa fa-trash-o"></i> Delete</a>
+
 						</li>
 						<li class="right" data-sort-source data-sort-id="media-gallery">
 							<ul class="nav nav-pills nav-pills-primary">
@@ -192,7 +193,7 @@
 											</button>
 											<ul class="dropdown-menu mg-menu">
 												<li><a id="download" href="{{f.id}}" download="{{f.filename}}"><i class="fa fa-download"></i> Download</a></li>
-												<li><a href="javascript:void(0);" onclick="delete_post('{{f.id}}');"><i class="fa fa-trash-o"></i> Delete</a></li>
+												<li><a href="javascript:void(0);" onclick="delete_post('{{f.id}}');" ><i class="fa fa-trash-o"></i> Delete</a></li>
 											</ul>
 										</div>
 									</div>
@@ -223,6 +224,23 @@
 				<div class="modal-body">请选中您要操作的对象。</div>
 				<div class="modal-footer">
 					<button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+				</div>
+			</div><!-- /.modal-content -->
+		</div><!-- /.modal-dialog -->
+	</div>
+	<!-- /.modal -->
+	<!-- 模态框2（Modal） -->
+	<div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+					<h4 class="modal-title" id="myModalLabel2">警告</h4>
+				</div>
+				<div class="modal-body">确定删除所选内容吗？</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+					<button type="button" class="btn btn-primary" onclick="delete_all();">确定</button>
 				</div>
 			</div><!-- /.modal-content -->
 		</div><!-- /.modal-dialog -->
@@ -317,24 +335,29 @@
 			}
 		})
 	}
-	function delete_all() {
+	function delete_all_confirm() {
 		if($('.thumbnail-selected').length>0)
 		{
-			$('.thumbnail-selected a[download]').each(function () {
-				var id = $(this).attr("href");
-				$.ajax({
-					type : "post",
-					url : "/admin_deletedPost",
-					data : "id="+id,
-					async : false,
-					success : function(data){}
-				})
-			});
-			window.location.reload();
+			$('#myModal2').modal({});
+
 		}else{
 			$('#myModal').modal({});
 		}
 
+	}
+	function delete_all() {
+		$('.thumbnail-selected a[download]').each(function () {
+			var id = $(this).attr("href");
+			$.ajax({
+				type : "post",
+				url : "/admin_deletedPost",
+				data : "id="+id,
+				async : false,
+				success : function(data){
+					window.location.reload();
+				}
+			})
+		});
 	}
 </script>
 

@@ -8,7 +8,8 @@
             [crypto.random :refer [url-part]]
             [cheshire.core :refer :all]
             [ring.util.response :refer [redirect response]]
-            [clojure.java.io :as io]))
+            [clojure.java.io :as io]
+            [cheshire.core :as json]))
 
 
 (defn add_new
@@ -55,22 +56,20 @@
       )
     ))
 
-
-
 (defn new_categories!
   [request]
   (db/insert_categories!
     (merge (-> request :params)
            (-> request :session)
            {:count 0}))
-  "success")
+  (generate-string(when-let [categories (not-empty (db/get_categories (-> request :session)))] {:categories_all categories})))
 
 (defn delete_categories!
   [request]
   (db/delete_categories!
     (merge (-> request :session)
            (-> request :params)))
-  "success")
+  (generate-string(when-let [categories (not-empty (db/get_categories (-> request :session)))] {:categories_all categories})))
 
 (defn edit_post_page!
   [request]
@@ -90,7 +89,8 @@
 
 (defn update_post_page!
   [request]
-  (println (db/get_single_posts (-> request :params)))
+  (println (db/get_single_posts (merge (-> request :params)
+                                       (-> request :session))))
   (if-let [account (-> request :session :account)]
     (layout/render
       "porto_admin/edit-post.html"
@@ -98,7 +98,8 @@
         (merge user
                (when-let [info (not-empty (db/get_user_info user))] (first info))
                (when-let [categories (not-empty (db/get_categories user))] {:categories_all categories})
-               (when-let [post (not-empty (db/get_single_posts (-> request :params)))] (first post))
+               (when-let [post (not-empty (db/get_single_posts (merge (-> request :params)
+                                                                      (-> request :session))))] (first post))
                (when-let [errors (get-in request [:flash :errors])] {:errors errors}))
         ))
     (-> (redirect "/")
@@ -200,26 +201,21 @@
 
 (defn deleted_post!
   [request]
-  (let [type (get (clojure.string/split (-> request :params :id) #"/") 4)
-        post (first (db/get_single_posts (-> request :params)))
-        str (clojure.string/split (-> post :tags) #"\,")]
+  (let [type (get (clojure.string/split (-> request :params :id) #"/") 4)]
     (if (= type "images")
       (db/delete-image-by-id (-> request :params)))
     (if (= type "videos")
       (db/delete-video-by-id (-> request :params)))
     (if (= type "posts")
-      (db/delete-post-by-id (-> request :params)))
-
-    (db/remove_categories_count!
-      (merge (-> request :session)
-             {:old_cate (-> post :categories)}))
-    (println
-      (map
-        (fn [x]
-          (db/remove_tags_count!
-            (merge
-              (-> request :session)
-              {:tags x}))
-          )
-        str))
+      (let [post (first (db/get_single_posts
+                          (merge (-> request :params)
+                                 (-> request :session))))
+            str (clojure.string/split (-> post :tags) #"\,")]
+        (db/delete-post-by-id (-> request :params))
+        (db/remove_categories_count!
+          (merge (-> request :session)
+                 {:old_cate (-> post :categories)}))
+        (println (map (fn [x] (db/remove_tags_count! (merge
+                  (-> request :session) {:tags x}))) str))
+        ))
     "return"))

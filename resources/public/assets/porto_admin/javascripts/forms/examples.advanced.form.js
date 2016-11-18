@@ -71,13 +71,13 @@ Theme Version: 	1.5.2
 	/*
 	Bootstrap Confirmation - CALLBACK
 	*/
-	$('.confirmation-callback').confirmation({
-		onConfirm: function() {
-			alert('You clicked: confirm' );
-		},
-		onCancel: function() {
-			alert('You clicked: cancel' );
-		}
-	});
+	// $('.confirmation-callback').confirmation({
+	// 	onConfirm: function() {
+	// 		alert('You clicked: confirm' );
+	// 	},
+	// 	onCancel: function() {
+	// 		alert('You clicked: cancel' );
+	// 	}
+	// });
 
 }(jQuery));

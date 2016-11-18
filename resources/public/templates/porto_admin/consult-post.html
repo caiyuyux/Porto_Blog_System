@@ -1,11 +1,14 @@
 {% extends "porto_admin/base.html" %}
 {% block content %}
 <link rel="stylesheet" href="css/colorbox.css" />
-
+<link rel="stylesheet" href="css/rainbow.css"/>
+<link rel="stylesheet" href="css/markdown.css"/>
 <script src="js/jquery.colorbox.js"></script>
 <script src="assets/porto_admin/vendor/autosize/autosize.js"></script>
 <script src="assets/porto_admin/vendor/bootstrap-fileupload/bootstrap-fileupload.min.js"></script>
-
+<style>
+    .preview_div p img{max-width: 70%;}
+</style>
 <section role="main" class="content-body">
     <header class="page-header">
         <h2>查阅博文</h2>
@@ -55,10 +58,10 @@
                                 <strong>小贴士</strong>
                                 <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
                                 <ul>
-                                    <li>支持多种文本编辑模式</li>
-                                    <li>可以自定义设置标签</li>
-                                    <li>可以选择本地文件或者网络文件作为博文封面</li>
-                                    <li>可以在“查阅博文”页面新增分类项</li>
+                                    <!--<li>支持多种文本编辑模式</li>-->
+                                    <!--<li>可以自定义设置标签</li>-->
+                                    <!--<li>可以选择本地文件或者网络文件作为博文封面</li>-->
+                                    <!--<li>可以在“查阅博文”页面新增分类项</li>-->
                                 </ul>
                             </div>
 
@@ -90,7 +93,7 @@
                                         <button tabindex="-1" data-toggle="dropdown" class="btn btn-primary dropdown-toggle" type="button" aria-expanded="false">
                                             <span class="caret"></span>
                                         </button>
-                                        <ul role="menu" class="dropdown-menu pull-right">
+                                        <ul role="menu" class="dropdown-menu pull-right" id="cate">
                                             {% for c in categories_all %}
                                             <li>
                                                 <span>
@@ -119,7 +122,7 @@
                             <tbody>
                             {% for post in post  %}
                             <tr class="gradeX">
-                                <td>{{ post.title }}</td>
+                                <td class="col-md-3">{{ post.title }}</td>
                                 <td class="col-md-2">
                                     {% if post.image %}
                                         <img style="height: 100px; width: 100%; min-width: 150px;" src="{{post.image}}"/>
@@ -130,18 +133,24 @@
                                     </video>
                                     {% endif %}
                                 </td>
-                                <td><a class="preview" href="{{post.id}}">预览</a></td>
+                                <td><a class="preview" href="#{{post.title}}">预览</a></td>
                                 <td>{{ post.categories }}</td>
                                 <td class="col-md-2">{{ post.tags }}</td>
                                 <td>{{ post.time|date:"yyyy-MM-dd" }}</td>
                                 <td class="actions">
                                     <a href="javascript:void(0);" class="on-default" onclick="$.StandardPost('/admin_update-post',{id:'{{post.id}}'});"><i class="fa fa-pencil"></i></a>
-                                    <a href="javascript:void(0);" class="on-default" onclick="delete_post('{{post.id}}')"><i class="fa fa-trash-o"></i></a>
+                                    <a href="javascript:void(0);" class="on-default" onclick="delete_post('{{post.id}}', '{{post.title}}')" id="delete_{{post.title}}"><i class="fa fa-trash-o"></i></a>
                                 </td>
                             </tr>
                             {% endfor %}
                             </tbody>
                         </table>
+
+                        {% for post in post %}
+                        <div style='display:none' class="col-xs-12 col-md-6">
+                            <div class="preview_div" id='{{post.title}}' style='padding:10px; background:#fff;'>{{ post.html|safe }}</div>
+                        </div>
+                        {% endfor %}
                     </div>
                 </section>
             </div>
@@ -154,16 +163,19 @@
 <script src="assets/porto_admin/vendor/jquery-datatables-bs3/assets/js/datatables.js"></script>
 <script src="assets/porto_admin/javascripts/tables/examples.datatables.editable.js"></script>
 <script>
-    function delete_post(id) {
-        $.ajax({
-            type : "post",
-            url : "/admin_deletedPost",
-            data : "id="+id,
-            async : false,
-            success : function(data){
-                window.location.reload();
+    function delete_post(id, title) {
+        $('#delete_'+title).confirmation({
+            onConfirm: function() {
+                $.ajax({
+                    type : "post",
+                    url : "/admin_deletedPost",
+                    data : "id="+id,
+                    async : false,
+                    success : function(data){
+                        window.location.reload();
+                    }});
             }
-        })
+        }).confirmation('show');
     }
 
     //post跳转
@@ -188,18 +200,12 @@
 
     //资源预览功能显示大小设置
     if(document.body.clientWidth>=900){
-        $(".preview").colorbox({iframe:true, innerWidth:900,innerHeight:500})
+        $(".preview").colorbox(
+                {inline:true, innerWidth:900,innerHeight:500})
     }else{
         var w = document.body.clientWidth;
         var h = w*9/16;
-        $(".preview").colorbox(
-                {iframe:true, innerWidth:w,innerHeight:h,
-                    onComplete:function(){
-                        $('iframe').load( function() {
-                            $('iframe').contents().find("head")
-                                    .append($("<style type='text/css'>  img{max-width:250px;}  </style>"));
-                        }); },}
-        )
+        $(".preview").colorbox({inline:true, innerWidth:w,innerHeight:h})
     }
 
     function add_categories(){
@@ -209,9 +215,20 @@
                 type : "post",
                 url : "/admin_newCategories",
                 data : "name="+id,
+                dataType: "json",
                 async : false,
                 success : function(data){
-                    window.location.reload();
+                    $('#new_cate').val('');
+                    var cate_all = data.categories_all;
+                    var html = '';
+                    for(var i=0, len=cate_all.length; i<len; i++) {
+                        var cate = cate_all[i];
+                        html +=  "<li><span> " +
+                                 "<font style='padding-left: 5px'>"+cate.id+"</font> " +
+                                 "<a href='javascript:void(0);' class='pull-right' style='padding-right: 5px' onclick=remove_categories('"+cate.id+"')>移除</a> " +
+                                 "</span> </li>";
+                    }
+                    $('#cate').html(html);
                 }
             })
         }else{
@@ -223,11 +240,27 @@
             type : "post",
             url : "/admin_deleteCategories",
             data : "id="+id,
+            dataType: "json",
             async : false,
             success : function(data){
-                window.location.reload();
+                var cate_all = data.categories_all;
+                var html = '';
+                for(var i=0, len=cate_all.length; i<len; i++) {
+                    var cate = cate_all[i];
+                    html +=  "<li><span> " +
+                            "<font style='padding-left: 5px'>"+cate.id+"</font> " +
+                            "<a href='javascript:void(0);' class='pull-right' style='padding-right: 5px' onclick=remove_categories('"+cate.id+"')>移除</a> " +
+                            "</span> </li>";
+                }
+                $('#cate').html(html);
             }
         })
     }
+
+
+
+
+
+
 </script>
 {% endblock %}

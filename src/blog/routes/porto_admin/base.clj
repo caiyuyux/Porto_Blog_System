@@ -14,6 +14,7 @@
       (let [user {:account account}]
         (merge user
                (when-let [info (not-empty (db/get_user_info user))] (first info))
+               (when-let [posts (not-empty (db/get_posts user))] {:posts posts})
                (when-let [news (not-empty (db/get_news user))] {:news news})
                (when-let [errors (get-in request [:flash :errors])] {:errors errors}))
         ))

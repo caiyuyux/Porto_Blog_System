@@ -77,7 +77,6 @@
            (GET  "/about-us"        request (layout/render "porto/about-us.html"   (-> request :flash) (:flash request)))
 
            ;; -----------------------porto_admin-----------------------------
-
            (GET  "/admin"                  request (admin/admin_index_page          request))
            (POST "/admin"                  request (admin/admin_index_page          request))
            (POST "/admin_update-profile"   request (profile/update-profile          request))
@@ -95,9 +94,18 @@
            (POST "/admin_update-post"      request (post/update_post_page!          request))
            (POST "/admin_newCategories"    request (post/new_categories!            request))
            (POST "/admin_deleteCategories" request (post/delete_categories!         request))
+
            ;;------------------------------ blog -----------------------------------------
-           (GET  "/blog/:account" request (blog/index_page request))
-           (POST "/blog/:account" request (blog/index_page request))
+           (GET  "/blog/:account"               request (blog/index_page     request))
+           (GET  "/blog/:account/*"             request (blog/choose_page    request))
+           ;(GET  "/blog/:account/category/*"   request (blog/category_page  request))
+           ;(GET  "/blog/:account/tag/*"        request (blog/tag_page       request))
+           ;(GET  "/blog/:account/search/*"     request (blog/search_page    request))
+           ;(GET  "/blog/:account/*/post/*"     request (blog/post_page      request))
+           ;(GET  "/blog/:account/*/category/*" request (blog/category_page  request))
+           ;(GET  "/blog/:account/*/tag/*"      request (blog/tag_page       request))
+           ;(GET  "/blog/:account/*/search/*"   request (blog/search_page    request))
+           ;(GET  "/blog/:account/*"            request (blog/other_page     request))
            ; (GET "/:account/panel"  request (panel/admin-panel-page  request))
            ; (POST "/:account/panel" request (panel/admin-panel       request))
 

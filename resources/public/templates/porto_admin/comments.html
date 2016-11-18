@@ -112,6 +112,27 @@
 
                         </div>
                 </section>
+                <div id="disqus_thread"></div>
+                <script>
+
+                    /**
+                     *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+                     *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+                    /*
+                     var disqus_config = function () {
+                     this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+                     this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+                     };
+                     */
+                    (function() { // DON'T EDIT BELOW THIS LINE
+                        var d = document, s = d.createElement('script');
+                        s.src = '//{{disqus}}.disqus.com/embed.js';
+                        s.setAttribute('data-timestamp', +new Date());
+                        (d.head || d.body).appendChild(s);
+                    })();
+                </script>
+                <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
             </div>
         </div>
     </section>
@@ -122,10 +143,9 @@
 <script>
         $commentDiv = $("#comments");
         var datatable = "";
-        var forum = "porto-blog-system";
-        var APIKEY = "r1GglbTmZuZLWl6Bw8ssQ4Lxi7gutvkkOWN2dNNTW9K86Y73mr6YyIBRtJNZf7SL";
-        var SECRETKEY = "Ep6y6Fgp9VMHvZNT22M31jbVBavgNXKM9Pi9ZA4xJvgOUrQm3vKm5ygJKbpslTnx";
-        var ACCESS_TOKEN = "7daa8127163143c1a2a739bfd6ace0b3";
+        var forum = "{{disqus}}";
+        var APIKEY = "{{disqus_apikey}}";
+        var ACCESS_TOKEN = "{{disqus_access_token}}";
 
         function getData(type) {
             $.ajax({
@@ -146,17 +166,16 @@
 
                             if(!post.isDeleted){
                                 if(!post.isApproved){
-                                    approved = "<i class='fa fa-check fa-fw text-muted text-md va-middle disable'></i><span class='va-middle'>允许</span> ";
-                                    deleted = "<i class='fa fa-trash-o fa-fw text-muted text-md va-middle'></i><span class='va-middle'>删除</span>";
+                                    approved = "<i class='fa fa-check fa-fw text-muted text-md va-middle disable'></i><span class='va-middle'><a href='javascript:void(0);' onclick='approve_comment("+post.id+");'>允许</a></span> ";
 
                                 }else if(!post.isSpam){
-                                    spam = "<i class='fa fa-ban fa-fw text-muted text-md va-middle'></i><span class='va-middle'>屏蔽</span> ";
-                                    deleted = "<i class='fa fa-trash-o fa-fw text-muted text-md va-middle'></i><span class='va-middle'>删除</span>";
+                                    spam = "<i class='fa fa-ban fa-fw text-muted text-md va-middle'></i><span class='va-middle'><a href='javascript:void(0);' onclick='span_comment("+post.id+");'>屏蔽</a></span> ";
+                                    deleted = "<i class='fa fa-trash-o fa-fw text-muted text-md va-middle'></i><span class='va-middle'><a href='javascript:void(0);' id='delete_" + post.id + "' onclick='delete_comment("+post.id+");'>删除</a></span>";
                                 }
                             }else{
                                 deleted = "<i class='fa fa-remove fa-fw text-muted text-md va-middle'></i><span class='va-middle'>不可操作</span>";
                             }
-
+                            console.log(post);
                             var html = "<tr>";
                             html += "<td>"+post.author.name+"</td>";
                             html += "<td><a href="+post.thread.link+">"+post.thread.title+"</a></td>";
@@ -208,6 +227,46 @@
 //            access_token:ACCESS_TOKEN,
 //            message:"This comment has been overwritten",
 //            api_key:APIKEY})
+
+        function span_comment(id) {
+            $.ajax({
+                type : "post",
+                url : "https://disqus.com/api/3.0/posts/spam.json",
+                data : "post="+id+"&access_token="+ACCESS_TOKEN+"&api_key="+APIKEY,
+                async : false,
+                success : function(data){
+                    window.location.reload();
+                }});
+
+        }
+
+        function approve_comment(id) {
+            $.ajax({
+                type : "post",
+                url : "https://disqus.com/api/3.0/posts/approve.json",
+                data : "post="+id+"&access_token="+ACCESS_TOKEN+"&api_key="+APIKEY,
+                async : false,
+                success : function(data){
+                    window.location.reload();
+                }});
+
+        }
+
+
+        function delete_comment(id) {
+            $('#delete_'+id).confirmation({
+                onConfirm: function() {
+                    $.ajax({
+                        type : "post",
+                        url : "https://disqus.com/api/3.0/posts/remove.json",
+                        data : "post="+id+"&access_token="+ACCESS_TOKEN+"&api_key="+APIKEY,
+                        async : false,
+                        success : function(data){
+                            window.location.reload();
+                        }});
+                }
+            }).confirmation('show');
+        }
 
 </script>
 <script src="assets/porto_admin/vendor/jquery-datatables/media/js/jquery.dataTables.js"></script>

@@ -55,7 +55,7 @@ WHERE token = :value;
 --------------------porto_admin start------------------------
 -- :name get_user_info :? :*
 -- :doc return all info of account
-SELECT nickname, name, status, email, describe, domain, avatar, disqus, privilege, mind, leancloud
+SELECT *
 FROM users
 WHERE account = :account;
 
@@ -69,7 +69,8 @@ WHERE account = :account;
 -- :doc
 UPDATE users
 SET nickname = :profileNickname, describe = :profileDescribe, domain = :profileDomain, name = :profileName,
-    disqus = :profileDisqus, leancloud = :profileLeancloud,  status = :profileStatus
+    disqus = :profileDisqus, leancloud = :profileLeancloud,  status = :profileStatus, disqus_access_token = :profileDisqus_ACCESS_TOKEN, disqus_apikey = :profileDisqus_APIKEY,
+    blog_subject = :blogSubject, blog_describe = :blogDescribe
 WHERE account = :account;
 
 -- :name create_new! :! :n
@@ -158,6 +159,18 @@ SELECT id, count
 FROM categories
 WHERE account = :account;
 
+-- :name get_categories_new :? :*
+-- :doc
+SELECT id, count
+FROM categories
+WHERE account = :account  AND count>0;
+
+-- :name get_tags :? :*
+-- :doc
+SELECT id, count
+FROM tags
+WHERE account = :account AND count>0;
+
 -- :name get_posts :? :*
 -- :doc
 SELECT id, title, tags, md, html, image, video, music, update_time, type, time, categories
@@ -168,7 +181,13 @@ WHERE account = :account;
 -- :doc
 SELECT id, account, title, tags, md, html, image, video, music, update_time, type, time, categories
 FROM posts
-WHERE id = :id;
+WHERE id = :id AND  account = :account;
+
+-- :name get_category_posts :? :*
+-- :doc
+SELECT id, account, title, tags, md, html, image, video, music, update_time, type, time, categories
+FROM posts
+WHERE categories = :category AND account = :account;
 
 -- :name add_categories_count! :! :n
 -- :doc
@@ -206,5 +225,19 @@ SELECT EXISTS (
     SELECT id
     FROM tags
     WHERE account = :account AND id = :id);
+
+-- :name exists_category? :? :*
+-- :doc
+SELECT EXISTS (
+    SELECT id
+    FROM categories
+    WHERE account = :account AND id = :id AND count>0);
+
+-- :name exists_post? :? :*
+-- :doc
+SELECT EXISTS (
+    SELECT id
+    FROM posts
+    WHERE account = :account AND title = :id);
 
 ---------------------porto_admin end-------------------------

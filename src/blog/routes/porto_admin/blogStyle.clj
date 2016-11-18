@@ -25,6 +25,7 @@
     (layout/render
       "porto_admin/blogStyle.html"
       (let [user {:account account}]
+        ;(fs/copy-dir "resources/public/templates/blog_templates/libra" "resources/public/templates/business/caiyuyu/blog/libra")
         (merge user
                (when-let [info (not-empty (db/get_user_info user))] (first info))
                (when-let [file (not-empty (db/get_file_info user))] {:file file})

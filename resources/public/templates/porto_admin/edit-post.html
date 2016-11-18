@@ -1,8 +1,15 @@
 {% extends "porto_admin/base.html" %}
 {% block content %}
 
-<script src="assets/porto_admin/vendor/autosize/autosize.js"></script>
-<script src="assets/porto_admin/vendor/bootstrap-fileupload/bootstrap-fileupload.min.js"></script>
+<link rel="stylesheet" href="css/bootstrap-markdown-editor.css"/>
+<link rel="stylesheet" href="css/rainbow.css"/>
+<link rel="stylesheet" href="css/markdown.css"/>
+<script type="text/javascript" src="assets/porto_admin/vendor/autosize/autosize.js"></script>
+<script type="text/javascript" src="assets/porto_admin/vendor/bootstrap-fileupload/bootstrap-fileupload.min.js"></script>
+<script type="text/javascript" src="js/bootstrap-markdown-editor.js"></script>
+<script type="text/javascript" src="js/ace-builds/src-noconflict/ace.js"></script>
+<script type="text/javascript" src="js/marked.min.js"></script>
+<script type="text/javascript" src="js/highlight.pack.js"></script>
 
 <section role="main" class="content-body">
     <header class="page-header">
@@ -86,7 +93,8 @@
                                     <div class="form-group">
                                         <div class="col-xs-12 col-md-6 col-lg-6">
                                             <input class="form-control" type="text" placeholder="请输入标题" id="title"
-                                                   value="{{title}}" required>
+                                                   title="不能出现特殊字符及空格"
+                                                   value="{{title}}" >
                                         </div>
                                         <div id="local" class="fileupload fileupload-new col-xs-12 col-md-5 col-lg-5" data-provides="fileupload">
                                             <div class="input-append">
@@ -115,8 +123,8 @@
                                         </div>
                                     </div>
                                     <div class="form-group" style="height: auto">
-                                        <div class="col-md-12" id="markdown_div">
-                                            <textarea id="md" data-plugin-markdown-editor rows="15" required>{{md}}</textarea>
+                                        <div class="col-md-12">
+                                            <textarea id="md" name="text" id="myEditor" >{{md}}</textarea>
                                         </div>
                                     </div>
                                     <div class="form-inline">
@@ -125,7 +133,21 @@
                                                 <option {% ifequal c.id categories %}selected="selected"{% endifequal %}>{{c.id}}</option>
                                             {% endfor %}
                                         </select>
-                                        <select id="tags-input-multiple" multiple data-role="tagsinput" data-tag-class="label label-primary" required>
+                                        <div class="input-group mb-md col-sm-3">
+                                            <input id="new_cate" type="text" class="form-control" placeholder="新增分类">
+                                            <div class="input-group-btn">
+                                                <button tabindex="-1" class="btn btn-primary" type="button" onclick="add_categories();">New</button>
+                                                <button tabindex="-1" data-toggle="dropdown" class="btn btn-primary dropdown-toggle" type="button" aria-expanded="false">
+                                                    <span class="caret"></span>
+                                                </button>
+                                                <ul role="menu" class="dropdown-menu" id="cate">
+                                                    {% for c in categories_all %}
+                                                    <li><a>{{c.id}}</a></li>
+                                                    {% endfor %}
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <select id="tags-input-multiple" multiple data-role="tagsinput" data-tag-class="label label-primary">
                                             {% if tags %}
                                             {% else if %}
                                             <option value="未定义标签"></option>
@@ -142,6 +164,23 @@
         </div>
     </section>
     <!-- end: page -->
+
+    <!-- 模态框（Modal） -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                    <h4 class="modal-title" id="myModalLabel">警告</h4>
+                </div>
+                <div class="modal-body" id="message"></div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div>
+    <!-- /.modal -->
 </section>
 <script>
     //指示器
@@ -185,67 +224,101 @@
         return;
     }
 
+    function validate(){
+        if($('#title').val().length>0){
+            var reg = new RegExp("[`~!@#$^&*()=|{}':;',\\[\\].<>/?~！@#￥……&*（）&mdash;—|{}【】‘；：”“'。，、？]\ ");
+            var obj = $('#title');
+            if(reg.test(obj.val())){
+                $('#myModal').modal({});
+                $('#message').html("标题不允许输入特殊字符及空格");
+                return false;
+            }
+        }else{
+            $('#myModal').modal({});
+            $('#message').html("标题不允许为空");
+            return false;
+        }
+        if($('#md').val().trim().length<=0){
+            $('#myModal').modal({});
+            $('#message').html("内容不允许为空");
+            return false;
+        }
+        if($('#tags-input-multiple').val()==null){
+            $('#myModal').modal({});
+            $('#message').html("标签不允许为空");
+            return false;
+        }
+        return true;
+    }
+
     $('#form').submit(function (e) {
 
-        var title = $('#title').val();
-        var categories = $('#categories').val();
-        var tags = $('#tags-input-multiple').val();
-        var md = $('#md').val();
-        var html = $('#md').data('markdown').parseContent();
 
-        var filePath = '';
-        var fileStyle = '';
-        var fileType = '';
-        var fileName = '';
-        var image = '';
-        var video = '';
-        if($('#file').attr('disabled')===undefined && $('#file').val().length>0){
-            fileStyle = "local";
-            filePath = $('#file').val();
-        }else if($('#url').attr('disabled') === undefined && $('#url').val().length>0){
-            fileStyle = "web";
-            filePath = $('#url').val();
-        }
-        fileType = filePath.substring(filePath.lastIndexOf("."));
-        if(checkFileType(fileType)==1){
-            image = filePath;
-        }else if(checkFileType(fileType)==2){
-            video = filePath;
-        }
-        fileName = filePath.substring(filePath.lastIndexOf("\\")+1);
+        if(validate()){
+            $('.btn-preview').click();
 
-        var files = $('#file').prop('files');
+            var title = $('#title').val();
+            var categories = $('#categories').val();
+            var tags = $('#tags-input-multiple').val();
+            var md = $('#md').val().trim();
+            var html = $('.md-preview').html();
 
-        var data = new FormData();
-        data.append('file', files[0]);
-        data.append('title', title);
-        data.append('categories', categories);
-        data.append('tags', tags);
-        data.append('md', md);
-        data.append('html', html);
-        data.append('fileName', fileName);
-        data.append('fileStyle', fileStyle);
-        data.append('image', image);
-        data.append('video', video);
-        data.append('id', id);
-        data.append('old_cate', old_cate);
-        data.append('old_tag', old_tag);
+            var filePath = '';
+            var fileStyle = '';
+            var fileType = '';
+            var fileName = '';
+            var image = '';
+            var video = '';
 
-
-        $.ajax({
-            type: "post",
-            url: url,
-            data: data,
-            processData:false,
-            contentType:false,
-            async: false,
-            success: function (data) {
-                window.location.href="/admin_consult-post";
-            },
-            error: function (data) {
-                alert("博文标题不允许重复");
+            if($('#file').attr('disabled')===undefined && $('#file').val().length>0){
+                fileStyle = "local";
+                filePath = $('#file').val();
+            }else if($('#url').attr('disabled') === undefined && $('#url').val().length>0){
+                fileStyle = "web";
+                filePath = $('#url').val();
             }
-        });
+            fileType = filePath.substring(filePath.lastIndexOf("."));
+            if(checkFileType(fileType)==1){
+                image = filePath;
+            }else if(checkFileType(fileType)==2){
+                video = filePath;
+            }
+            fileName = filePath.substring(filePath.lastIndexOf("\\")+1);
+
+            var files = $('#file').prop('files');
+
+            var data = new FormData();
+            data.append('file', files[0]);
+            data.append('title', title);
+            data.append('categories', categories);
+            data.append('tags', tags);
+            data.append('md', md);
+            data.append('html', html);
+            data.append('fileName', fileName);
+            data.append('fileStyle', fileStyle);
+            data.append('image', image);
+            data.append('video', video);
+            data.append('id', id);
+            data.append('old_cate', old_cate);
+            data.append('old_tag', old_tag);
+
+            $.ajax({
+                type: "post",
+                url: url,
+                data: data,
+                processData:false,
+                contentType:false,
+                async: false,
+                success: function (data) {
+                    window.location.href="/admin_consult-post";
+                },
+                error: function (data) {
+                    $('#myModal').modal({});
+                    $('#message').html("该博文标题已经存在");
+                }
+            });
+        }
+
         return false;
     });
 
@@ -274,6 +347,41 @@
         }
         $('#tags-input-multiple').append(html);
     }
+
+    function add_categories(){
+        if($('#new_cate').val().length>0){
+            var id = $('#new_cate').val();
+            $.ajax({
+                type : "post",
+                url : "/admin_newCategories",
+                data : "name="+id,
+                dataType: "json",
+                async : false,
+                success : function(data){
+                    $('#new_cate').val('');
+                    var cate_all = data.categories_all;
+                    var html = '';
+                    var html2 = '';
+                    for(var i=0, len=cate_all.length; i<len; i++) {
+                        var cate = cate_all[i];
+                        html +=  "<li><a>"+cate.id+"</a></li>";
+                        html2 += "<option {% ifequal c.id categories %}selected='selected'{% endifequal %}>"+cate.id+"</option>";
+                    }
+                    $('#cate').html(html);
+                    $('#categories').html(html2);
+                }
+            })
+        }else{
+            alert("请输入新增分类名称");
+        }
+    }
+
+    $('#md').markdownEditor({
+        preview: true,
+        onPreview: function (content, callback) {
+            callback( marked(content) );
+        }
+    });
 
 </script>
 {% endblock %}

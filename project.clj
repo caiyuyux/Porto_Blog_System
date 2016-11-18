@@ -32,7 +32,8 @@
                  [com.draines/postal "2.0.0"]
                  [me.raynes/fs "1.4.6"]
                  [clj-jgit "0.8.9"]
-                 [me.raynes/fs "1.4.6"]]
+                 [me.raynes/fs "1.4.6"]
+                 [org.clojure/data.codec "0.1.0"]]
 
 
 

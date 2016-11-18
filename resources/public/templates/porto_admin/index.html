@@ -1,5 +1,6 @@
 {% extends "porto_admin/base.html" %}
 {% block content %}
+<link rel="stylesheet" href="css/cropbox.css" />
 <section role="main" class="content-body">
 	<header class="page-header">
 		<h2>概览</h2>
@@ -70,54 +71,6 @@
 			</section>
 
 
-			<section class="panel">
-				<header class="panel-heading">
-					<div class="panel-actions">
-						<a href="#" class="panel-action panel-action-toggle" data-panel-toggle></a>
-						<a href="#" class="panel-action panel-action-dismiss" data-panel-dismiss></a>
-					</div>
-
-					<h2 class="panel-title">
-						<span class="va-middle">热门博文</span>
-					</h2>
-				</header>
-				<div class="panel-body">
-					<div class="content">
-						<ul class="simple-user-list">
-							<li>
-								<figure class="image rounded">
-									<img src="" alt="Joseph Doe Junior" class="img-circle">
-								</figure>
-								<span class="title">Joseph Doe Junior</span>
-								<span class="message truncate">Lorem ipsum dolor sit.</span>
-							</li>
-							<li>
-								<figure class="image rounded">
-									<img src="" alt="Joseph Junior" class="img-circle">
-								</figure>
-								<span class="title">Joseph Junior</span>
-								<span class="message truncate">Lorem ipsum dolor sit.</span>
-							</li>
-							<li>
-								<figure class="image rounded">
-									<img src="" alt="Joe Junior" class="img-circle">
-								</figure>
-								<span class="title">Joe Junior</span>
-								<span class="message truncate">Lorem ipsum dolor sit.</span>
-							</li>
-							<li>
-								<figure class="image rounded">
-									<img src="" alt="Joseph Doe Junior" class="img-circle">
-								</figure>
-								<span class="title">Joseph Doe Junior</span>
-								<span class="message truncate">Lorem ipsum dolor sit.</span>
-							</li>
-						</ul>
-						<hr class="dotted short">
-					</div>
-				</div>
-			</section>
-
 		</div>
 		<div class="col-md-8 col-lg-6">
 
@@ -186,39 +139,75 @@
 					</div>
 					<div id="edit" class="tab-pane">
 
-						<form class="form-horizontal" method="post" action="/admin_update-profile">
+						<form class="form-horizontal" method="post" id="p_form">
 							{% csrf-field %}
 							<input name="account" value="{{account}}" hidden>
 							<h4 class="mb-xlg">Personal Information</h4>
 							<fieldset>
 								<div class="form-group">
+									<label class="col-md-3 control-label" for="">头像</label>
+									<div class="col-md-6">
+										<div class="imageBox" id="img_old">
+											<div class="thumbBox"></div>
+											<div class="spinner" style="display: none">Loading...</div>
+										</div>
+
+										<div class="cropped" id="img_new"></div>
+										<div class="crop_btn">
+											<span class="btn btn-default btn-file pull-right">
+												<span class="fileupload-new">上传</span>
+												<input type="file" id="file">
+											</span>
+											<input type="button" id="btnCrop" class="btn btn-default pull-right" onclick="$('#img_old').hide(); $('.crop_btn').hide();" value="完成">
+										</div>
+
+										<!--<button class="btn btn-default pull-right" id="btnCrop">裁剪</button>-->
+									</div>
+									<div class="action col-md-3 col-xs-5 crop_btn">
+										<input type="button" id="btnZoomIn" class="btn btn-default" value="+">
+										<input type="button" id="btnZoomOut" class="btn btn-default" value="-">
+									</div>
+								</div>
+								<div class="form-group">
 									<label class="col-md-3 control-label" for="">姓名</label>
 									<div class="col-md-8">
-										<input type="text" class="form-control" name="profileName" value="{{name}}">
+										<input type="text" class="form-control" id="profileName" value="{{name}}">
 									</div>
 								</div>
 								<div class="form-group">
 									<label class="col-md-3 control-label" for="">身份</label>
 									<div class="col-md-8">
-										<input type="text" class="form-control" name="profileStatus" value="{{status}}">
+										<input type="text" class="form-control" id="profileStatus" value="{{status}}">
 									</div>
 								</div>
 								<div class="form-group">
 									<label class="col-md-3 control-label" for="">昵称</label>
 									<div class="col-md-8">
-										<input type="text" class="form-control" name="profileNickname" value="{{nickname}}">
+										<input type="text" class="form-control" id="profileNickname" value="{{nickname}}">
 									</div>
 								</div>
 								<div class="form-group">
 									<label class="col-md-3 control-label" for="">域名</label>
 									<div class="col-md-8">
-										<input type="text" class="form-control" name="profileDomain" value="{{domain}}">
+										<input type="text" class="form-control" id="profileDomain" value="{{domain}}">
 									</div>
 								</div>
 								<div class="form-group">
-									<label class="col-md-3 control-label" for="">简介</label>
+									<label class="col-md-3 control-label" for="">自我介绍</label>
 									<div class="col-md-8">
-										<textarea class="form-control" rows="3" name="profileDescribe">{{describe}}</textarea>
+										<textarea class="form-control" rows="3" id="profileDescribe">{{describe}}</textarea>
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="col-md-3 control-label" for="">博客主题</label>
+									<div class="col-md-8">
+										<input class="form-control" rows="3" id="blogSubject" value="{{blog_subject}}">
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="col-md-3 control-label" for="">博客介绍</label>
+									<div class="col-md-8">
+										<textarea class="form-control" rows="3" id="blogDescribe">{{blog_describe}}</textarea>
 									</div>
 								</div>
 							</fieldset>
@@ -226,15 +215,23 @@
 							<h4 class="mb-xlg">Third-party binding</h4>
 							<fieldset>
 								<div class="form-group">
-									<label class="col-md-3 control-label" for="">Disqus账号</label>
+									<label class="col-md-3 control-label" for="">Disqus</label>
 									<div class="col-md-8">
-										<input type="text" class="form-control" name="profileDisqus" value="{{disqus}}">
+										<input type="text" class="form-control" id="profileDisqus" value="{{disqus}}" placeholder="ShortName">
+									</div>
+									<label class="col-md-3 control-label" for=""></label>
+									<div class="col-md-8">
+										<input type="text" class="form-control" id="profileDisqus_APIKEY" value="{{disqus_apikey}}" placeholder="APIKEY">
+									</div>
+									<label class="col-md-3 control-label" for=""></label>
+									<div class="col-md-8">
+										<input type="text" class="form-control" id="profileDisqus_ACCESS_TOKEN" value="{{disqus_access_token}}" placeholder="ACCESS_TOKEN">
 									</div>
 								</div>
 								<div class="form-group">
 									<label class="col-md-3 control-label" for="">Leancloud账号</label>
 									<div class="col-md-8">
-										<input type="text" class="form-control" name="profileLeancloud" value="{{leancloud}}">
+										<input type="text" class="form-control" id="profileLeancloud" value="{{leancloud}}">
 									</div>
 								</div>
 							</fieldset>
@@ -266,7 +263,7 @@
 					<p>站点访问量.</p>
 				</li>
 				<li class="primary">
-					<h3>16</h3>
+					<h3>{{ posts|length }}</h3>
 					<p>博文数量.</p>
 				</li>
 			</ul>
@@ -291,37 +288,7 @@
 								</div>
 							</div>
 							<div class="post-info">
-								<a href="#">Nullam Vitae Nibh Un Odiosters</a>
-								<div class="post-meta">
-									Jan 10, 2013
-								</div>
-							</div>
-						</li>
-						<li>
-							<div class="post-image">
-								<div class="img-thumbnail">
-									<a href="#">
-										<img src="" alt="">
-									</a>
-								</div>
-							</div>
-							<div class="post-info">
-								<a href="#">Vitae Nibh Un Odiosters</a>
-								<div class="post-meta">
-									Jan 10, 2013
-								</div>
-							</div>
-						</li>
-						<li>
-							<div class="post-image">
-								<div class="img-thumbnail">
-									<a href="#">
-										<img src="" alt="">
-									</a>
-								</div>
-							</div>
-							<div class="post-info">
-								<a href="#">Odiosters Nullam Vitae</a>
+								<a href="#">待定</a>
 								<div class="post-meta">
 									Jan 10, 2013
 								</div>
@@ -330,14 +297,48 @@
 					</ul>
 				</div>
 			</section>
+
+			<section class="panel">
+				<header class="panel-heading">
+					<div class="panel-actions">
+						<a href="#" class="panel-action panel-action-toggle" data-panel-toggle></a>
+						<a href="#" class="panel-action panel-action-dismiss" data-panel-dismiss></a>
+					</div>
+
+					<h2 class="panel-title">
+						<span class="va-middle">热门博文</span>
+					</h2>
+				</header>
+				<div class="panel-body">
+					<div class="content">
+						<ul class="simple-user-list">
+							{% for post in posts %}
+							{% if  post.image %}
+							{% if forloop.counter < 4 %}
+							<li>
+								<figure class="image rounded">
+								</figure>
+								<span class="title">{{ post.title }}</span>
+								<span class="message truncate">{{ post.time|date:shortDateTime}}</span>
+							</li>
+							{% endif %}
+							{% endif %}
+							{% endfor %}
+						</ul>
+						<hr class="dotted short">
+					</div>
+				</div>
+			</section>
 		</div>
 
 	</div>
 	<!-- end: page -->
 </section>
+<script src="js/cropbox-min.js"></script>
 <script type="text/javascript">
 	var count = 0;
 	var vector = new Array("{{name}}","{{describe}}","{{status}}","{{domain}}","{{disqus}}","{{leancloud}}");
+	var avatar_data = '';
 	for(var x in vector){
 		if(vector[x].length>0){
 			count++;
@@ -352,21 +353,100 @@
 		});
 		return true;
 	});
+
 	$(document).ready(function () {
 		var size_li = $("#myList li").size();
 		x=3;
 		$('#myList li:lt('+x+')').show();
 		$('#loadMore').click(function () {
-			x= (x+5 <= size_li) ? x+5 : size_li;
-			$('#myList li:lt('+x+')').show();
-			if(x+5 >= size_li){
+			if(x+5 > size_li){
 				$('#loadMore').text('END');
 			}
+			x= (x+5 <= size_li) ? x+5 : size_li;
+			$('#myList li:lt('+x+')').show();
+
 		});
+
+		$(window).load(function() {
+			var options =
+			{
+				thumbBox: '.thumbBox',
+				spinner: '.spinner',
+				imgSrc: 'avatar.png'
+			}
+			var cropper;
+			$('#file').on('change', function(){
+				var reader = new FileReader();
+				reader.onload = function(e) {
+					options.imgSrc = e.target.result;
+					cropper = $('.imageBox').cropbox(options);
+				}
+				reader.readAsDataURL(this.files[0]);
+				this.files = [];
+			})
+			$('#btnCrop').on('click', function(){
+				var img = cropper.getDataURL()
+				$('.cropped').append('<img src="'+img+'">');
+				avatar_data = img;
+			})
+			$('#btnZoomIn').on('click', function(){
+				cropper.zoomIn();
+			})
+			$('#btnZoomOut').on('click', function(){
+				cropper.zoomOut();
+			})
+		});
+
+		$("#p_form").submit(function(form) {
+			var data = new FormData();
+			var avatar = avatar_data;
+			var profileName = $('#profileName').val();
+			var profileStatus = $('#profileStatus').val();
+			var profileNickname = $('#profileNickname').val();
+			var profileDomain = $('#profileDomain').val();
+			var profileDescribe = $('#profileDescribe').val();
+			var profileDisqus = $('#profileDisqus').val();
+			var profileDisqus_APIKEY = $('#profileDisqus_APIKEY').val();
+			var profileDisqus_ACCESS_TOKEN = $('#profileDisqus_ACCESS_TOKEN').val();
+			var profileLeancloud = $('#profileLeancloud').val();
+			var blogSubject = $('#blogSubject').val();
+			var blogDescribe = $('#blogDescribe').val();
+
+			if(avatar.length>0){
+				data.append('avatar', avatar);
+			}
+			data.append('account', '{{account}}');
+			data.append('profileName', profileName);
+			data.append('profileStatus', profileStatus);
+			data.append('profileNickname', profileNickname);
+			data.append('profileDomain', profileDomain);
+			data.append('profileDescribe', profileDescribe);
+			data.append('profileDisqus', profileDisqus);
+			data.append('profileDisqus_APIKEY', profileDisqus_APIKEY);
+			data.append('profileDisqus_ACCESS_TOKEN', profileDisqus_ACCESS_TOKEN);
+			data.append('profileLeancloud', profileLeancloud);
+			data.append('blogSubject', blogSubject);
+			data.append('blogDescribe', blogDescribe);
+
+
+			$.ajax({url: "/admin_update-profile",
+				type: 'POST',
+				data: data,
+				async : false,
+				processData:false,
+				contentType:false,
+				success: function(data) {
+					window.location.reload();
+				}
+			});
+			return false;
+		});
+
 //		$('#showLess').click(function () {
 //			x=(x-5<0) ? 3 : x-5;
 //			$('#myList li').not(':lt('+x+')').hide();
 //		});
+
 	});
 </script>
 {% endblock %}
