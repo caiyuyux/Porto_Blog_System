@@ -89,7 +89,7 @@
             <!--Search Input Start-->
             <div class="search-input">
                 <div class="search-form">
-                    <form>
+                    <form action="/blog/{{account}}/search" method="get">
                         <input type="search" name="search" placeholder="Search and hit enter">
                     </form>
                 </div>
@@ -127,7 +127,7 @@
                     <li><a href="/blog/{{account}}/post">Post</a></li>
                     <li><a href="/blog/{{account}}/category">Category</a></li>
                     <li><a href="/blog/{{account}}/tag">Tag</a></li>
-                    <li><a href="javascript:void(0);">About</a></li>
+                    <li><a href="/blog/{{account}}/about">About</a></li>
                 </ul>
                 <!--Menu End-->
 
@@ -186,7 +186,8 @@
                                             <li><a href="javascript:void(0);">{{ post.time|date:mediumDate }}</a></li>
                                             <li><a href="/blog/{{account}}/category/{{post.categories}}">{{
                                                 post.categories }}</a></li>
-                                            <li><a href="javascript:void(0);">Comments<span>4</span></a></li>
+                                            <li><a href="/blog/{{account}}/post/{{post.title}}#disqus_thread">Link</a>
+                                            </li>
                                         </ul>
                                         <div class="post-single-tags" style="margin:20px 0 0 0;">
                                             {% for tag in post.tags %}
@@ -220,13 +221,6 @@
                             <!--Post Entry  End-->
 
                         </div>
-
-                        <!--Pagination Start-->
-                        <nav class="pagination">
-                            <ul class="pagination_ul">
-                            </ul>
-                        </nav>
-                        <!-- Pagination End -->
 
                     </div>
                 </div>
@@ -520,12 +514,18 @@
 <!--Custom js file-->
 <script type="text/javascript" src="/templates/business/{{account}}/blog/{{theme}}/js/custom.js"></script>
 
-<!-- JQuery pagination-->
-<script type="text/javascript" src="/templates/business/{{account}}/blog/{{theme}}/js/list.pagination.min.js"></script>
-<script type="text/javascript" src="/templates/business/{{account}}/blog/{{theme}}/js/list.min.js"></script>
+<!-- jquery colorbox js file-->
+<script type="text/javascript" src="/templates/business/{{account}}/blog/{{theme}}/js/jquery.colorbox.js"></script>
+<script type="text/javascript" src="/templates/business/{{account}}/blog/{{theme}}/js/colorbox.plugin.js"></script>
+
+<!-- Disqus Count -->
+<script id="dsq-count-scr" src="//porto-blog-system.disqus.com/count.js"></script>
+
+<!-- JQuery Pagination-->
+<script type="text/javascript" src="/templates/business/{{account}}/blog/{{theme}}/js/jquery.easyPaginate.js"></script>
 <script type="text/javascript" src="/templates/business/{{account}}/blog/{{theme}}/js/pagination.js"></script>
 
-<!-- high light code -->
+<!-- highlight js file-->
 <script type="text/javascript" src="/templates/business/{{account}}/blog/{{theme}}/js/highlight.pack.js"></script>
 
 

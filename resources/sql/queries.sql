@@ -68,9 +68,11 @@ WHERE account = :account;
 -- :name update_user_profile! :! :n
 -- :doc
 UPDATE users
-SET nickname = :profileNickname, describe = :profileDescribe, domain = :profileDomain, name = :profileName,
-    disqus = :profileDisqus, leancloud = :profileLeancloud,  status = :profileStatus, disqus_access_token = :profileDisqus_ACCESS_TOKEN, disqus_apikey = :profileDisqus_APIKEY,
-    blog_subject = :blogSubject, blog_describe = :blogDescribe
+SET nickname            = :profileNickname, describe_md = :profileDescribe_md, describe_html = :profileDescribe_html,
+    domain              = :profileDomain, name = :profileName,
+    disqus              = :profileDisqus, leancloud = :profileLeancloud, status = :profileStatus,
+    disqus_access_token = :profileDisqus_ACCESS_TOKEN, disqus_apikey = :profileDisqus_APIKEY,
+    blog_subject        = :blogSubject, blog_describe = :blogDescribe
 WHERE account = :account;
 
 -- :name create_new! :! :n
@@ -136,16 +138,31 @@ delete from posts where id = :id;
 
 -- :name get_file_info :? :*
 -- :doc
-SELECT id, type, time, filename
+SELECT
+    id,
+    type,
+    time,
+    title,
+    html
+FROM posts
+WHERE account = :account
+UNION
+SELECT
+    id,
+    type,
+    time,
+    filename,
+    filename
 FROM images
 WHERE account = :account
 UNION
-SELECT id, type, time, filename
+SELECT
+    id,
+    type,
+    time,
+    filename,
+    filename
 FROM videos
-WHERE account = :account
-UNION
-SELECT id, type, time, title
-FROM posts
 WHERE account = :account;
 
 -- :name insert_categories! :! :n
@@ -188,6 +205,25 @@ WHERE id = :id AND  account = :account;
 SELECT id, account, title, tags, md, html, image, video, music, update_time, type, time, categories
 FROM posts
 WHERE categories = :category AND account = :account;
+
+-- :name get_search_posts :? :*
+-- :doc
+SELECT
+    id,
+    account,
+    title,
+    tags,
+    md,
+    html,
+    image,
+    video,
+    music,
+    update_time,
+    type,
+    time,
+    categories
+FROM posts
+WHERE upper(title) LIKE :upper_value AND account = :account;
 
 -- :name add_categories_count! :! :n
 -- :doc

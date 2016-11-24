@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
-    <title>{{nickname}}'s blog| Category {% if category_select %}|{{ category_select }}{% endif %}</title>
+    <title>{{nickname}}'s blog | Category {% if category_select %}| {{ category_select }}{% endif %}</title>
 
     <!--Bootstrap Element and Grid System-->
     <link href="/templates/business/{{account}}/blog/{{theme}}/css/bootstrap.css" rel="stylesheet" type="text/css">
@@ -54,6 +54,9 @@
     <!--highlight theme CSS-->
     <link href="/templates/business/{{account}}/blog/{{theme}}/css/rainbow.css" rel="stylesheet" type="text/css">
 
+    <!-- colorbox CSS -->
+    <link href="/templates/business/{{account}}/blog/{{theme}}/css/colorbox.css" rel="stylesheet" type="text/css">
+
     <link rel="Shortcut Icon" href=/templates/business/{{account}}/avatar.jpg>
 
 </head>
@@ -90,7 +93,7 @@
             <!--Search Input Start-->
             <div class="search-input">
                 <div class="search-form">
-                    <form>
+                    <form action="/blog/{{account}}/search" method="get">
                         <input type="search" name="search" placeholder="Search and hit enter">
                     </form>
                 </div>
@@ -128,7 +131,7 @@
                     <li><a href="/blog/{{account}}/post">Post</a></li>
                     <li class="current-menu"><a href="/blog/{{account}}/category">Category</a></li>
                     <li><a href="/blog/{{account}}/tag">Tag</a></li>
-                    <li><a href="javascript:void(0);">About</a></li>
+                    <li><a href="/blog/{{account}}/about">About</a></li>
                 </ul>
                 <!--Menu End-->
 
@@ -174,14 +177,24 @@
                                     <!--Post Image-->
                                     {% if post.image %}
                                     <div class="blog-list-img">
-                                        <a href="javascript:void(0);">
+                                        <a class="list_image" href="{{post.image}}">
                                             <figure class="fit-img">
                                                 <div class="overlay-hover"></div>
                                                 <img src="{{ post.image }}"/>
                                             </figure>
                                         </a>
                                     </div>
-                                    {% endif %}
+                                    {% else if post.video %}
+                                    <!--Post Video-->
+                                    <div class="blog-list-img">
+                                        <a class="list_video" href="{{post.video}}">
+                                            <video width="100%" height="211" src="{{post.video}}"
+                                                   style="background: #fff; border-radius: 10px;"></video>
+                                        </a>
+                                    </div>
+
+
+                                    {% endif %}      
                                     <!--Post Entry-->
 
                                     <div class="post-entry">
@@ -197,7 +210,8 @@
                                                         }}</a></li>
                                                     <li><a href="/blog/{{account}}/category/{{post.categories}}">{{
                                                         post.categories }}</a></li>
-                                                    <li><a href="javascript:void(0);">Comments<span>4</span></a></li>
+                                                    <li><a href="/blog/{{account}}/post/{{post.title}}#disqus_thread">Link</a>
+                                                    </li>
                                                 </ul>
                                             </div>
                                             <div class="post-single-tags" style="margin:20px 0 0 0;">
@@ -542,13 +556,22 @@
 <!--Custom js file-->
 <script type="text/javascript" src="/templates/business/{{account}}/blog/{{theme}}/js/custom.js"></script>
 
-<!-- JQuery pagination-->
-<script type="text/javascript" src="/templates/business/{{account}}/blog/{{theme}}/js/list.pagination.min.js"></script>
-<script type="text/javascript" src="/templates/business/{{account}}/blog/{{theme}}/js/list.min.js"></script>
+<!-- Disqus Count -->
+<script id="dsq-count-scr" src="//porto-blog-system.disqus.com/count.js"></script>
+
+<!-- jquery colorbox js file-->
+<script type="text/javascript" src="/templates/business/{{account}}/blog/{{theme}}/js/jquery.colorbox.js"></script>
+<script type="text/javascript" src="/templates/business/{{account}}/blog/{{theme}}/js/colorbox.plugin.js"></script>
+
+<!-- JQuery Pagination-->
+<script type="text/javascript" src="/templates/business/{{account}}/blog/{{theme}}/js/jquery.easyPaginate.js"></script>
 <script type="text/javascript" src="/templates/business/{{account}}/blog/{{theme}}/js/pagination.js"></script>
 
-<!-- high light code -->
+<!-- highlight js file-->
 <script type="text/javascript" src="/templates/business/{{account}}/blog/{{theme}}/js/highlight.pack.js"></script>
+
+<!-- SuperEmbed js file-->
+<script type="text/javascript" src="/templates/business/{{account}}/blog/{{theme}}/js/superembed.min.js"></script>
 
 
 </body>

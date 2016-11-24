@@ -3,7 +3,7 @@
 
 <section role="main" class="content-body">
     <header class="page-header">
-        <h2>博客定制</h2>
+        <h2>模板定制</h2>
 
         <div class="right-wrapper pull-right">
             <ol class="breadcrumbs">
@@ -42,35 +42,41 @@
                     </div>
 
                     <div class="inner-menu-content">
-
-                        <a class="btn btn-block btn-primary btn-md pt-sm pb-sm text-md">
-                            <i class="fa fa-upload mr-xs"></i>
-                            Upload Files
-                        </a>
-
-                        <hr class="separator" />
-
-                        <div class="sidebar-widget m-none">
-                            <div class="widget-header clearfix">
-                                <h6 class="title pull-left mt-xs">TAGS</h6>
-                                <div class="pull-right">
-                                    <a href="#" class="btn btn-dark btn-sm btn-widget-act">Add Tag</a>
-                                </div>
-                            </div>
-                            <div class="widget-content">
-                                <ul class="mg-tags">
-                                    <li><a href="#">Design</a></li>
-                                    <li><a href="#">Projects</a></li>
-                                    <li><a href="#">Photos</a></li>
-                                    <li><a href="#">Websites</a></li>
-                                    <li><a href="#">Documentation</a></li>
-                                    <li><a href="#">Download</a></li>
-                                    <li><a href="#">Images</a></li>
-                                    <li><a href="#">Vacation</a></li>
-                                </ul>
+                        <div class="alert alert-info panel-body">
+                            <strong>小贴士</strong>
+                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                            <ul>
+                                <li>本系统内置一套模板</li>
+                                <li>已提供模板接口，用户可自行搭建模板</li>
+                                <li>上传模板时的文件夹名默认为模板命名</li>
+                            </ul>
+                        </div>
+                        <hr class="separator"/>
+                        <div class="form-group">
+                            <label class="col-xs-3 col-md-3 control-label">选择模板</label>
+                            <div class="col-xs-6 col-md-6">
+                                <select class="form-control" data-plugin-multiselect
+                                        data-plugin-options='{ "maxHeight": 200, "buttonClass": "btn btn-link" }'
+                                        id="ms_example3">
+                                    <option value="cheese">Cheese</option>
+                                    <option value="tomatoes">Tomatoes</option>
+                                    <option value="mozarella">Mozzarella</option>
+                                    <option value="mushrooms">Mushrooms</option>
+                                    <option value="pepperoni">Pepperoni</option>
+                                    <option value="onions">Onions</option>
+                                </select>
                             </div>
                         </div>
-
+                        <div class="form-group">
+                            <button type="button" class="mb-xs mt-xs mr-xs btn btn-primary"><i class="fa fa-download"
+                                                                                               aria-hidden="true"></i>
+                            </button>
+                            <button type="button" class="mb-xs mt-xs mr-xs btn btn-primary"><i class="fa fa-upload"
+                                                                                               aria-hidden="true"></i>
+                            </button>
+                            <button type="button" class="mb-xs mt-xs mr-xs btn btn-primary">应用</button>
+                            <button type="button" class="mb-xs mt-xs mr-xs btn btn-primary">预览</button>
+                        </div>
                         <hr class="separator" />
 
                     </div>
@@ -80,21 +86,7 @@
         <div class="content-with-menu-container">
             <div class="inner-body mg-main">
                 <div class="inner-toolbar clearfix">
-                    <ul>
-                        <li>
-                            <a href="#" id="mgSelectAll"><i class="fa fa-check-square"></i> <span data-all-text="简洁模式" data-none-text="开发者模式">简洁模式</span></a>
-                        </li>
-
-                        <li class="right" data-sort-source data-sort-id="media-gallery">
-                            <label>
-                                <input type="checkbox" value="">
-                                同步更新到博客
-                            </label>
-                        </li>
-                    </ul>
                 </div>
-
-
                 <div class="row">
                     <div class="col-xs-12">
                         <section class="panel">

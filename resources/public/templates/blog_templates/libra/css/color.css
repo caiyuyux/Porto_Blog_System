@@ -7,7 +7,6 @@
 	
 **/
 
-
 .layout-divider:before,
 blockquote:after,
 .social-media-share2 ul li a:hover,
@@ -29,11 +28,11 @@ blockquote:after,
 .footer-details .widget-title h3:after,
 .footer-details .subscribe-button,
 .footer-details .widget_tag_cloud .tagcloud a:hover {
-	background-color: #e7cd3b;
+    background-color: #e7cd3b;
 }
 
 .carousel-item:hover .carousel-title {
-	background-color: rgba(231,205,59,0.75);
+    background-color: rgba(231, 205, 59, 0.75);
 }
 
 .custom-list li i,
@@ -46,17 +45,17 @@ blockquote:after,
 .comment-name a:hover,
 .comment-reply a,
 .recent-post-detail a:hover {
-	color: #e7cd3b;
+    color: #e7cd3b;
 }
 
 .subscribe-button:hover,
 .footer-details .subscribe-button:hover {
-	background-color: #f1d640;
+    background-color: #f1d640;
 }
 
 @media (min-width: 992px) {
-	.nav-menu ul li:after,
-	.nav-menu ul ul li:hover:after {
-		background-color: #e7cd3b;
-	}
+    .nav-menu ul li:after,
+    .nav-menu ul ul li:hover:after {
+        background-color: #e7cd3b;
+    }
 }

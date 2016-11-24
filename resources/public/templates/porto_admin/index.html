@@ -1,6 +1,14 @@
 {% extends "porto_admin/base.html" %}
 {% block content %}
 <link rel="stylesheet" href="css/cropbox.css" />
+<link rel="stylesheet" href="css/bootstrap-markdown-editor.css"/>
+<link rel="stylesheet" href="css/rainbow.css"/>
+<link rel="stylesheet" href="css/markdown.css"/>
+<script type="text/javascript" src="js/bootstrap-markdown-editor.js"></script>
+<script type="text/javascript" src="js/ace-builds/src-noconflict/ace.js"></script>
+<script type="text/javascript" src="js/marked.min.js"></script>
+<script type="text/javascript" src="js/highlight.pack.js"></script>
+
 <section role="main" class="content-body">
 	<header class="page-header">
 		<h2>概览</h2>
@@ -49,13 +57,22 @@
 						<div class="widget-content-expanded">
 							<ul class="simple-todo-list">
 								{% if not name %}<li class="completed">真实姓名</li>{% endif %}
-								{% if not describe %}<li class="completed">自我描述</li>{% endif %}
-								{% if not nickname %}<li class="completed">个性昵称</li>{% endif %}
 								{% if not status %}<li class="completed">所属身份</li>{% endif %}
+								{% if not nickname %}
+								<li class="completed">个性昵称</li>
+								{% endif %}
 								{% if not domain %}<li class="completed">域名绑定</li>{% endif %}
+								{% if not blog_subject %}
+								<li class="completed">博客主题</li>
+								{% endif %}
+								{% if not blog_describe %}
+								<li class="completed">博客介绍</li>
+								{% endif %}
+								{% if not describe_md %}
+								<li class="completed">自我描介绍</li>
+								{% endif %}
 								{% if not disqus %}<li class="completed">disqus绑定</li>{% endif %}
 								{% if not leancloud %}<li class="completed">lendcloud绑定</li>{% endif %}
-
 							</ul>
 						</div>
 					</div>
@@ -69,7 +86,35 @@
 
 				</div>
 			</section>
+			<section class="panel">
+				<header class="panel-heading">
+					<div class="panel-actions">
+						<a href="#" class="panel-action panel-action-toggle" data-panel-toggle></a>
+						<a href="#" class="panel-action panel-action-dismiss" data-panel-dismiss></a>
+					</div>
 
+					<h2 class="panel-title">
+						<span class="va-middle">热门博文</span>
+					</h2>
+				</header>
+				<div class="panel-body">
+					<div class="content">
+						<ul class="simple-user-list">
+							{% for post in posts %}
+							{% if forloop.counter < 4 %}
+							<li>
+								<figure class="image rounded">
+								</figure>
+								<span class="title">{{ post.title }}</span>
+								<span class="message truncate">{{ post.time|date:shortDateTime}}</span>
+							</li>
+							{% endif %}
+							{% endfor %}
+						</ul>
+						<hr class="dotted short">
+					</div>
+				</div>
+			</section>
 
 		</div>
 		<div class="col-md-8 col-lg-6">
@@ -161,7 +206,6 @@
 											<input type="button" id="btnCrop" class="btn btn-default pull-right" onclick="$('#img_old').hide(); $('.crop_btn').hide();" value="完成">
 										</div>
 
-										<!--<button class="btn btn-default pull-right" id="btnCrop">裁剪</button>-->
 									</div>
 									<div class="action col-md-3 col-xs-5 crop_btn">
 										<input type="button" id="btnZoomIn" class="btn btn-default" value="+">
@@ -193,12 +237,6 @@
 									</div>
 								</div>
 								<div class="form-group">
-									<label class="col-md-3 control-label" for="">自我介绍</label>
-									<div class="col-md-8">
-										<textarea class="form-control" rows="3" id="profileDescribe">{{describe}}</textarea>
-									</div>
-								</div>
-								<div class="form-group">
 									<label class="col-md-3 control-label" for="">博客主题</label>
 									<div class="col-md-8">
 										<input class="form-control" rows="3" id="blogSubject" value="{{blog_subject}}">
@@ -208,6 +246,12 @@
 									<label class="col-md-3 control-label" for="">博客介绍</label>
 									<div class="col-md-8">
 										<textarea class="form-control" rows="3" id="blogDescribe">{{blog_describe}}</textarea>
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="col-md-3 control-label" for="">自我介绍</label>
+									<div class="col-md-8">
+										<textarea id="profileDescribe" name="text">{{describe_md}}</textarea>
 									</div>
 								</div>
 							</fieldset>
@@ -279,56 +323,10 @@
 				</header>
 				<div class="panel-body">
 					<ul class="simple-post-list">
-						<li>
-							<div class="post-image">
-								<div class="img-thumbnail">
-									<a href="#">
-										<img src="" alt="">
-									</a>
-								</div>
-							</div>
-							<div class="post-info">
-								<a href="#">待定</a>
-								<div class="post-meta">
-									Jan 10, 2013
-								</div>
-							</div>
-						</li>
 					</ul>
 				</div>
 			</section>
 
-			<section class="panel">
-				<header class="panel-heading">
-					<div class="panel-actions">
-						<a href="#" class="panel-action panel-action-toggle" data-panel-toggle></a>
-						<a href="#" class="panel-action panel-action-dismiss" data-panel-dismiss></a>
-					</div>
-
-					<h2 class="panel-title">
-						<span class="va-middle">热门博文</span>
-					</h2>
-				</header>
-				<div class="panel-body">
-					<div class="content">
-						<ul class="simple-user-list">
-							{% for post in posts %}
-							{% if  post.image %}
-							{% if forloop.counter < 4 %}
-							<li>
-								<figure class="image rounded">
-								</figure>
-								<span class="title">{{ post.title }}</span>
-								<span class="message truncate">{{ post.time|date:shortDateTime}}</span>
-							</li>
-							{% endif %}
-							{% endif %}
-							{% endfor %}
-						</ul>
-						<hr class="dotted short">
-					</div>
-				</div>
-			</section>
 		</div>
 
 	</div>
@@ -336,15 +334,19 @@
 </section>
 <script src="js/cropbox-min.js"></script>
 <script type="text/javascript">
+	var forum = "{{disqus}}";
+	var APIKEY = "{{disqus_apikey}}";
+	var ACCESS_TOKEN = "{{disqus_access_token}}";
+
 	var count = 0;
-	var vector = new Array("{{name}}","{{describe}}","{{status}}","{{domain}}","{{disqus}}","{{leancloud}}");
+	var vector = new Array("{{name}}", "{{describe_md|first}}", "{{status}}", "{{domain}}", "{{disqus}}", "{{leancloud}}", "{{nickname}}", "{{blog_subject}}", "blog_describe");
 	var avatar_data = '';
 	for(var x in vector){
 		if(vector[x].length>0){
 			count++;
 		}
 	}
-	count =(count*10+40)+"%";
+	count = (count / 9 * 100) + "%";
 	$('#countProfile').css("width",count);
 
 	$("form").submit(function() {
@@ -398,13 +400,16 @@
 		});
 
 		$("#p_form").submit(function(form) {
+			$('.btn-preview').click();
+
 			var data = new FormData();
 			var avatar = avatar_data;
 			var profileName = $('#profileName').val();
 			var profileStatus = $('#profileStatus').val();
 			var profileNickname = $('#profileNickname').val();
 			var profileDomain = $('#profileDomain').val();
-			var profileDescribe = $('#profileDescribe').val();
+			var profileDescribe_md = $('#profileDescribe').val();
+			var profileDescribe_html = $('.md-preview').html()
 			var profileDisqus = $('#profileDisqus').val();
 			var profileDisqus_APIKEY = $('#profileDisqus_APIKEY').val();
 			var profileDisqus_ACCESS_TOKEN = $('#profileDisqus_ACCESS_TOKEN').val();
@@ -420,7 +425,8 @@
 			data.append('profileStatus', profileStatus);
 			data.append('profileNickname', profileNickname);
 			data.append('profileDomain', profileDomain);
-			data.append('profileDescribe', profileDescribe);
+			data.append('profileDescribe_md', profileDescribe_md);
+			data.append('profileDescribe_html', profileDescribe_html);
 			data.append('profileDisqus', profileDisqus);
 			data.append('profileDisqus_APIKEY', profileDisqus_APIKEY);
 			data.append('profileDisqus_ACCESS_TOKEN', profileDisqus_ACCESS_TOKEN);
@@ -442,11 +448,38 @@
 			return false;
 		});
 
+		$('#profileDescribe').markdownEditor({
+			preview: true,
+			onPreview: function (content, callback) {
+				callback(marked(content));
+			}
+		});
 //		$('#showLess').click(function () {
 //			x=(x-5<0) ? 3 : x-5;
 //			$('#myList li').not(':lt('+x+')').hide();
 //		});
+		$.ajax({
+			type: "get",
+			url: "https://disqus.com/api/3.0/posts/listPopular.json",
+			data: "related=thread&access_token=" + ACCESS_TOKEN + "&api_key=" + APIKEY,
+			async: false,
+			success: function (res) {
+				if (res.code === 0) {
+					var result = "";
+					for (var i = 0, len = res.response.length; i < len && i < 3; i++) {
+						var post = res.response[i];
+						console.log(post);
 
+						html = '<li>' +
+								'<span class="pull-left">' + post.raw_message + '</span><img src="' + post.author.avatar.permalink + '" class="pull-right"/><br/>' +
+								'<span>' + post.createdAt + '</span>' +
+								'</li>';
+						result += html;
+					}
+					$('.simple-post-list').append(result);
+				}
+			}
+		});
 	});
 </script>
 {% endblock %}

@@ -1,5 +1,8 @@
-var monkeyList = new List('box', {
-    valueNames: ['post-type-standard'],
-    page: 2,
-    plugins: [ListPagination({})]
+$('.post-list').easyPaginate({
+    firstButton: false,
+    lastButton: false,
+    prevButton: false,
+    nextButton: false,
+    paginateElement: 'article',
+    elementsPerPage: 2
 });

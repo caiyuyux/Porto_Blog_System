@@ -56,7 +56,13 @@
                    (when-let [posts (not-empty (db/get_posts user))]
                      {:posts_all (reduce
                                    (fn [m v]
-                                     (conj m (merge v (assoc v :tags (clojure.string/split (:tags v) #","))))) () posts)})
+                                     (conj m (merge v
+                                                    {:tags (clojure.string/split (:tags v) #",")}
+                                                    {:prev_title (:title (let [index (- (.indexOf posts v) 1)]
+                                                                           (if (>= index 0) (nth posts index))))}
+                                                    {:next_title (:title (let [index (+ (.indexOf posts v) 1)]
+                                                                           (if (< index (count posts)) (nth posts index))))}
+                                                    ))) () posts)})
                    (when-let [categories (not-empty (db/get_categories_new user))] {:categories_all categories})
                    (when-let [tags (not-empty (db/get_tags user))] {:tags_all tags}))))))
 
@@ -109,6 +115,34 @@
                (when-let [categories (not-empty (db/get_categories_new user))] {:categories_all categories})
                (when-let [tags (not-empty (db/get_tags user))] {:tags_all tags}))))))
 
+(defn search_page
+  [account page value]
+  (let [info (first (db/get_user_info {:account account}))]
+    (layout/render
+      (str "business/" account "/blog/" (info :theme) "/" page)
+      (let [user {:account account}]
+        (merge user
+               (when-let [info (not-empty (db/get_user_info user))] (first info))
+               (if value
+                 (merge
+                   (when-let [posts (not-empty
+                                      (db/get_search_posts {:upper_value (str "%" (clojure.string/upper-case value) "%"), :account account}))]
+                     {:search_single (reduce
+                                       (fn [m v]
+                                         (conj m (merge v (assoc v :tags (clojure.string/split (:tags v) #","))))) () posts)})
+                   {:search_select value}))
+               (when-let [posts (not-empty (db/get_posts user))]
+                 {:posts_all (reduce
+                               (fn [m v]
+                                 (conj m (merge v
+                                                {:tags (clojure.string/split (:tags v) #",")}
+                                                {:prev_title (:title (let [index (- (.indexOf posts v) 1)]
+                                                                       (if (>= index 0) (nth posts index))))}
+                                                {:next_title (:title (let [index (+ (.indexOf posts v) 1)]
+                                                                       (if (< index (count posts)) (nth posts index))))}
+                                                ))) () posts)})
+               (when-let [categories (not-empty (db/get_categories_new user))] {:categories_all categories})
+               (when-let [tags (not-empty (db/get_tags user))] {:tags_all tags}))))))
 
 (defn other_page
   [account page type value]
@@ -126,7 +160,7 @@
                                         (db/get_single_posts
                                           {:id (str "/templates/business/" account "/posts/" value ".html"), :account account}))]
                        {:post_single (merge (first posts)
-                                            {:tags (clojure.string/split (get-in (first posts) [:tags]) #",")}) })
+                                            {:tags (clojure.string/split (get-in (first posts) [:tags]) #",")})})
                      {:post_select value}))
                  (= type "category")
                  (if value
@@ -148,12 +182,28 @@
                                           (conj m (merge v (assoc v :tags (clojure.string/split (:tags v) #","))))
                                           m))
                                       () tags)})
-                     {:tag_select value})))
+                     {:tag_select value}))
+
+                 (= type "search")
+                 (if value
+                   (merge
+                     (when-let [posts (not-empty
+                                        (db/get_search_posts {:upper_value (str "%" (clojure.string/upper-case value) "%"), :account account}))]
+                       {:search_single (reduce
+                                         (fn [m v]
+                                           (conj m (merge v (assoc v :tags (clojure.string/split (:tags v) #","))))) () posts)})
+                     {:search_select value})))
 
                (when-let [posts (not-empty (db/get_posts user))]
                  {:posts_all (reduce
                                (fn [m v]
-                                 (conj m (merge v (assoc v :tags (clojure.string/split (:tags v) #","))))) () posts)})
+                                 (conj m (merge v
+                                                {:tags (clojure.string/split (:tags v) #",")}
+                                                {:prev_title (:title (let [index (- (.indexOf posts v) 1)]
+                                                                       (if (>= index 0) (nth posts index))))}
+                                                {:next_title (:title (let [index (+ (.indexOf posts v) 1)]
+                                                                       (if (< index (count posts)) (nth posts index))))}
+                                                ))) () posts)})
                (when-let [categories (not-empty (db/get_categories_new user))] {:categories_all categories})
                (when-let [tags (not-empty (db/get_tags user))] {:tags_all tags}))))))
 
@@ -190,6 +240,11 @@
         (tag_page account "tag.html" middle_param)
         (-> (redirect (str "/blog/" account "/tag"))))
 
+      (= "search" first_param)
+      (if-let [search_value (get (-> request :params) :search)]
+        (search_page account "search.html" search_value)
+        (-> (redirect (str "/blog/" account))))
+
       :else (if middle_param
               (cond
                 (= "post" middle_param)
@@ -213,5 +268,9 @@
                       (first (db/exists_category? {:id last_param, :account account}))) true)
                   (other_page account (str first_param ".html") middle_param last_param)
                   (-> (redirect (str "/blog/" account "/" first_param))))
+
                 :else (-> (redirect (str "/blog/" account "/" first_param))))
-              (other_page account (str first_param ".html") nil nil)))))
+              (if-let [search_value (get (-> request :params) :search)]
+                (other_page account (str first_param ".html") "search" search_value)
+                (other_page account (str first_param ".html") nil nil))
+              ))))
