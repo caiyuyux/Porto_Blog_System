@@ -1,6 +1,8 @@
 {% extends "porto/base.html" %}
 {% block content %}
-
+<link rel="stylesheet" href="css/bootstrap-markdown-editor.css"/>
+<link rel="stylesheet" href="css/rainbow.css"/>
+<link rel="stylesheet" href="css/markdown.css"/>
 <div role="main" class="main">
 
     <section class="page-header">
@@ -48,57 +50,54 @@
                                 <li>
                                     <a href="#tabsNavigation6" data-toggle="tab"><i class="fa fa-inbox"></i> 内嵌disqus系统</a>
                                 </li>
-                                <li>
-                                    <a href="#tabsNavigation7" data-toggle="tab"><i class="fa fa-plug"></i> 域名绑定</a>
-                                </li>
-                                <li>
-                                    <a href="#tabsNavigation8" data-toggle="tab"><i class="fa fa-user"></i> Lightbox</a>
-                                </li>
                             </ul>
                         </div>
                     </div>
                     <div class="col-md-8">
                         <div class="tab-pane tab-pane-navigation active" id="tabsNavigation1">
                             <h4>响应式布局</h4>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur pellentesque neque eget diam posuere porta. Quisque ut nulla at nunc <a href="#">vehicula</a> lacinia.</p>
-                            <img class="pull-right" width="200" src="img/device.png" alt="">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur pellentesque neque eget diam posuere porta. Quisque ut nulla at nunc <a href="#">vehicula</a> lacinia. Proin adipiscing porta tellus, ut feugiat nibh adipiscing sit amet. In eu justo a felis faucibus ornare vel id metus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; In eu libero ligula. Fusce eget metus lorem, ac viverra leo. Nullam convallis, arcu vel pellentesque sodales, nisi est varius diam, ac ultrices sem ante quis sem. Proin ultricies volutpat sapien, nec scelerisque ligula mollis lobortis.</p>
+                            <p>由Porto博客系统搭建的博客采用响应式布局，能够兼容多个终端，面对不同分辨率设备灵活性强，能够快捷解决多设备显示适应问题</p>
                         </div>
                         <div class="tab-pane tab-pane-navigation" id="tabsNavigation2">
                             <h4>代码显示</h4>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur pellentesque neque eget diam posuere porta. Quisque ut nulla at nunc <a href="#">vehicula</a> lacinia.</p>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur pellentesque neque eget diam posuere porta. Quisque ut nulla at nunc <a href="#">vehicula</a> lacinia. Proin adipiscing porta tellus, ut feugiat nibh adipiscing sit amet. In eu justo a felis faucibus ornare vel id metus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; In eu libero ligula. Fusce eget metus lorem, ac viverra leo. Nullam convallis, arcu vel pellentesque sodales, nisi est varius diam, ac ultrices sem ante quis sem. Proin ultricies volutpat sapien, nec scelerisque ligula mollis lobortis.</p>
+                            <p>博文支持对于代码显示有着很好的支持，高亮代码</p>
+<pre><code class="lang-clojure">(<span class="hljs-name"><span class="hljs-builtin-name">defn</span></span> average
+    [numbers]
+    (/ (<span class="hljs-name"><span class="hljs-builtin-name">apply</span></span> + numbers) (<span class="hljs-name"><span class="hljs-builtin-name">count</span></span> numbers)
+</code></pre>
+<pre><code class="lang-clojure">(<span class="hljs-name">average</span> [<span class="hljs-number">60</span> <span class="hljs-number">80</span> <span class="hljs-number">100</span> <span class="hljs-number">400</span>]<span class="hljs-comment">
+;=160</span></code>
+</pre>
                         </div>
                         <div class="tab-pane tab-pane-navigation" id="tabsNavigation3">
                             <h4>Markdown</h4>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur pellentesque neque eget diam posuere porta. Quisque ut nulla at nunc <a href="#">vehicula</a> lacinia.</p>
-                            <img class="pull-left" width="200" src="img/device.png" alt="">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur pellentesque neque eget diam posuere porta. Quisque ut nulla at nunc <a href="#">vehicula</a> lacinia. Proin adipiscing porta tellus, ut feugiat nibh adipiscing sit amet. In eu justo a felis faucibus ornare vel id metus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; In eu libero ligula. Fusce eget metus lorem, ac viverra leo. Nullam convallis, arcu vel pellentesque sodales, nisi est varius diam, ac ultrices sem ante quis sem. Proin ultricies volutpat sapien, nec scelerisque ligula mollis lobortis.</p>
+                            <p>博文的编辑极好的支持了markdown语法，使得拥有如下优点：</p>
+                            <ul>
+                                <li>纯文本，所以兼容性极强，可以用所有文本编辑器打开。</li>
+                                <li>让你专注于文字而不是排版。</li>
+                                <li>格式转换方便，Markdown 的文本你可以轻松转换为 html、电子书等。</li>
+                                <li>Markdown 的标记语法有极好的可读性。</li>
+                            </ul>
                         </div>
                         <div class="tab-pane tab-pane-navigation" id="tabsNavigation4">
                             <h4>一键分享</h4>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur pellentesque neque eget diam posuere porta. Quisque ut nulla at nunc <a href="#">vehicula</a> lacinia.</p>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur pellentesque neque eget diam posuere porta. Quisque ut nulla at nunc <a href="#">vehicula</a> lacinia. Proin adipiscing porta tellus, ut feugiat nibh adipiscing sit amet. In eu justo a felis faucibus ornare vel id metus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; In eu libero ligula. Fusce eget metus lorem, ac viverra leo. Nullam convallis, arcu vel pellentesque sodales, nisi est varius diam, ac ultrices sem ante quis sem. Proin ultricies volutpat sapien, nec scelerisque ligula mollis lobortis.</p>
+                            <p>发表的博文想第一时间让朋友知道，或是想发到facebook炫一波？</p>
+                            <p>这都不是问题，一键推送，支持谷歌、推特等社交平台。</p>
                         </div>
                         <div class="tab-pane tab-pane-navigation" id="tabsNavigation5">
                             <h4>云资源接口</h4>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur pellentesque neque eget diam posuere porta. Quisque ut nulla at nunc <a href="#">vehicula</a> lacinia.</p>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur pellentesque neque eget diam posuere porta. Quisque ut nulla at nunc <a href="#">vehicula</a> lacinia. Proin adipiscing porta tellus, ut feugiat nibh adipiscing sit amet. In eu justo a felis faucibus ornare vel id metus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; In eu libero ligula. Fusce eget metus lorem, ac viverra leo. Nullam convallis, arcu vel pellentesque sodales, nisi est varius diam, ac ultrices sem ante quis sem. Proin ultricies volutpat sapien, nec scelerisque ligula mollis lobortis.</p>
+                            <p>啥啥啥？你觉得博文太单调了？想放其他东西？</p>
+                            <p>没问题，这里有你想要的，博文支持嵌套html代码，让你想放什么就放什么，DIY才是王道。</p>
+                            <p>想加个音乐外链？</p>
+<pre>
+&ltembed src="http://music.163.com/style/swf/widget.swf?sid=27836179&type=2&auto=0&width=278&height=32"
+    width="298" height="52"  allowNetworking="all"&gt&lt/embed&gt
+</pre>
+                            <p>或是想放个iframe演示你的项目，都是可以的，你说了算。</p>
                         </div>
                         <div class="tab-pane tab-pane-navigation" id="tabsNavigation6">
                             <h4>内嵌disqus系统</h4>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur pellentesque neque eget diam posuere porta. Quisque ut nulla at nunc <a href="#">vehicula</a> lacinia.</p>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur pellentesque neque eget diam posuere porta. Quisque ut nulla at nunc <a href="#">vehicula</a> lacinia. Proin adipiscing porta tellus, ut feugiat nibh adipiscing sit amet. In eu justo a felis faucibus ornare vel id metus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; In eu libero ligula. Fusce eget metus lorem, ac viverra leo. Nullam convallis, arcu vel pellentesque sodales, nisi est varius diam, ac ultrices sem ante quis sem. Proin ultricies volutpat sapien, nec scelerisque ligula mollis lobortis.</p>
-                        </div>
-                        <div class="tab-pane tab-pane-navigation" id="tabsNavigation7">
-                            <h4>域名绑定</h4>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur pellentesque neque eget diam posuere porta. Quisque ut nulla at nunc <a href="#">vehicula</a> lacinia.</p>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur pellentesque neque eget diam posuere porta. Quisque ut nulla at nunc <a href="#">vehicula</a> lacinia. Proin adipiscing porta tellus, ut feugiat nibh adipiscing sit amet. In eu justo a felis faucibus ornare vel id metus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; In eu libero ligula. Fusce eget metus lorem, ac viverra leo. Nullam convallis, arcu vel pellentesque sodales, nisi est varius diam, ac ultrices sem ante quis sem. Proin ultricies volutpat sapien, nec scelerisque ligula mollis lobortis.</p>
-                        </div>
-                        <div class="tab-pane tab-pane-navigation" id="tabsNavigation8">
-                            <h4>Lightbox</h4>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur pellentesque neque eget diam posuere porta. Quisque ut nulla at nunc <a href="#">vehicula</a> lacinia.</p>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur pellentesque neque eget diam posuere porta. Quisque ut nulla at nunc <a href="#">vehicula</a> lacinia. Proin adipiscing porta tellus, ut feugiat nibh adipiscing sit amet. In eu justo a felis faucibus ornare vel id metus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; In eu libero ligula. Fusce eget metus lorem, ac viverra leo. Nullam convallis, arcu vel pellentesque sodales, nisi est varius diam, ac ultrices sem ante quis sem. Proin ultricies volutpat sapien, nec scelerisque ligula mollis lobortis.</p>
+                            <p>采用大名鼎鼎的第三方评论系统disqus，更加方便简单的管理你的评论，系统后台调用diqus api，提供详尽的操作，顾客即上帝。</p>
                         </div>
                     </div>
                 </div>

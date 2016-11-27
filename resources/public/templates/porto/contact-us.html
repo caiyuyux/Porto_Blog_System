@@ -46,8 +46,8 @@
             </div>
             <div class="col-md-6">
 
-                <div class="alert alert-success hidden mt-lg" id="contactSuccess">
-                    <strong>Success!</strong> Your message has been sent to us.
+                <div class="alert alert-success mt-lg" id="contactSuccess" hidden>
+                    <strong>发送成功！</strong> 您的消息已经发送给我们，感谢您的支持。
                 </div>
 
                 <div class="alert alert-danger hidden mt-lg" id="contactError">
@@ -56,7 +56,7 @@
                 </div>
 
                 <h2 class="mb-sm mt-sm"><strong>Contact</strong> Us</h2>
-                <form id="contactForm" action="php/contact-form.php" method="POST">
+                <form id="contactForm" method="post">
                     <div class="row">
                         <div class="form-group">
                             <div class="col-md-6">
@@ -72,7 +72,7 @@
                     <div class="row">
                         <div class="form-group">
                             <div class="col-md-12">
-                                <label>Subject</label>
+                                <label>Subject *</label>
                                 <input type="text" value="" data-msg-required="Please enter the subject." maxlength="100" class="form-control" name="subject" id="subject" required>
                             </div>
                         </div>
@@ -99,6 +99,13 @@
     </div>
 
 </div>
-
+<script src="assets/porto/vendor/jquery/jquery.min.js"></script>
+<script>
+    $('#contactForm').submit(function (e) {
+        e.preventDefault();
+        $('#contactSuccess').show();
+        return false;
+    })
+</script>
 
 {% endblock %}

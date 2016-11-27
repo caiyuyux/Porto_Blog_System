@@ -51,7 +51,6 @@
 
 (defroutes home-routes
            (GET "/"                request (home-page               request))
-           (GET "/download"        request (download                request))
            ;(POST "/"                request (home-page               request))
 
            ;;--------------------------porto--------------------------------
@@ -71,10 +70,10 @@
            (GET  "/register-email"  request (signup/register-email   request))
            (GET  "/recover-email"   request (recover/recover-email   request))
 
-           (GET  "/features"        request (layout/render "porto/features.html"   (-> request :flash) (:flash request)))
-           (GET  "/faqs"            request (layout/render "porto/faqs.html"       (-> request :flash) (:flash request)))
-           (GET  "/contact-us"      request (layout/render "porto/contact-us.html" (-> request :flash) (:flash request)))
-           (GET  "/about-us"        request (layout/render "porto/about-us.html"   (-> request :flash) (:flash request)))
+           (GET  "/features"        request (layout/render "porto/features.html"   {:account (-> request :session :account)}))
+           (GET  "/faqs"            request (layout/render "porto/faqs.html"       {:account (-> request :session :account)}))
+           (GET  "/contact-us"      request (layout/render "porto/contact-us.html" {:account (-> request :session :account)}))
+           (GET  "/about-us"        request (layout/render "porto/about-us.html"   {:account (-> request :session :account)}))
 
            ;; -----------------------porto_admin-----------------------------
            (GET  "/admin"                  request (admin/admin_index_page          request))
