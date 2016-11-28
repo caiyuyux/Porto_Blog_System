@@ -43,7 +43,7 @@
 
 (defn update-user!
   [params]
-  (db/create_user!
+  (db/update_password!
     (update-in
       (select-keys params [:password :email])
       [:password]
@@ -56,8 +56,9 @@
         (assoc :flash (assoc (-> request :params) :errors (merge errors {:type "recover" :value "找回密码"}))))
     (do
       (update-user! (-> request :params))
-      (db/create_new! {:account (-> request :params :account), :obj "recover", :type"update", :content "重置了密码", :create_time (l/local-now),
-                       :image nil, :video nil, :music nil, :post nil})
+      (db/create_new! (merge (first (db/get_account (-> request :params)))
+                             {:obj "recover", :type"update", :content "重置了密码", :create_time (l/local-now),
+                              :image nil, :video nil, :music nil, :post nil}))
       (-> (redirect "/")
           (assoc :flash (select-keys (-> request :params) [:account]))
           (assoc :session {:account (:account (-> request :params))})))))

@@ -80,6 +80,18 @@ WHERE account = :account;
 INSERT INTO news (obj, create_time, account, image, video, music, type, post, content)
 VALUES (:obj, :create_time, :account, :image, :video, :music, :type, :post, :content);
 
+-- :name update_password! :! :n
+-- :doc
+UPDATE users
+SET password = :password
+WHERE email = :email;
+
+-- :name get_account :? :*
+-- :doc
+SELECT account
+FROM users
+WHERE email = :email;
+
 -- :name get_news :? :*
 -- :doc
 SELECT obj, create_time, image, video, music, type, post, content
