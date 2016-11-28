@@ -200,7 +200,7 @@
                                         <li><a href="javascript:void(0);">{{ post_single.time|date:mediumDate }}</a>
                                         </li>
                                         <li><a href="/blog/{{account}}/category">{{ post_single.categories }}</a></li>
-                                        <li><a href="/blog/{{account}}/post/{{post.title}}#disqus_thread">Link</a></li>
+                                        <li><a href="/blog/{{account}}/post/{{post.title}}#disqus_thread"></a></li>
                                     </ul>
                                 </div>
                                 <!--Post Meta End-->
@@ -712,5 +712,15 @@
 <!-- SuperEmbed js file-->
 <script type="text/javascript" src="/templates/business/{{account}}/blog/{{theme}}/js/superembed.min.js"></script>
 
+<!-- Baidu Analysis -->
+<script>
+	var _hmt = _hmt || [];
+	(function() {
+	  var hm = document.createElement("script");
+	  hm.src = "https://hm.baidu.com/hm.js?c6f31ea4d261886d5c3a1a4e993c77e3";
+	  var s = document.getElementsByTagName("script")[0]; 
+	  s.parentNode.insertBefore(hm, s);
+	})();
+</script>
 </body>
 </html>

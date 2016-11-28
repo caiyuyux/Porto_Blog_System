@@ -155,8 +155,10 @@ $.fn.easyPaginate = function (options) {
                     var h = w*9/16;
                     $(".list_video").colorbox({iframe:true, innerWidth:w,innerHeight:h})
                     $(".list_image").colorbox({rel:'.list_image',innerWidth:w, innerHeight:h})
-                }        
-                DISQUSWIDGETS.getCount();      
+                }    
+                if(typeof DISQUSWIDGETS != "undefined"){
+                    DISQUSWIDGETS.getCount();  
+                }    
         };
         
         var transition_default = function(offsetStart, offsetEnd) {

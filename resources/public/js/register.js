@@ -18,11 +18,12 @@ function createCode(type){
     }
     var date = new Date();
     date.setTime(date.getTime() + (10 * 60 * 1000));//10分钟后过期
-    $.cookie("code", code, { expires: date});
     if(type=="register"){
+        $.cookie("code", code, { expires: date});
         register_mail();
     }
     else if(type=="recover"){
+        $.cookie("code2", code, { expires: date});
         recover_mail();
     }
     
@@ -77,7 +78,7 @@ $('#emailCheck2').countdown({
         var reg = /^(\w-*\.*)+@(\w-?)+(\.\w{2,})+$/;
         if (reg.test(email)) {
             createCode("recover");
-            $.cookie('keepEmail',$('#inputEmail2').val());
+            $.cookie('keepEmail2',$('#inputEmail2').val());
             return true;
         }else{
             alert("请输入正确的邮箱地址");

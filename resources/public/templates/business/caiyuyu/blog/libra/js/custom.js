@@ -53,13 +53,15 @@ jQuery(document).ready(function () {
     /* =======================================================
      Fit Image to DIV
      ========================================================== */
-    // $('.fit-img').each(function () {
-    //     var $div = $(this),
-    //         $img = $('img', $div),
-    //         src = $img.attr('src');
-    //     $div.css('backgroundImage', 'url(' + src + ')');
-    //     $img.remove();
-    // });
+    $('.fit-img').each(function () {
+        var $div = $(this),
+            $img = $('img', $div),
+            src = $img.attr('src');
+            if(src!==undefined){
+                 $div.css('backgroundImage', 'url(' + src + ')');
+                $img.remove();
+            }
+    });
 
 
     /* =======================================================
