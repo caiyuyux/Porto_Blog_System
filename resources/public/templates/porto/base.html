@@ -292,7 +292,7 @@
 																		<span class="dropdown-mega-sub-title">Reset My Password</span>
 																		<p>填写您的注册时邮箱，我们将会发送一个验证码到该邮箱来验证您的身份，进而重置密码，请注意查收.</p>
 
-																		<form action="/" id="frmResetPassword" method="post">
+																		<form action="/user-recover" id="frmResetPassword" method="post">
 																			<div class="row">
 																				<div class="form-group">
 																					<div class="col-md-6 pl-none">
@@ -324,7 +324,23 @@
 																				</div>
 																			</div>
 																		</form>
-
+																		{% if errors.password %}
+																		<div class="alert alert-warning" role="alert">
+																			<p>{{errors.password|join}}</p>
+																		</div>
+																		{% else %}
+																		{% if errors.email %}
+																		<div class="alert alert-warning" role="alert">
+																			<p>{{errors.email|join}}</p>
+																		</div>
+																		{% else %}
+																		{% if errors.code %}
+																		<div class="alert alert-warning" role="alert">
+																			<p>{{errors.code|join}}</p>
+																		</div>
+																		{% endif %}
+																		{% endif %}
+																		{% endif %}
 																		<p class="log-in-info">记得密码? <a href="#" id="headerRecoverCancel" class="p-none m-none ml-xs">直接登录</a></p>
 																	</div>
 

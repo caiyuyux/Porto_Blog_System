@@ -9,6 +9,13 @@
             [environ.core :refer [env]]
             [ring.util.response :refer [redirect response]]))
 
+(defn user-recover-page
+  [request]
+  (layout/render
+    "porto/index.html"
+    (-> request :flash)
+    (:flash request)))
+
 (defn smtp []
   {:host (env :mail-host)
    :user (env :mail-user)
@@ -16,7 +23,7 @@
    :ssl :yes!!!11})
 
 (defn mail [request]
-  {:from (env :mail-user)
+  {:from (str "Porto博客系统 <" (env :mail-user) ">")
    :to (-> request :params :to)
    :subject "来自Porto博客系统的验证邮件"
    :body (str "您好，该邮箱绑定的账号正在请求密码重置功能，您的验证码为：" (-> request :params :code) "，有效时间为10分钟，若非本人操作请忽略。")})
@@ -28,8 +35,7 @@
   [request]
   (first (b/validate
            (merge (-> request :params)
-                  {:code (clojure.string/upper-case (-> request :params :code))
-                   :account (clojure.string/lower-case (-> request :params :account))})
+                  {:code (clojure.string/upper-case (-> request :params :code))})
            :email [[= (if-let [value (get (-> request :cookies) "keepEmail2")] (value :value)) :message "验证邮箱已变更，请重新发送验证邮件"]]
            :code [[= (if-let [value (get (-> request :cookies) "code2")] (value :value)):message "验证码错误"]]
            :password [v/required
@@ -39,7 +45,7 @@
   [params]
   (db/create_user!
     (update-in
-      (select-keys params [:account :password :nickname :email])
+      (select-keys params [:password :email])
       [:password]
       hashers/encrypt {:algorithm :pbkdf2+sha256})))
 
