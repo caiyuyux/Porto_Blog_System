@@ -70,7 +70,7 @@ WHERE account = :account;
 UPDATE users
 SET nickname            = :profileNickname, describe_md = :profileDescribe_md, describe_html = :profileDescribe_html,
     domain              = :profileDomain, name = :profileName,
-    disqus              = :profileDisqus, leancloud = :profileLeancloud, status = :profileStatus,
+    disqus              = :profileDisqus, analysis = :profileLeancloud, status = :profileStatus,
     disqus_access_token = :profileDisqus_ACCESS_TOKEN, disqus_apikey = :profileDisqus_APIKEY,
     blog_subject        = :blogSubject, blog_describe = :blogDescribe
 WHERE account = :account;

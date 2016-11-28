@@ -573,6 +573,15 @@
 <!-- SuperEmbed js file-->
 <script type="text/javascript" src="/templates/business/{{account}}/blog/{{theme}}/js/superembed.min.js"></script>
 
-
+<!-- Baidu Analysis -->
+<script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?{{analysis}}";
+      var s = document.getElementsByTagName("script")[0]; 
+      s.parentNode.insertBefore(hm, s);
+    })();
+</script>
 </body>
 </html>
