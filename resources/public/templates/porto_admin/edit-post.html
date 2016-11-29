@@ -323,9 +323,10 @@
     });
 
     if(image.length>0){
+        var domain = window.location.host;
         $('#switch').change();
         if(image.match("http://")==null){
-            $('#url').val("http://porto.pub"+image);
+            $('#url').val("http://"+domain+image);
         }else{
             $('#url').val(image);
         }
