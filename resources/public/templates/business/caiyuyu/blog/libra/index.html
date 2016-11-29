@@ -44,9 +44,6 @@
     <!--Color Scheme Setting-->
     <link href="/templates/business/{{account}}/blog/{{theme}}/css/color.css" rel="stylesheet" type="text/css">
 
-    <!-- ellipsis CSS -->
-    <link href="/templates/business/{{account}}/blog/{{theme}}/css/ellipsis.css" rel="stylesheet" type="text/css">
-
     <!--markdown CSS -->
     <link href="/templates/business/{{account}}/blog/{{theme}}/css/markdown.css" rel="stylesheet" type="text/css">
 
@@ -188,7 +185,7 @@
                                 <!--Post Entry-->
                                 <div class="post-entry">
                                     <h2><a href="/blog/{{account}}/post/{{post.title}}">{{ post.title }}</a></h2>
-                                    <div class="post-description ellipsis">
+                                    <div class="post-description">
                                         {{post.html|safe}}
                                     </div>
                                     <div class="post-meta">
@@ -538,6 +535,8 @@
 <!-- highlight js file-->
 <script type="text/javascript" src="/templates/business/{{account}}/blog/{{theme}}/js/highlight.pack.js"></script>
 
+<!-- ellipsis js file-->
+<script type="text/javascript" src="/templates/business/{{account}}/blog/{{theme}}/js/jquery.dotdotdot.min.js"></script>
 
 </body>
 </html>

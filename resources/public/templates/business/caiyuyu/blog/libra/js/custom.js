@@ -41,6 +41,13 @@ jQuery(document).ready(function () {
         return bg;
     });
 
+    /* =======================================================
+     Add ellipsis to multiline text
+     ========================================================== */
+    $(".post-description").dotdotdot({
+            height: 100
+        });
+
 
     /* =======================================================
      Add class to Text Number

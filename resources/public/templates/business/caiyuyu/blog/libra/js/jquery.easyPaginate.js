@@ -146,6 +146,9 @@ $.fn.easyPaginate = function (options) {
                     $div.css('backgroundImage', 'url(' + src + ')');
                     $img.remove();
                 });  
+                $(".post-description").dotdotdot({
+                        height: 100
+                    });                
 
                  if(document.body.clientWidth>=900){
                     $(".list_video").colorbox({iframe:true, innerWidth:600,innerHeight:500});
