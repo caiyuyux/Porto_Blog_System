@@ -23,6 +23,7 @@
             [blog.routes.porto-admin.resources :as resources]
             [blog.routes.porto-admin.comment :as comment]
             [blog.routes.porto-admin.blogStyle :as blogStyle]
+            [blog.routes.porto-admin.analysis :as analysis]
             [blog.routes.blog.index :as blog]
             [ring.util.response :as response]))
 
@@ -88,6 +89,7 @@
            (GET  "/admin_resources"        request (resources/resources_index_page  request))
            (GET  "/admin_comments"         request (comment/comments_index_page     request))
            (GET  "/admin_blogStyle"        request (blogStyle/blogStyle_index_page  request))
+           (GET  "/admin_analysis"         request (analysis/analysis_index_page  request))
            (POST "/admin_file-upload"      request (resources/file-upload!          request))
            (POST "/admin_deletedPost"      request (post/deleted_post!              request))
            (POST "/admin_save-post"        request (post/save-post!                 request))

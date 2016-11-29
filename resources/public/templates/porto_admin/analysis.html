@@ -1,0 +1,126 @@
+{% extends "porto_admin/base.html" %}
+{% block content %}
+<script>
+    var _hmt = _hmt || [];
+</script>
+
+
+<section role="main" class="content-body">
+    <header class="page-header">
+        <h2>统计分析</h2>
+
+        <div class="right-wrapper pull-right">
+            <ol class="breadcrumbs">
+                <li>
+                    <a href="/">
+                        <i class="fa fa-home"></i>
+                    </a>
+                </li>
+                <li><span>Admin</span></li>
+                <li><span>Post Analysis</span></li>
+            </ol>
+
+            <a class="sidebar-right-toggle" data-open="sidebar-right"><i class="fa fa-chevron-left"></i></a>
+        </div>
+    </header>
+
+    <!-- start: page -->
+    <section class="content-with-menu content-with-menu-has-toolbar media-gallery">
+        <div class="inner-menu-toggle">
+            <a href="#" class="inner-menu-expand" data-open="inner-menu">
+                Show Bar <i class="fa fa-chevron-right"></i>
+            </a>
+        </div>
+
+        <menu id="content-menu" class="inner-menu" role="menu">
+            <div class="nano">
+                <div class="nano-content">
+
+                    <div class="inner-menu-toggle-inside">
+                        <a href="#" class="inner-menu-collapse">
+                            <i class="fa fa-chevron-up visible-xs-inline"></i><i class="fa fa-chevron-left hidden-xs-inline"></i> Hide Bar
+                        </a>
+                        <a href="#" class="inner-menu-expand" data-open="inner-menu">
+                            Show Bar <i class="fa fa-chevron-down"></i>
+                        </a>
+                    </div>
+
+                    <div class="inner-menu-content">
+                        <div class="alert alert-info panel-body">
+                            <strong>小贴士</strong>
+                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                            <ul>
+                                <li>本系统内置libra模板</li>
+                                <li>已提供模板接口，用户可自行搭建模板</li>
+                                <li>上传模板时的文件夹名默认为模板命名</li>
+                            </ul>
+                        </div>
+                        <hr class="separator"/>
+                        <div class="form-group">
+                            <label class="col-xs-3 col-md-3 control-label">选择模板</label>
+                            <div class="col-xs-6 col-md-6">
+                                <select class="form-control" data-plugin-multiselect
+                                        data-plugin-options='{ "maxHeight": 200, "buttonClass": "btn btn-link" }'
+                                        id="ms_example3">
+                                    <option value="cheese">libra</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <button type="button" class="mb-xs mt-xs mr-xs btn btn-primary"><i class="fa fa-download"
+                                                                                               aria-hidden="true"></i>
+                            </button>
+                            <button type="button" class="mb-xs mt-xs mr-xs btn btn-primary"><i class="fa fa-upload"
+                                                                                               aria-hidden="true"></i>
+                            </button>
+                            <button type="button" class="mb-xs mt-xs mr-xs btn btn-primary">应用</button>
+                            <button type="button" class="mb-xs mt-xs mr-xs btn btn-primary">预览</button>
+                        </div>
+                        <hr class="separator" />
+
+                    </div>
+                </div>
+            </div>
+        </menu>
+        <div class="content-with-menu-container">
+            <div class="inner-body mg-main">
+                <div class="inner-toolbar clearfix">
+                </div>
+                <div class="row">
+                    <div class="col-xs-12">
+                        <section class="panel">
+                            <div class="panel-body">
+                                <form class="form-horizontal form-bordered">
+                                    <div class="form-group">
+                                        <div class="col-md-12" id="markdown_div">
+                                            三扽三的
+                                        </div>
+                                        <div class="col-md-12" id="wys_div" hidden>
+                                            似懂非懂发
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- end: page -->
+</section>
+
+<script>
+    var token="{{analysis_access_token}}"
+    $.ajax({
+        type : "post",
+        url : "https://api.baidu.com/json/tongji/v1/ReportService/getData/overview/getTimeTrendRpt",
+        data : "TOKEN="+token,
+        dataType: "json",
+        async : false,
+        success : function(data){
+            console.log(data);
+        }
+    })
+</script>
+{% endblock %}

@@ -61,7 +61,6 @@
 								{% if not nickname %}
 								<li class="completed">个性昵称</li>
 								{% endif %}
-								{% if not domain %}<li class="completed">域名绑定</li>{% endif %}
 								{% if not blog_subject %}
 								<li class="completed">博客主题</li>
 								{% endif %}
@@ -72,7 +71,7 @@
 								<li class="completed">自我描介绍</li>
 								{% endif %}
 								{% if not disqus %}<li class="completed">disqus绑定</li>{% endif %}
-								{% if not leancloud %}<li class="completed">lendcloud绑定</li>{% endif %}
+								{% if not analysis %}<li class="completed">Google Analytics绑定</li>{% endif %}
 							</ul>
 						</div>
 					</div>
@@ -230,12 +229,12 @@
 										<input type="text" class="form-control" id="profileNickname" value="{{nickname}}">
 									</div>
 								</div>
-								<div class="form-group">
-									<label class="col-md-3 control-label" for="">域名</label>
-									<div class="col-md-8">
-										<input type="text" class="form-control" id="profileDomain" value="{{domain}}">
-									</div>
-								</div>
+								<!--<div class="form-group">-->
+									<!--<label class="col-md-3 control-label" for="">域名</label>-->
+									<!--<div class="col-md-8">-->
+										<!--<input type="text" class="form-control" id="profileDomain" value="{{domain}}">-->
+									<!--</div>-->
+								<!--</div>-->
 								<div class="form-group">
 									<label class="col-md-3 control-label" for="">博客主题</label>
 									<div class="col-md-8">
@@ -273,13 +272,13 @@
 									</div>
 								</div>
 								<div class="form-group">
-									<label class="col-md-3 control-label" for="">百度分析</label>
+									<label class="col-md-3 control-label" for="">Google Analytics</label>
 									<div class="col-md-8">
-										<input type="text" class="form-control" id="profileLeancloud" value="{{leancloud}}" placeholder="ID">
+										<input type="text" class="form-control" id="profileLeancloud" value="{{analysis}}" placeholder="ID">
 									</div>
 									<label class="col-md-3 control-label" for=""></label>
 									<div class="col-md-8">
-										<input type="text" class="form-control" id="profileLeancloud_token" value="{{leancloud}}" placeholder="ACCESS_TOKEN">
+										<input type="text" class="form-control" id="profileLeancloud_token" value="{{analysis_access_token}}" placeholder="ACCESS_TOKEN">
 									</div>
 								</div>
 							</fieldset>
@@ -344,14 +343,14 @@
 	var ACCESS_TOKEN = "{{disqus_access_token}}";
 
 	var count = 0;
-	var vector = new Array("{{name}}", "{{describe_md|first}}", "{{status}}", "{{domain}}", "{{disqus}}", "{{leancloud}}", "{{nickname}}", "{{blog_subject}}", "blog_describe");
+	var vector = new Array("{{name}}", "{{describe_md|first}}", "{{status}}", "{{disqus}}", "{{analysis}}", "{{nickname}}", "{{blog_subject}}", "blog_describe");
 	var avatar_data = '';
 	for(var x in vector){
 		if(vector[x].length>0){
 			count++;
 		}
 	}
-	count = (count / 9 * 100) + "%";
+	count = (count / 8 * 100) + "%";
 	$('#countProfile').css("width",count);
 
 	$("form").submit(function() {
