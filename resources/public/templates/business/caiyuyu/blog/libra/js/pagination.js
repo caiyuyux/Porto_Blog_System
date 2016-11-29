@@ -4,5 +4,5 @@ $('.post-list').easyPaginate({
     prevButton: false,
     nextButton: false,
     paginateElement: 'article',
-    elementsPerPage: 2
+    elementsPerPage: 3
 });
