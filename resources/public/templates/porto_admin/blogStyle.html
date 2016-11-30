@@ -198,7 +198,7 @@
             dataType: "json",
             data: "theme="+theme,
             success: function (data) {
-                $('#alert_apply').text("您当前使用的模板为："+theme);
+                window.location.reload();
             }
 
         })
@@ -215,7 +215,7 @@
                 dataType: "json",
                 data: "theme="+theme,
                 success: function (data) {
-                    window.location.reload();
+
                 }
             })
         }
