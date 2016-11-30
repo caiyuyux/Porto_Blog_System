@@ -159,7 +159,7 @@
                             console.log(post);
                             var html = "<tr>";
                             html += "<td>"+post.author.name+"</td>";
-                            html += "<td><a href="+post.thread.link+">"+post.thread.title+"</a></td>";
+                            html += "<td class='col-xs-3 col-md-4'><a href="+post.thread.link+">"+post.thread.title+"</a></td>";
                             html += "<td>"+post.message+"</td>";
                             html += "<td>"+post.createdAt+"</td>";
                             html += "<td>" + approved + spam + deleted + "</td>";
