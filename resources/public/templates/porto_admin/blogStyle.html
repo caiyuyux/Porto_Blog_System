@@ -1,5 +1,11 @@
 {% extends "porto_admin/base.html" %}
 {% block content %}
+<link rel="stylesheet" href="css/colorbox.css" />
+<link rel="stylesheet" href="css/fileinput.css" />
+<script src="js/purify.min.js"></script>
+<script src="js/fileinput.js"></script>
+<script src="js/locales/zh.js"></script>
+<script src="js/jquery.colorbox.js"></script>
 
 <section role="main" class="content-body">
     <header class="page-header">
@@ -48,7 +54,8 @@
                             <ul>
                                 <li>本系统内置libra模板</li>
                                 <li>已提供模板接口，用户可自行搭建模板</li>
-                                <li>上传模板时的文件夹名默认为模板命名</li>
+                                <li>上传模板请将文件夹打包成zip格式</li>
+                                <li>压缩包名与根目录名应一致，默认为模板命名</li>
                             </ul>
                         </div>
                         <hr class="separator"/>
@@ -58,22 +65,57 @@
                                 <select class="form-control" data-plugin-multiselect
                                         data-plugin-options='{ "maxHeight": 200, "buttonClass": "btn btn-link" }'
                                         id="ms_example3">
-                                    <option value="cheese">libra</option>
+                                    {% for t in theme_all %}
+                                    <option value="{{t.id}}"
+                                        {% ifequal 'libra' t.id %}selected{% endifequal %}>{{t.id}}</option>
+                                    {% endfor %}
                                 </select>
                             </div>
                         </div>
                         <div class="form-group">
-                            <button type="button" class="mb-xs mt-xs mr-xs btn btn-primary"><i class="fa fa-download"
-                                                                                               aria-hidden="true"></i>
-                            </button>
-                            <button type="button" class="mb-xs mt-xs mr-xs btn btn-primary"><i class="fa fa-upload"
-                                                                                               aria-hidden="true"></i>
-                            </button>
-                            <button type="button" class="mb-xs mt-xs mr-xs btn btn-primary">应用</button>
-                            <button type="button" class="mb-xs mt-xs mr-xs btn btn-primary">预览</button>
+                            <a type="button" id="download_theme" class="mb-xs mt-xs mr-xs btn btn-primary"
+                               href="/templates/business/{{account}}/blog/libra.zip">
+                                <i class="fa fa-download" aria-hidden="true"></i> 下载
+                            </a>
+                            <a type="file" class="mb-xs mt-xs mr-xs btn btn-primary modal-with-form" href="#uploadModalForm">
+                                <i class="fa fa-upload" aria-hidden="true"></i> 上传
+                            </a>
+                            <!-- Modal Form -->
+                            <div id="uploadModalForm" class="modal-block modal-block-primary mfp-hide" style="min-width: 80%;">
+                                <section class="panel">
+                                    <header class="panel-heading">
+                                        <h2 class="panel-title">模板上传</h2>
+                                    </header>
+                                    <div class="panel-body" style="max-height: 450px; overflow:scroll;">
+                                        <div class="form-group mt-lg">
+                                            <input id="inputfile" name="uploadfile[]" type="file" multiple=true class="file-loading">
+                                        </div>
+                                    </div>
+                                    <footer class="panel-footer">
+                                        <div class="row">
+                                            <div class="col-md-12 text-right">
+                                                <button class="btn btn-default modal-dismiss" onclick="location.reload();">Cancel</button>
+                                            </div>
+                                        </div>
+                                    </footer>
+                                </section>
+                            </div>
+                            <a type="button" class="mb-xs mt-xs mr-xs btn btn-primary" href="javascript:void(0);" onclick="apply_theme();">
+                                <i class="fa fa-asterisk" aria-hidden="true"></i> 应用</a>
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown"><i class="fa fa fa-times" aria-hidden="true"></i>  移除 <span class="caret"></span> </button>
+                                <ul class="dropdown-menu">
+                                    {% for t in theme_all %}
+                                    <li><a href="javascript:void(0);" onclick="delete_theme('{{t.id}}')">{{t.id}}</a></li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
                         </div>
                         <hr class="separator" />
-
+                        <div class="alert alert-info panel-body">
+                            <strong id="alert_apply">您当前使用的模板为：{{theme}}</strong>
+                        </div>
+                        <hr class="separator" />
                     </div>
                 </div>
             </div>
@@ -86,16 +128,8 @@
                     <div class="col-xs-12">
                         <section class="panel">
                             <div class="panel-body">
-                                <form class="form-horizontal form-bordered">
-                                    <div class="form-group">
-                                        <div class="col-md-12" id="markdown_div">
-                                            三扽三的
-                                        </div>
-                                        <div class="col-md-12" id="wys_div" hidden>
-                                            似懂非懂发
-                                        </div>
-                                    </div>
-                                </form>
+                                <font size="3">如果想要自行设计您的模板，可以参考libra模板源码及 </font>
+                                <button id="d_doucment" type="button" class="mb-xs mt-xs mr-xs btn btn-default" href="/templates/doucument/开发者文档.html">开发者文档</button>
                             </div>
                         </section>
                     </div>
@@ -105,6 +139,87 @@
     </section>
     <!-- end: page -->
 </section>
+<!-- 模态框2（Modal） -->
+<div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h4 class="modal-title" id="myModalLabel2">警告</h4>
+            </div>
+            <div class="modal-body">您要删除的模板为您当前的模板，请谨慎操作！</div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->
+<script>
+    $('#ms_example3').change(function () {
+        var file_name = $(this).val()+".zip";
+        $('#download_theme').attr("href", "/templates/business/{{account}}/blog/"+file_name);
+    })
 
+    var $el2 = $("#inputfile");
 
+    //上传插件样式调整
+    var footerTemplate = '<div class="file-thumbnail-footer">\n' +
+            '   <div style="margin:5px 0">\n' +
+            '       <input class="kv-input kv-new form-control input-sm text-center {TAG_CSS_NEW}" value="{caption}" placeholder="Enter caption...">\n' +
+            '       <input class="kv-input kv-init form-control input-sm text-center {TAG_CSS_INIT}" value="{TAG_VALUE}" placeholder="Enter caption...">\n' +
+            '   </div>\n' +
+            '   {size}\n' +
+            '   {actions}\n' +
+            '</div>';
+
+    $el2.fileinput({
+        language: "zh",
+        uploadUrl: '/admin_theme-upload',
+        uploadExtraData: {'__anti-forgery-token': "{{csrf-token}}"},
+        uploadAsync: true,
+        maxFileCount: 50,
+        overwriteInitial: false,
+        layoutTemplates: {footer: footerTemplate, size: '<samp><small>({sizeText})</small></samp>'},
+        previewThumbTags: {
+            '{TAG_VALUE}': '',        // no value
+            '{TAG_CSS_NEW}': '',      // new thumbnail input
+            '{TAG_CSS_INIT}': 'hide'  // hide the initial input
+        },
+        allowedFileExtensions:['zip']
+    });
+
+    function apply_theme() {
+        var theme = $('#ms_example3').val();
+        $.ajax({
+            type: "post",
+            url: "/admin_apply_theme",
+            async: false,
+            dataType: "json",
+            data: "theme="+theme,
+            success: function (data) {
+                $('#alert_apply').text("您当前使用的模板为："+theme);
+            }
+
+        })
+    }
+    function delete_theme(theme) {
+        var now_theme = "{{theme}}";
+        if(now_theme == theme){
+            $('#myModal2').modal({});
+        }else{
+            $.ajax({
+                type: "post",
+                url: "/admin_delete_theme",
+                async: false,
+                dataType: "json",
+                data: "theme="+theme,
+                success: function (data) {
+                    window.location.reload();
+                }
+            })
+        }
+    }
+    $("#d_doucment").colorbox({iframe:true, innerWidth:900, innerHeight:500});
+</script>
 {% endblock %}

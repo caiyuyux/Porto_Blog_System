@@ -39,8 +39,7 @@
           type="text/css" media="screen"/>
 
     <!--Google Fonts-->
-    <link href='http://fonts.googleapis.com/css?family=Raleway:400,300,500,600,700,800%7COpen+Sans:400,300italic,300,400italic,600,600italic,700,700italic,800,800italic%7CCourgette&amp;subset=latin,latin-ext'
-          rel='stylesheet' type='text/css'>
+    <link href="/templates/business/{{account}}/blog/{{theme}}/css/font.css" rel='stylesheet' type='text/css'>
 
     <!--Color Scheme Setting-->
     <link href="/templates/business/{{account}}/blog/{{theme}}/css/color.css" rel="stylesheet" type="text/css">
@@ -55,10 +54,9 @@
     <link href="/templates/business/{{account}}/blog/{{theme}}/css/rainbow.css" rel="stylesheet" type="text/css">
 
     <!-- colorbox CSS -->
-	<link href="/templates/business/{{account}}/blog/{{theme}}/css/colorbox.css" rel="stylesheet" type="text/css">
+    <link href="/templates/business/{{account}}/blog/{{theme}}/css/colorbox.css" rel="stylesheet" type="text/css">
 
     <link rel="Shortcut Icon" href=/templates/business/{{account}}/avatar.jpg>
-
 
 </head>
 
@@ -179,7 +177,8 @@
                                 <ul>
                                     <li><a href="/blog/{{account}}">Home</a></li>
                                     <li><a href="/blog/{{account}}/post">Post</a></li>
-                                    <li><a href="/blog/{{account}}/post/{{post_single.title}}">{{ post_single.title}}</a></li>
+                                    <li><a href="/blog/{{account}}/post/{{post_single.title}}">{{
+                                        post_single.title}}</a></li>
                                 </ul>
                             </div>
                             <!--Breadcrumbs End-->
@@ -199,7 +198,7 @@
                                         <li><a href="javascript:void(0);">{{ post_single.time|date:mediumDate }}</a>
                                         </li>
                                         <li><a href="/blog/{{account}}/category">{{ post_single.categories }}</a></li>
-                                        <li><a href="/blog/{{account}}/post/{{post.title}}#disqus_thread" >Link</a></li>
+                                        <li><a href="/blog/{{account}}/post/{{post.title}}#disqus_thread"></a></li>
                                     </ul>
                                 </div>
                                 <!--Post Meta End-->
@@ -240,29 +239,29 @@
                                 </div>
                                 <!--Social Media Share End-->
                                 <script type="text/javascript">
-                                	var index = 2;
+                                    var index = 2;
                                 </script>
 
                                 <!--Post Pagination Start-->
                                 <div class="post-pagination-wrap">
-									{% for post in posts_all %}
-										{% ifequal post.next_title post_single.title %}
-	                                    <div class="post-pagination pagination-prev">
-	                                        <a href="/blog/{{account}}/post/{{post.title}}">
-	                                            <span>Previous Post</span>
-	                                            <h4>{{post.title}}</h4>
-	                                        </a>
-	                                    </div>
-										{% endifequal %}
-										{% ifequal post.prev_title post_single.title %}
-    									<div class="post-pagination pagination-next">
-	                                        <a href="/blog/{{account}}/post/{{post.title}}">
-	                                            <span>Next Post</span>
-	                                            <h4>{{post.title}}</h4>
-	                                        </a>
-                                   		</div>
-										{% endifequal %}										
-									{% endfor %}
+                                    {% for post in posts_all %}
+                                    {% ifequal post.next_title post_single.title %}
+                                    <div class="post-pagination pagination-prev">
+                                        <a href="/blog/{{account}}/post/{{post.title}}">
+                                            <span>Previous Post</span>
+                                            <h4>{{post.title}}</h4>
+                                        </a>
+                                    </div>
+                                    {% endifequal %}
+                                    {% ifequal post.prev_title post_single.title %}
+                                    <div class="post-pagination pagination-next">
+                                        <a href="/blog/{{account}}/post/{{post.title}}">
+                                            <span>Next Post</span>
+                                            <h4>{{post.title}}</h4>
+                                        </a>
+                                    </div>
+                                    {% endifequal %}
+                                    {% endfor %}
                                 </div>
                                 <!--Post Pagination End-->
                             </div>
@@ -279,14 +278,14 @@
                                     </div>
                                     <div id="disqus_thread">
                                         <!--disqus script-->
-                                            <script type="text/javascript">
-                                                (function () { // DON'T EDIT BELOW THIS LINE
-                                                    var d = document, s = d.createElement('script');
-                                                    s.src = '//{{disqus}}.disqus.com/embed.js';
-                                                    s.setAttribute('data-timestamp', +new Date());
-                                                    (d.head || d.body).appendChild(s);
-                                                })();
-                                            </script>
+                                        <script type="text/javascript">
+                                            (function () { // DON'T EDIT BELOW THIS LINE
+                                                var d = document, s = d.createElement('script');
+                                                s.src = '//{{disqus}}.disqus.com/embed.js';
+                                                s.setAttribute('data-timestamp', +new Date());
+                                                (d.head || d.body).appendChild(s);
+                                            })();
+                                        </script>
                                     </div>
                                 </div>
                                 <!--Post Comments End-->
@@ -296,16 +295,16 @@
                         </div>
 
                         {% else if %}
-                            
+
                         <!--Archive Title Start-->
                         <div class="archive-title">
                             <span>Post</span>
                             <h1>All</h1>
                         </div>
-                        <!--Archive Title End-->             
+                        <!--Archive Title End-->
 
                         <!-- Post List Top Start-->
-                        <div class="post-list" style="margin-top: 20px;">   
+                        <div class="post-list" style="margin-top: 20px;">
                             <!--Post Entry Start-->
 
                             {% for post in posts_all %}
@@ -325,13 +324,14 @@
                                     {% else if post.video %}
                                     <!--Post Video-->
                                     <div class="blog-list-img">
-                                    	<a class="list_video" href="{{post.video}}">
-   											<video width="100%" height="211" src="{{post.video}}" style="background: #fff; border-radius: 10px;"></video>
-										</a>        	
+                                        <a class="list_video" href="{{post.video}}">
+                                            <video width="100%" height="211" src="{{post.video}}"
+                                                   style="background: #fff; border-radius: 10px;"></video>
+                                        </a>
                                     </div>
 
 
-                                    {% endif %}                                    
+                                    {% endif %}
 
 
                                     <!--Post Entry-->
@@ -349,7 +349,8 @@
                                                         }}</a></li>
                                                     <li><a href="/blog/{{account}}/category/{{post.categories}}">{{
                                                         post.categories }}</a></li>
-                                                    <li><a href="/blog/{{account}}/post/{{post.title}}#disqus_thread" >Link</a></li>
+                                                    <li><a href="/blog/{{account}}/post/{{post.title}}#disqus_thread">Link</a>
+                                                    </li>
                                                 </ul>
                                                 <div class="post-single-tags" style="margin:20px 0 0 0;">
                                                     {% for tag in post.tags %}
@@ -390,8 +391,8 @@
 
                         <!--Pagination Start-->
                         <nav class="pagination">
-                           <ul class="pagination_ul">
-                          </ul>
+                            <ul class="pagination_ul">
+                            </ul>
                         </nav>
                         <!-- Pagination End -->
 
@@ -709,5 +710,16 @@
 <!-- SuperEmbed js file-->
 <script type="text/javascript" src="/templates/business/{{account}}/blog/{{theme}}/js/superembed.min.js"></script>
 
+<!--Google Analytics -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', '{{analysis}}', 'auto');
+  ga('send', 'pageview');
+
+</script>
 </body>
 </html>

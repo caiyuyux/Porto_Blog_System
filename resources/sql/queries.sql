@@ -288,4 +288,47 @@ SELECT EXISTS (
     FROM posts
     WHERE account = :account AND title = :id);
 
+-- :name exists_image? :? :*
+-- :doc
+SELECT EXISTS (
+    SELECT id
+    FROM images
+    WHERE account = :account AND filename = :id);
+
+-- :name exists_video? :? :*
+-- :doc
+SELECT EXISTS (
+    SELECT id
+    FROM videos
+    WHERE account = :account AND filename = :id);
+
+-- :name get_theme :? :*
+-- :doc
+SELECT *
+FROM theme
+WHERE belong = :account;
+
+-- :name insert_themes! :! :n
+-- :doc
+INSERT INTO theme (id, path, belong)
+VALUES (:id, :path, :account);
+
+-- :name delete_theme! :! :n
+-- :doc
+DELETE FROM theme
+WHERE id=:id AND belong=:account;
+
+-- :name update_theme! :! :n
+-- :doc
+UPDATE users SET theme = :theme
+WHERE account = :account;
+
+-- :name exists_theme? :? :*
+-- :doc
+SELECT EXISTS (
+    SELECT id
+    FROM theme
+    WHERE belong = :account AND id = :id);
+
+
 ---------------------porto_admin end-------------------------

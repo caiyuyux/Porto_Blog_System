@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="rainbow.css"/>
+	<link rel="stylesheet" href="bootstrap.css"/>
+	<link rel="stylesheet" href="markdown.css"/>
+</head>
+<body>
+<div class="container">
+	<div class="md-preview">
+    <h4 id="-">简述</h4>
+    <p>Porto博客的主题采用 <code>Selmer</code> 模板，是 <code>Django</code> 在 <code>Clojure</code> 世界的一种实践，使用方法大致可以参照前者，不过你也应该了解其中的一些区别，<a href="https://github.com/yogthos/Selmer">点这里</a> 进入<code>Selmer</code>的<code>Github</code>主页，你可以了解更多关于这方面的东西。</p>
+    <h4 id="-">全局变量</h4>
+    <p>全局变量适用于所有页面，你可以在所有页面调用这些数据，支持<code>JS</code>变量嵌套。</p>
+    <h5 id="-">用户信息</h5>
+    <table>
+        <thead>
+            <tr>
+                <th>变量名</th>
+                <th>变量类型</th>
+                <th>备注</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>account</td>
+                <td>value</td>
+                <td>用户名</td>
+            </tr>
+            <tr>
+                <td>nickname</td>
+                <td>value</td>
+                <td>昵称</td>
+            </tr>
+            <tr>
+                <td>email</td>
+                <td>value</td>
+                <td>邮箱</td>
+            </tr>
+            <tr>
+                <td>mind</td>
+                <td>value</td>
+                <td>心情</td>
+            </tr>
+            <tr>
+                <td>name</td>
+                <td>value</td>
+                <td>名字</td>
+            </tr>
+            <tr>
+                <td>status</td>
+                <td>value</td>
+                <td>身份</td>
+            </tr>
+            <tr>
+                <td>theme</td>
+                <td>value</td>
+                <td>模板名</td>
+            </tr>
+            <tr>
+                <td>blog_subject</td>
+                <td>value</td>
+                <td>博客主题</td>
+            </tr>
+            <tr>
+                <td>blog_describe</td>
+                <td>value</td>
+                <td>博客说明</td>
+            </tr>
+            <tr>
+                <td>describe</td>
+                <td>value</td>
+                <td>自我简介(html)</td>
+            </tr>
+            <tr>
+                <td>disqus_apikey</td>
+                <td>value</td>
+                <td>disqus公钥</td>
+            </tr>
+            <tr>
+                <td>disqus_access_token</td>
+                <td>value</td>
+                <td>disqus授权token</td>
+            </tr>
+            <tr>
+                <td>analysis</td>
+                <td>value</td>
+                <td>谷歌分析ID</td>
+            </tr>
+        </tbody>
+    </table>
+    <p><strong>eg</strong>
+    </p>
+    <pre><code>{{account}}  <span class="hljs-comment">//直接获取用户名</span>
+</code></pre>
+    <h5 id="-">博文信息</h5>
+    <table>
+        <thead>
+            <tr>
+                <th>变量名</th>
+                <th>变量类型</th>
+                <th>备注</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>title</td>
+                <td>value</td>
+                <td>博文标题</td>
+            </tr>
+            <tr>
+                <td>tags</td>
+                <td>vector</td>
+                <td>标签</td>
+            </tr>
+            <tr>
+                <td>html</td>
+                <td>value</td>
+                <td>博文内容(html)</td>
+            </tr>
+            <tr>
+                <td>image</td>
+                <td>value</td>
+                <td>封面路径</td>
+            </tr>
+            <tr>
+                <td>video</td>
+                <td>value</td>
+                <td>封面路径</td>
+            </tr>
+            <tr>
+                <td>time</td>
+                <td>value</td>
+                <td>发布时间</td>
+            </tr>
+            <tr>
+                <td>categories</td>
+                <td>value</td>
+                <td>分类</td>
+            </tr>
+        </tbody>
+    </table>
+    <p>博文信息的变量位于<code>vector</code>类型变量<code>post_all</code>之下，需要遍历结合标签获得。</p>
+    <p><strong>eg</strong>
+    </p>
+    <pre><code>{% <span class="hljs-keyword">for</span> post <span class="hljs-keyword">in</span> post_all %}    <span class="hljs-comment">//遍历全部博文</span>
+    {{ post.title }}    <span class="hljs-comment">//取得单个博文标题</span>
+    <span class="hljs-comment">//嵌套遍历</span>
+    {% <span class="hljs-keyword">for</span> tag <span class="hljs-keyword">in</span> post.tags %}  <span class="hljs-comment">//遍历全部标签</span>
+        {{ tag }} <span class="hljs-comment">//取得单个标签</span>
+    {% endfor %} <span class="hljs-comment">//标签结束</span>
+{% endfor %} <span class="hljs-comment">//标签结束</span>
+</code></pre>
+    <h5 id="-">分类信息</h5>
+    <table>
+        <thead>
+            <tr>
+                <th>变量名</th>
+                <th>变量类型</th>
+                <th>备注</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>id</td>
+                <td>value</td>
+                <td>分类名</td>
+            </tr>
+            <tr>
+                <td>count</td>
+                <td>value</td>
+                <td>数量</td>
+            </tr>
+        </tbody>
+    </table>
+    <p>分类信息的变量位于<code>vector</code>类型变<code>categories_all</code>之下，需要遍历结合标签获得。</p>
+    <p><strong>eg</strong>
+    </p>
+    <pre><code>{% <span class="hljs-keyword">for</span> cate <span class="hljs-keyword">in</span> categories_all %}    <span class="hljs-comment">//遍历全部分类</span>
+    {{ cate.id }}    <span class="hljs-comment">//取得单个分类名</span>
+{% endfor %} <span class="hljs-comment">//标签结束</span>
+</code></pre>
+    <h5 id="-">标签信息</h5>
+    <table>
+        <thead>
+            <tr>
+                <th>变量名</th>
+                <th>变量类型</th>
+                <th>备注</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>id</td>
+                <td>value</td>
+                <td>标签名</td>
+            </tr>
+            <tr>
+                <td>count</td>
+                <td>value</td>
+                <td>数量</td>
+            </tr>
+        </tbody>
+    </table>
+    <p>分类信息的变量位于<code>vector</code>类型变<code>tags_all</code>之下，需要遍历结合标签获得。</p>
+    <p><strong>eg</strong>
+    </p>
+    <pre><code>{% <span class="hljs-keyword">for</span> tag <span class="hljs-keyword">in</span> tags_all %}    <span class="hljs-comment">//遍历全部分类</span>
+    {{ tag.id }}    <span class="hljs-comment">//取得单个标签名</span>
+{% endfor %} <span class="hljs-comment">//标签结束</span>
+</code></pre>
+    <h4 id="-">局部变量</h4>
+    <p>局部变量是在一些功能页面下(配合访问路由规则)才能使用。</p>
+    <h5 id="-">单例博文</h5>
+    <table>
+        <thead>
+            <tr>
+                <th>变量名</th>
+                <th>变量类型</th>
+                <th>备注</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>title</td>
+                <td>value</td>
+                <td>博文标题</td>
+            </tr>
+            <tr>
+                <td>tags</td>
+                <td>vector</td>
+                <td>标签</td>
+            </tr>
+            <tr>
+                <td>html</td>
+                <td>value</td>
+                <td>博文内容(html)</td>
+            </tr>
+            <tr>
+                <td>image</td>
+                <td>value</td>
+                <td>封面路径</td>
+            </tr>
+            <tr>
+                <td>video</td>
+                <td>value</td>
+                <td>封面路径</td>
+            </tr>
+            <tr>
+                <td>time</td>
+                <td>value</td>
+                <td>发布时间</td>
+            </tr>
+            <tr>
+                <td>categories</td>
+                <td>value</td>
+                <td>分类</td>
+            </tr>
+        </tbody>
+    </table>
+    <p>单例博文是指包含一条博文信息的数据集，位于<code>value</code>类型变量<code>post_single</code>下。</p>
+    <p><strong>eg</strong>
+    </p>
+    <pre><code>{{ post_single.title }}         <span class="hljs-comment">//获取博文标题</span>
+{% <span class="hljs-keyword">for</span> tag <span class="hljs-keyword">in</span> post_single.tags %}  
+    {{ tag }}     <span class="hljs-comment">//取得单个标签</span>
+{% endfor %}
+</code></pre>
+    <p>与 <code>post_single</code>类似的，还有，<code>category_single</code>、<code>tag_single</code>和<code>search_single</code>，使用方法参加<code>post_single</code>与<code>post_all</code>.</p>
+    <h5 id="-">其他变量</h5>
+    <p>记录特殊值，与单例信息配套使用。 | 变量名|变量类型|备注| |--------|------------|----| |post_select|value|所选博文标题| |category_select|value|所选分类名| |tag_select|value|所选标签名|
+    </p>
+    <h4 id="-">访问路由规则</h4>
+    <h5 id="-">通用页面</h5>
+    <p>在制作模板时，一般的跳转URL遵循前三个变量为模板所需，具体为
+        <strong>eg</strong>
+    </p>
+    <pre><code>&lt;domain&gt;<span class="hljs-regexp">/demo/</span>post/demo_title
+</code></pre>
+    <p>其中<code>&lt;domain&gt;</code>为你的博客主页路由，<strong>eg</strong> <code>porto.pub/blog/caiyuyu</code>
+        <code>demo</code>为你自定义在模板目录下的html文件名(不需加后缀)
+        <code>post</code>为请求功能，请求获取单例信息，即单个博文的数据，类似的，其他功能为<code>category</code>、<code>tag</code>,
+        <code>demo_title</code>为<code>post</code>请求需要的博文标题信息</p>
+    <p>特殊的，<code>search</code>功能不需要三个参数，只需如下：</p>
+    <pre><code>/search?search=<span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">你要查询的内容</span>&gt;</span></span>
+</code></pre>
+    <h4 id="-">特殊页面</h4>
+    <p>假如有一个<code>post.html</code>页面，发出如下的请求</p>
+    <p><del><code>/post/post/demo_title</code></del>
+    </p>
+    <p>未免太臃肿了，于是默认，页面为<code>post.html</code>的文件不需要加第二个参数，类似的，还有<code>category</code>和<code>tag</code>
+    </p>
+</div>
+</div>
+
+</body>
+</html>
+

@@ -146,6 +146,9 @@ $.fn.easyPaginate = function (options) {
                     $div.css('backgroundImage', 'url(' + src + ')');
                     $img.remove();
                 });  
+                $(".post-description").dotdotdot({
+                        height: 100
+                    });                
 
                  if(document.body.clientWidth>=900){
                     $(".list_video").colorbox({iframe:true, innerWidth:600,innerHeight:500});
@@ -155,8 +158,10 @@ $.fn.easyPaginate = function (options) {
                     var h = w*9/16;
                     $(".list_video").colorbox({iframe:true, innerWidth:w,innerHeight:h})
                     $(".list_image").colorbox({rel:'.list_image',innerWidth:w, innerHeight:h})
-                }        
-                DISQUSWIDGETS.getCount();      
+                }    
+                if(typeof DISQUSWIDGETS != "undefined"){
+                    DISQUSWIDGETS.getCount();  
+                }    
         };
         
         var transition_default = function(offsetStart, offsetEnd) {

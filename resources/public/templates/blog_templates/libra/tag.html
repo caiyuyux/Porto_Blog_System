@@ -39,8 +39,7 @@
           type="text/css" media="screen"/>
 
     <!--Google Fonts-->
-    <link href='http://fonts.googleapis.com/css?family=Raleway:400,300,500,600,700,800%7COpen+Sans:400,300italic,300,400italic,600,600italic,700,700italic,800,800italic%7CCourgette&amp;subset=latin,latin-ext'
-          rel='stylesheet' type='text/css'>
+    <link href="/templates/business/{{account}}/blog/{{theme}}/css/font.css" rel='stylesheet' type='text/css'>
 
     <!--Color Scheme Setting-->
     <link href="/templates/business/{{account}}/blog/{{theme}}/css/color.css" rel="stylesheet" type="text/css">
@@ -93,7 +92,7 @@
             <!--Search Input Start-->
             <div class="search-input">
                 <div class="search-form">
-                    <form  action="/blog/{{account}}/search" method="get">
+                    <form action="/blog/{{account}}/search" method="get">
                         <input type="search" name="search" placeholder="Search and hit enter">
                     </form>
                 </div>
@@ -189,8 +188,9 @@
                                     <!--Post Video-->
                                     <div class="blog-list-img">
                                         <a class="list_video" href="{{post.video}}">
-                                            <video width="100%" height="211" src="{{post.video}}" style="background: #fff; border-radius: 10px;"></video>
-                                        </a>            
+                                            <video width="100%" height="211" src="{{post.video}}"
+                                                   style="background: #fff; border-radius: 10px;"></video>
+                                        </a>
                                     </div>
 
 
@@ -210,7 +210,8 @@
                                                         }}</a></li>
                                                     <li><a href="/blog/{{account}}/category/post.categories">{{
                                                         post.categories }}</a></li>
-                                                    <li><a href="/blog/{{account}}/post/{{post.title}}#disqus_thread" >Link</a></li>
+                                                    <li><a href="/blog/{{account}}/post/{{post.title}}#disqus_thread"></a>
+                                                    </li>
                                                 </ul>
                                             </div>
                                             <div class="post-single-tags" style="margin:20px 0 0 0;">
@@ -574,6 +575,16 @@
 <!-- SuperEmbed js file-->
 <script type="text/javascript" src="/templates/business/{{account}}/blog/{{theme}}/js/superembed.min.js"></script>
 
+<!--Google Analytics -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
 
+  ga('create', '{{analysis}}', 'auto');
+  ga('send', 'pageview');
+
+</script>
 </body>
 </html>
