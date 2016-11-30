@@ -343,14 +343,14 @@
 	var ACCESS_TOKEN = "{{disqus_access_token}}";
 
 	var count = 0;
-	var vector = new Array("{{name}}", "{{describe_md|first}}", "{{status}}", "{{disqus}}", "{{analysis}}", "{{nickname}}", "{{blog_subject}}", "blog_describe");
+	var vector = new Array("{{name}}", "{{disqus}}", "{{analysis}}", "{{nickname}}", "{{blog_subject}}", "blog_describe");
 	var avatar_data = '';
 	for(var x in vector){
 		if(vector[x].length>0){
 			count++;
 		}
 	}
-	count = (count / 8 * 100) + "%";
+	count = (count / 7 * 100) + "%";
 	$('#countProfile').css("width",count);
 
 	$("form").submit(function() {

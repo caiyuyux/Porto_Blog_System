@@ -8,7 +8,8 @@
             [clojure.java.io :as io]
             [environ.core :refer [env]]
             [clj-time.local :as l]
-            [ring.util.response :refer [redirect response]]))
+            [ring.util.response :refer [redirect response]]
+            [fs.core :as fs]))
 
 (defn user-signup-page
   [request]
@@ -67,6 +68,10 @@
 
     (io/copy (io/file "resources/public/images/avatar.jpg")
              (io/file path account "avatar.jpg"))
+    (fs/copy-dir "resources/public/templates/blog_templates/libra" (str "resources/public/templates/business/" account "/blog/libra"))
+
+    (db/update_theme! {:account account, :theme "libra"})
+    (db/insert_themes! {:id "libra", :account account, :path (str "business/" account "/blog/libra")})
     (spit filePath (str ":account\t" (params :account) "\n"))
     (spit filePath (str ":email\t" (params :email) "\n") :append true)
     ;;tree root
@@ -88,8 +93,8 @@
     (-> (redirect "/")
         (assoc :flash (assoc (-> request :params) :errors (merge errors {:type "signup" :value "注册"}))))
     (do
-      (create-config! request)
       (save-user! (-> request :params))
+      (create-config! request)
       (db/create_new! {:account (-> request :params :account), :obj "signup", :type"add", :content "注册了账号", :create_time (l/local-now),
                        :image nil, :video nil, :music nil, :post nil})
       (-> (redirect "/")
