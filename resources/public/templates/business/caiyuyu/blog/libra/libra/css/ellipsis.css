@@ -1,0 +1,40 @@
+.ellipsis {
+    background: #FFFFFF;
+    display: block;
+    /* Fallback for non-webkit */
+    display: -webkit-box;
+    max-height: 10rem;
+    /* Fallback for non-webkit */
+    font-size: 1.5rem;
+    line-height: 1.3;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-bottom: 0;
+}
+
+@-moz-document url-prefix() {
+    .DescriptionExcerpt {
+        overflow: hidden;
+        position: relative;
+    }
+    .ellipsis:before {
+        background: #FFFFFF;
+        bottom: 0;
+        position: absolute;
+        right: 0;
+        float: right;
+        content: '\2026';
+        margin-left: -3rem;
+        width: 3rem;
+    }
+    .ellipsis:after {
+        content: '';
+        background: #FFFFFF;
+        position: absolute;
+        height: 50px;
+        width: 100%;
+        z-index: 1;
+    }
+}

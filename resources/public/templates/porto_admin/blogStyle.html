@@ -73,10 +73,16 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <a type="button" id="download_theme" class="mb-xs mt-xs mr-xs btn btn-primary"
-                               href="/templates/business/{{account}}/blog/libra.zip">
-                                <i class="fa fa-download" aria-hidden="true"></i> 下载
-                            </a>
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown"><i class="fa fa fa-download" aria-hidden="true"></i>  下载 <span class="caret"></span> </button>
+                                <ul class="dropdown-menu">
+                                    {% for t in theme_all %}
+                                    <li>
+                                        <a id="download_theme" download="{{t.id}}.zip" href="/templates/business/{{account}}/blog/{{t.id}}.zip" >{{t.id}}</a>
+                                    </li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
                             <a type="file" class="mb-xs mt-xs mr-xs btn btn-primary modal-with-form" href="#uploadModalForm">
                                 <i class="fa fa-upload" aria-hidden="true"></i> 上传
                             </a>
@@ -100,8 +106,6 @@
                                     </footer>
                                 </section>
                             </div>
-                            <a type="button" class="mb-xs mt-xs mr-xs btn btn-primary" href="javascript:void(0);" onclick="apply_theme();">
-                                <i class="fa fa-asterisk" aria-hidden="true"></i> 应用</a>
                             <div class="btn-group">
                                 <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown"><i class="fa fa fa-times" aria-hidden="true"></i>  移除 <span class="caret"></span> </button>
                                 <ul class="dropdown-menu">
@@ -110,6 +114,8 @@
                                     {% endfor %}
                                 </ul>
                             </div>
+                            <a type="button" class="mb-xs mt-xs mr-xs btn btn-primary" href="javascript:void(0);" onclick="apply_theme();">
+                                <i class="fa fa-asterisk" aria-hidden="true"></i> 应用</a>
                         </div>
                         <hr class="separator" />
                         <div class="alert alert-info panel-body">

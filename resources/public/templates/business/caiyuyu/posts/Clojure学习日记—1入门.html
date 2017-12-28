@@ -1,0 +1,73 @@
+<p>这个系列只是笔记，本非博文什么的，写给自己看，纯粹做个记录，里面的观点看法只是个人见解，仅作参考。</p>
+<p><!--more--></p>
+<h3 id="-">学习教材</h3>
+<p>嗯，废话不多说，教材用的是《Clojure Programming》，也就是俗称的动物书，听说比较全面，打基础不错。</p>
+<p>当然，是翻译版的，英语水平不够是硬伤呀。 可以点 <a href="http://leanote.com/api/file/getAttach?fileId=56a72482ab6441777600233a">Clojure Programming.pdf</a> 下载英文版PDF文档。</p>
+<hr>
+<h3 id="clojure-">Clojure特点</h3>
+<ol>
+<li><p>基于JVM平台，lisp恶劣的生态圈和稳定的JVM一结合，赶脚是天造地设的一对。</p>
+</li>
+<li><p>函数式编程语言，不可否认，函数式编程确实可以锻炼你的思维。</p>
+</li>
+<li><p>天生适合进行并行、并发编程。</p>
+</li>
+<li><p>动态编程语言，可以交互式开发。</p>
+</li>
+</ol>
+<hr>
+<h3 id="clojure-">Clojure的同像性</h3>
+<p>同像性一般称为“代码即数据”，即是说clojure没有太多臃肿的代码片段，这也是元编程的前提。  </p>
+<p>从代码转换成AST(抽象语法树)是一门语言的核心，也是体现一门语言的表达能力的所在，</p>
+<p>但是你要作出这个转换一般的前提是你对这么语言有一定的理解，理解的程度和该门语言的表达能力成反比，但是具有同像性的语言是个例外，</p>
+<p>因为clojure的代码是直接用AST的数据结构来写的，就是说，你写下的clojure代码就是一个AST了，不需要特意去转换，</p>
+<p>这也意味着clojure拥有其他语言所不能及的优秀的表达能力。</p>
+<hr>
+<h3 id="clojure-">Clojure跑起来</h3>
+<h4 id="-jar-">必备jar包</h4>
+<ol>
+<li><p>JRE；也就是java运行时，当然，有JDK肯定也是可以的。</p>
+</li>
+<li><p>clojure.jar；可以在官网下载，现在最新的是1.8。</p>
+</li>
+</ol>
+<h4 id="-">编程工具</h4>
+<ol>
+<li><p>Emacs；神器来着，可惜我驾驭不了，号称天生适合开发lisp，不适合新手，套用大牛的话，因为学习曲线太陡峭，除非你是emacs大牛。</p>
+</li>
+<li><p>Eclipse；没用过，用了一段时间的myeclipse，已弃用。</p>
+</li>
+<li><p>IDEA；没得说，强烈推荐，对clojure的支持很好，不过注意，不用La Clojure插件，用cursive插件，同时支持Leiningen，可惜要付费，不过真的很值，可以试用看看先。</p>
+</li>
+<li><p>命令行；这个不太熟悉，之前很久搞过，好像是要用lein运行的，不过用命令行，想想都觉得累，大牛走开、走开。</p>
+</li>
+</ol>
+<hr>
+<h3 id="repl-">REPL是什么鬼</h3>
+<h4 id="-">简单介绍</h4>
+<p>即 Read(读入)-Eval(求值)-Print(打印)-Loop(循环)。</p>
+<p>其实很多语言都都有repl这个东东，就是俗称的解释器，解析代码用的，像java也有BeanShell。</p>
+<p>但是clojure的repl是有点不同的，clojure的repl在解析代码的时候有个编译的过程，会编译成JVM的字节码，即是说clojure不是像html那种边解析边执行的，它是要编译成字节码后才能执行的，只不过clojure在解释执行的时候顺便编译了，跟直接执行一个clojure源文件是一样的，这点其实我也有点懵。</p>
+<p>clojure有repl肯定是个不小的有点，因为这意味着clojure可以交互，可以在运行时更新现有或新的代码，类似phtyon，可以对比下java的web，更新代码都要重启服务器，如果是clojure来实现，就支持热部署。</p>
+<h4 id="-">敲入代码</h4>
+<p>运行REPL，看到如下界面</p>
+<p><code>user=&gt;</code></p>
+<p>这个clojure是有命名空间的概念，user表示你当前的命名空间，user是默认命名空间。</p>
+<p>我们定义一个函数average，可以传入一个数组求平均值。</p>
+<pre><code class="lang-clojure">(<span class="hljs-name"><span class="hljs-builtin-name">defn</span></span> average    
+    [numbers]
+    (/ (<span class="hljs-name"><span class="hljs-builtin-name">apply</span></span> + numbers) (<span class="hljs-name"><span class="hljs-builtin-name">count</span></span> numbers)
+</code></pre>
+<p>然后调用代码得到结果</p>
+<pre><code class="lang-clojure">(<span class="hljs-name">average</span> [<span class="hljs-number">60</span> <span class="hljs-number">80</span> <span class="hljs-number">100</span> <span class="hljs-number">400</span>]
+<span class="hljs-comment">;=160</span>
+</code></pre>
+<p>注意 <code>;=</code>  前缀表示函数结果输出，在函数式语言中，函数是头等公民，都具有一个返回值，160就是average的返回值，也就是我们要求的平均值结果。</p>
+<p>如果换成这样就变成这样</p>
+<pre><code class="lang-clojure">(<span class="hljs-name">println</span> (<span class="hljs-name">average</span> [<span class="hljs-number">60</span> <span class="hljs-number">80</span> <span class="hljs-number">100</span> <span class="hljs-number">499</span>]))
+<span class="hljs-comment">;160</span>
+<span class="hljs-comment">;=nil</span>
+</code></pre>
+<p>先求值<code>average</code>得到160的结果，<code>println</code>函数打印结果为 ;160  </p>
+<p>但是这个打印的功能只是附加的，每个函数都要求值才是repl本身就有的，<code>println</code> 求值为空，</p>
+<p>即<code>nil</code> </p>

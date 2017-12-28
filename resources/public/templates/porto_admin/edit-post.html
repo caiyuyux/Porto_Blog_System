@@ -248,6 +248,11 @@
             $('#message').html("标签不允许为空");
             return false;
         }
+        if($('#url').val().trim().length<=0 && $('#file').val().trim().length<=0){
+            $('#myModal').modal({});
+            $('#message').html("封面不允许为空");
+            return false;
+        }
         return true;
     }
 

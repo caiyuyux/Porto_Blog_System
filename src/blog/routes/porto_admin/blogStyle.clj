@@ -40,7 +40,6 @@
     )
   )
 
-
 (defn theme-upload!
   [request]
   (let [file (-> request :params :uploadfile)
@@ -60,8 +59,7 @@
           (io/copy (-> f :tempfile) (io/file (str Path fileName)))
           (db/insert_themes! {:id name, :account (-> request :session :account), :path (str "business/" (-> request :session :account) "/blog/" name)})
           (compression/unzip (str Path fileName) Path))
-        )
-      )
+        ))
     '("success")))
 
 

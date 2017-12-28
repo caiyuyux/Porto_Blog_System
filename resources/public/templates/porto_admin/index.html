@@ -462,28 +462,28 @@
 //			x=(x-5<0) ? 3 : x-5;
 //			$('#myList li').not(':lt('+x+')').hide();
 //		});
-		$.ajax({
-			type: "get",
-			url: "https://disqus.com/api/3.0/posts/listPopular.json",
-			data: "related=thread&access_token=" + ACCESS_TOKEN + "&api_key=" + APIKEY,
-			async: false,
-			success: function (res) {
-				if (res.code === 0) {
-					var result = "";
-					for (var i = 0, len = res.response.length; i < len && i < 3; i++) {
-						var post = res.response[i];
-						console.log(post);
-
-						html = '<li>' +
-								'<span class="pull-left">' + post.raw_message + '</span><img src="' + post.author.avatar.permalink + '" class="pull-right"/><br/>' +
-								'<span>' + post.createdAt + '</span>' +
-								'</li>';
-						result += html;
-					}
-					$('.simple-post-list').append(result);
-				}
-			}
-		});
+		  /* $.ajax({*/
+			/* type: "get",*/
+			/* url: "https://disqus.com/api/3.0/posts/listPopular.json",*/
+			/* data: "related=thread&access_token=" + ACCESS_TOKEN + "&api_key=" + APIKEY,*/
+			/* async: false,*/
+			/* success: function (res) {*/
+			/* if (res.code === 0) {*/
+			/* var result = "";*/
+			/* for (var i = 0, len = res.response.length; i < len && i < 3; i++) {*/
+			/* var post = res.response[i];*/
+			/* console.log(post);*/
+      /* */
+			/* html = '<li>' +*/
+			/* '<span class="pull-left">' + post.raw_message + '</span><img src="' + post.author.avatar.permalink + '" class="pull-right"/><br/>' +*/
+			/* '<span>' + post.createdAt + '</span>' +*/
+			/* '</li>';*/
+			/* result += html;*/
+			/* }*/
+			/* $('.simple-post-list').append(result);*/
+			/* }*/
+			/* }*/
+		  /* });*/
 	});
 </script>
 {% endblock %}
